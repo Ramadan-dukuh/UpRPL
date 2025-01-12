@@ -11,6 +11,7 @@ package uprpl;
  * halo dapa
  * woi buyung
  * 1
+ * biji gua satu
  */
 public class UpRPL {
 
