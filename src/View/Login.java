@@ -29,12 +29,12 @@ public class Login extends javax.swing.JFrame {
 
         pn_putih = new javax.swing.JPanel();
         pn_biruKiri = new javax.swing.JPanel();
-        pn_abuKanan = new javax.swing.JPanel();
         jLabel1 = new javax.swing.JLabel();
+        pn_abuKanan = new javax.swing.JPanel();
+        jLabel2 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setTitle("LOGIN");
-        setPreferredSize(new java.awt.Dimension(800, 500));
 
         pn_putih.setBackground(new java.awt.Color(255, 255, 255));
         pn_putih.setPreferredSize(new java.awt.Dimension(800, 500));
@@ -43,15 +43,26 @@ public class Login extends javax.swing.JFrame {
         pn_biruKiri.setBackground(new java.awt.Color(0, 0, 255));
         pn_biruKiri.setPreferredSize(new java.awt.Dimension(400, 500));
 
+        jLabel1.setFont(new java.awt.Font("Verdana", 1, 36)); // NOI18N
+        jLabel1.setForeground(new java.awt.Color(0, 0, 255));
+        jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Image/logo rplhd.png"))); // NOI18N
+        jLabel1.setText("LOGIN");
+
         javax.swing.GroupLayout pn_biruKiriLayout = new javax.swing.GroupLayout(pn_biruKiri);
         pn_biruKiri.setLayout(pn_biruKiriLayout);
         pn_biruKiriLayout.setHorizontalGroup(
             pn_biruKiriLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 400, Short.MAX_VALUE)
+            .addGroup(pn_biruKiriLayout.createSequentialGroup()
+                .addGap(44, 44, 44)
+                .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 285, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(71, Short.MAX_VALUE))
         );
         pn_biruKiriLayout.setVerticalGroup(
             pn_biruKiriLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 500, Short.MAX_VALUE)
+            .addGroup(pn_biruKiriLayout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 283, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(204, Short.MAX_VALUE))
         );
 
         pn_putih.add(pn_biruKiri);
@@ -60,25 +71,25 @@ public class Login extends javax.swing.JFrame {
         pn_abuKanan.setBackground(new java.awt.Color(230, 230, 230));
         pn_abuKanan.setMinimumSize(new java.awt.Dimension(400, 500));
 
-        jLabel1.setFont(new java.awt.Font("Verdana", 1, 36)); // NOI18N
-        jLabel1.setForeground(new java.awt.Color(0, 0, 255));
-        jLabel1.setText("LOGIN");
+        jLabel2.setFont(new java.awt.Font("Verdana", 1, 36)); // NOI18N
+        jLabel2.setForeground(new java.awt.Color(0, 0, 255));
+        jLabel2.setText("LOGIN");
 
         javax.swing.GroupLayout pn_abuKananLayout = new javax.swing.GroupLayout(pn_abuKanan);
         pn_abuKanan.setLayout(pn_abuKananLayout);
         pn_abuKananLayout.setHorizontalGroup(
             pn_abuKananLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, pn_abuKananLayout.createSequentialGroup()
-                .addContainerGap(136, Short.MAX_VALUE)
-                .addComponent(jLabel1)
-                .addGap(131, 131, 131))
+                .addContainerGap(146, Short.MAX_VALUE)
+                .addComponent(jLabel2)
+                .addGap(121, 121, 121))
         );
         pn_abuKananLayout.setVerticalGroup(
             pn_abuKananLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(pn_abuKananLayout.createSequentialGroup()
-                .addGap(90, 90, 90)
-                .addComponent(jLabel1)
-                .addContainerGap(365, Short.MAX_VALUE))
+                .addGap(100, 100, 100)
+                .addComponent(jLabel2)
+                .addContainerGap(355, Short.MAX_VALUE))
         );
 
         pn_putih.add(pn_abuKanan);
@@ -116,6 +127,7 @@ public class Login extends javax.swing.JFrame {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JLabel jLabel1;
+    private javax.swing.JLabel jLabel2;
     private javax.swing.JPanel pn_abuKanan;
     private javax.swing.JPanel pn_biruKiri;
     private javax.swing.JPanel pn_putih;

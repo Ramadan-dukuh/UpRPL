@@ -28,38 +28,97 @@ public class MenutView extends javax.swing.JFrame {
     private void initComponents() {
 
         pn_kiri = new java.awt.Panel();
+        jLabel1 = new javax.swing.JLabel();
+        jLabel3 = new javax.swing.JLabel();
         pn_kanan = new java.awt.Panel();
         jPanelGradient1 = new pallet.JPanelGradient();
+        pn_dasar = new javax.swing.JPanel();
+        pn_utama = new javax.swing.JPanel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+
+        pn_kiri.setPreferredSize(new java.awt.Dimension(300, 636));
+
+        jLabel1.setFont(new java.awt.Font("Verdana", 1, 17)); // NOI18N
+        jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Image/logo_rplhd-transformed (1).png"))); // NOI18N
+        jLabel1.setText("Unit Produksi RPL");
+
+        jLabel3.setFont(new java.awt.Font("Verdana", 1, 17)); // NOI18N
+        jLabel3.setText("Unit Produksi RPL");
 
         javax.swing.GroupLayout pn_kiriLayout = new javax.swing.GroupLayout(pn_kiri);
         pn_kiri.setLayout(pn_kiriLayout);
         pn_kiriLayout.setHorizontalGroup(
             pn_kiriLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 100, Short.MAX_VALUE)
+            .addGroup(pn_kiriLayout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 75, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(jLabel3)
+                .addContainerGap(35, Short.MAX_VALUE))
         );
         pn_kiriLayout.setVerticalGroup(
             pn_kiriLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 636, Short.MAX_VALUE)
+            .addGroup(pn_kiriLayout.createSequentialGroup()
+                .addGap(21, 21, 21)
+                .addGroup(pn_kiriLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabel1)
+                    .addComponent(jLabel3))
+                .addContainerGap(561, Short.MAX_VALUE))
         );
 
         getContentPane().add(pn_kiri, java.awt.BorderLayout.LINE_START);
 
         pn_kanan.setLayout(new java.awt.BorderLayout());
 
+        jPanelGradient1.setColorEnd(new java.awt.Color(0, 204, 255));
+        jPanelGradient1.setColorStart(new java.awt.Color(51, 51, 255));
+        jPanelGradient1.setPreferredSize(new java.awt.Dimension(936, 70));
+
         javax.swing.GroupLayout jPanelGradient1Layout = new javax.swing.GroupLayout(jPanelGradient1);
         jPanelGradient1.setLayout(jPanelGradient1Layout);
         jPanelGradient1Layout.setHorizontalGroup(
             jPanelGradient1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 784, Short.MAX_VALUE)
+            .addGap(0, 936, Short.MAX_VALUE)
         );
         jPanelGradient1Layout.setVerticalGroup(
             jPanelGradient1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 100, Short.MAX_VALUE)
+            .addGap(0, 70, Short.MAX_VALUE)
         );
 
         pn_kanan.add(jPanelGradient1, java.awt.BorderLayout.NORTH);
+
+        pn_utama.setBackground(new java.awt.Color(255, 255, 255));
+
+        javax.swing.GroupLayout pn_utamaLayout = new javax.swing.GroupLayout(pn_utama);
+        pn_utama.setLayout(pn_utamaLayout);
+        pn_utamaLayout.setHorizontalGroup(
+            pn_utamaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 788, Short.MAX_VALUE)
+        );
+        pn_utamaLayout.setVerticalGroup(
+            pn_utamaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 547, Short.MAX_VALUE)
+        );
+
+        javax.swing.GroupLayout pn_dasarLayout = new javax.swing.GroupLayout(pn_dasar);
+        pn_dasar.setLayout(pn_dasarLayout);
+        pn_dasarLayout.setHorizontalGroup(
+            pn_dasarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(pn_dasarLayout.createSequentialGroup()
+                .addGap(20, 20, 20)
+                .addComponent(pn_utama, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(20, 20, 20))
+        );
+        pn_dasarLayout.setVerticalGroup(
+            pn_dasarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(pn_dasarLayout.createSequentialGroup()
+                .addGap(20, 20, 20)
+                .addComponent(pn_utama, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addGap(20, 20, 20))
+        );
+
+        pn_kanan.add(pn_dasar, java.awt.BorderLayout.CENTER);
 
         getContentPane().add(pn_kanan, java.awt.BorderLayout.CENTER);
 
@@ -102,8 +161,12 @@ public class MenutView extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JLabel jLabel1;
+    private javax.swing.JLabel jLabel3;
     private pallet.JPanelGradient jPanelGradient1;
+    private javax.swing.JPanel pn_dasar;
     private java.awt.Panel pn_kanan;
     private java.awt.Panel pn_kiri;
+    private javax.swing.JPanel pn_utama;
     // End of variables declaration//GEN-END:variables
 }
