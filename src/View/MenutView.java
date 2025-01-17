@@ -31,7 +31,6 @@ public class MenutView extends javax.swing.JFrame {
         jLabel1 = new javax.swing.JLabel();
         jLabel3 = new javax.swing.JLabel();
         pn_kanan = new java.awt.Panel();
-        jPanelGradient1 = new pallet.JPanelGradient();
         pn_dasar = new javax.swing.JPanel();
         pn_utama = new javax.swing.JPanel();
 
@@ -71,23 +70,6 @@ public class MenutView extends javax.swing.JFrame {
 
         pn_kanan.setLayout(new java.awt.BorderLayout());
 
-        jPanelGradient1.setColorEnd(new java.awt.Color(0, 204, 255));
-        jPanelGradient1.setColorStart(new java.awt.Color(51, 51, 255));
-        jPanelGradient1.setPreferredSize(new java.awt.Dimension(936, 70));
-
-        javax.swing.GroupLayout jPanelGradient1Layout = new javax.swing.GroupLayout(jPanelGradient1);
-        jPanelGradient1.setLayout(jPanelGradient1Layout);
-        jPanelGradient1Layout.setHorizontalGroup(
-            jPanelGradient1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 936, Short.MAX_VALUE)
-        );
-        jPanelGradient1Layout.setVerticalGroup(
-            jPanelGradient1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 70, Short.MAX_VALUE)
-        );
-
-        pn_kanan.add(jPanelGradient1, java.awt.BorderLayout.NORTH);
-
         pn_utama.setBackground(new java.awt.Color(255, 255, 255));
 
         javax.swing.GroupLayout pn_utamaLayout = new javax.swing.GroupLayout(pn_utama);
@@ -98,7 +80,7 @@ public class MenutView extends javax.swing.JFrame {
         );
         pn_utamaLayout.setVerticalGroup(
             pn_utamaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 547, Short.MAX_VALUE)
+            .addGap(0, 617, Short.MAX_VALUE)
         );
 
         javax.swing.GroupLayout pn_dasarLayout = new javax.swing.GroupLayout(pn_dasar);
@@ -163,7 +145,6 @@ public class MenutView extends javax.swing.JFrame {
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel3;
-    private pallet.JPanelGradient jPanelGradient1;
     private javax.swing.JPanel pn_dasar;
     private java.awt.Panel pn_kanan;
     private java.awt.Panel pn_kiri;
