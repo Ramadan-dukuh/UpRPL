@@ -5,12 +5,17 @@
  */
 package View;
 
+import javax.swing.JOptionPane;
+import model.Petugas;
+import Dao.RegisterDao;
 /**
  *
  * @author Hp
  */
 public class SignUp extends javax.swing.JFrame {
-
+    
+    Petugas petugas = new Petugas();
+    RegisterDao reg = new RegisterDao();
     /**
      * Creates new form SignUp
      */
@@ -268,7 +273,7 @@ public class SignUp extends javax.swing.JFrame {
     }//GEN-LAST:event_itemUserActionPerformed
 
     private void itemNmLengkapActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_itemNmLengkapActionPerformed
-        // TODO add your handling code here:
+        // TODO add your handling code here:        
     }//GEN-LAST:event_itemNmLengkapActionPerformed
 
     private void itemUsernameActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_itemUsernameActionPerformed
@@ -281,6 +286,34 @@ public class SignUp extends javax.swing.JFrame {
 
     private void btnSignupActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSignupActionPerformed
         // TODO add your handling code here:
+          if(itemNmLengkap.getText().trim().equals(""))
+            JOptionPane.showMessageDialog(null,"Nama harus diisi");       
+        else {
+            int pilihan = JOptionPane.showOptionDialog(null,
+                    "Data akan disimpan?","Simpan data",JOptionPane.YES_NO_OPTION,JOptionPane
+            .QUESTION_MESSAGE,null,null,null);
+            
+            if(pilihan == JOptionPane.YES_OPTION){      
+        petugas.setNmPetugas(itemNmLengkap.getText());        
+        petugas.setUsername(itemUsername.getText());
+        petugas.setPassword(itemPass.getText());
+        petugas.setKelas(CbKelas.getSelectedItem().toString());
+        // Simpan data ke database
+        reg.registerPetugas(petugas);
+
+        // Refresh table
+//        tableSiswa.setModel(dao.getModelSiswa());
+//        scrSiswa.setViewportView(tableSiswa);
+
+//pindah dari signup ke login
+   Login LoginFrame = new Login();
+        LoginFrame.setVisible(true);
+        LoginFrame.pack();
+        LoginFrame.setLocationRelativeTo(null);
+        this.dispose();
+
+        }
+        }
     }//GEN-LAST:event_btnSignupActionPerformed
 
     private void itemPassActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_itemPassActionPerformed
