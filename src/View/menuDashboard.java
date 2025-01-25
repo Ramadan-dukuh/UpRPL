@@ -28,23 +28,106 @@ public class menuDashboard extends javax.swing.JPanel {
     private void initComponents() {
 
         jPanelRounded1 = new pallet.JPanelRounded();
+        jLabel1 = new javax.swing.JLabel();
+        jLabel2 = new javax.swing.JLabel();
+        jLabel3 = new javax.swing.JLabel();
+        jPanelRounded2 = new pallet.JPanelRounded();
+        jLabel4 = new javax.swing.JLabel();
+        jLabel5 = new javax.swing.JLabel();
+        jLabel6 = new javax.swing.JLabel();
 
         jPanelRounded1.setBackground(new java.awt.Color(153, 204, 255));
-        jPanelRounded1.setForeground(new java.awt.Color(0, 204, 204));
-        jPanelRounded1.setRoundBottomLeft(3);
-        jPanelRounded1.setRoundBottomRight(2);
-        jPanelRounded1.setRoundTopLeft(5);
-        jPanelRounded1.setRoundTopRight(1);
+        jPanelRounded1.setForeground(new java.awt.Color(0, 255, 204));
+        jPanelRounded1.setRoundBottomLeft(30);
+        jPanelRounded1.setRoundBottomRight(30);
+        jPanelRounded1.setRoundTopLeft(30);
+        jPanelRounded1.setRoundTopRight(30);
+
+        jLabel1.setFont(new java.awt.Font("Verdana", 0, 24)); // NOI18N
+        jLabel1.setForeground(new java.awt.Color(102, 102, 102));
+        jLabel1.setText("Stock");
+
+        jLabel2.setFont(new java.awt.Font("Verdana", 1, 36)); // NOI18N
+        jLabel2.setForeground(new java.awt.Color(0, 0, 255));
+        jLabel2.setText("999");
+
+        jLabel3.setFont(new java.awt.Font("Verdana", 1, 36)); // NOI18N
+        jLabel3.setForeground(new java.awt.Color(0, 0, 255));
+        jLabel3.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Image/boxIcon.png"))); // NOI18N
+        jLabel3.setText("999");
 
         javax.swing.GroupLayout jPanelRounded1Layout = new javax.swing.GroupLayout(jPanelRounded1);
         jPanelRounded1.setLayout(jPanelRounded1Layout);
         jPanelRounded1Layout.setHorizontalGroup(
             jPanelRounded1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 323, Short.MAX_VALUE)
+            .addGroup(jPanelRounded1Layout.createSequentialGroup()
+                .addGap(20, 20, 20)
+                .addGroup(jPanelRounded1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(jLabel2)
+                    .addComponent(jLabel1))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 53, Short.MAX_VALUE)
+                .addComponent(jLabel3, javax.swing.GroupLayout.PREFERRED_SIZE, 84, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(20, 20, 20))
         );
         jPanelRounded1Layout.setVerticalGroup(
             jPanelRounded1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 152, Short.MAX_VALUE)
+            .addGroup(jPanelRounded1Layout.createSequentialGroup()
+                .addGap(23, 23, 23)
+                .addComponent(jLabel1)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(jLabel2)
+                .addGap(27, 27, 27))
+            .addGroup(jPanelRounded1Layout.createSequentialGroup()
+                .addGap(40, 40, 40)
+                .addComponent(jLabel3)
+                .addContainerGap(40, Short.MAX_VALUE))
+        );
+
+        jPanelRounded2.setBackground(new java.awt.Color(153, 204, 255));
+        jPanelRounded2.setForeground(new java.awt.Color(0, 255, 204));
+        jPanelRounded2.setRoundBottomLeft(30);
+        jPanelRounded2.setRoundBottomRight(30);
+        jPanelRounded2.setRoundTopLeft(30);
+        jPanelRounded2.setRoundTopRight(30);
+
+        jLabel4.setFont(new java.awt.Font("Verdana", 0, 24)); // NOI18N
+        jLabel4.setForeground(new java.awt.Color(102, 102, 102));
+        jLabel4.setText("Petugas");
+
+        jLabel5.setFont(new java.awt.Font("Verdana", 1, 36)); // NOI18N
+        jLabel5.setForeground(new java.awt.Color(0, 0, 255));
+        jLabel5.setText("999");
+
+        jLabel6.setFont(new java.awt.Font("Verdana", 1, 36)); // NOI18N
+        jLabel6.setForeground(new java.awt.Color(0, 0, 255));
+        jLabel6.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Image/personIcon.png"))); // NOI18N
+        jLabel6.setText("999");
+
+        javax.swing.GroupLayout jPanelRounded2Layout = new javax.swing.GroupLayout(jPanelRounded2);
+        jPanelRounded2.setLayout(jPanelRounded2Layout);
+        jPanelRounded2Layout.setHorizontalGroup(
+            jPanelRounded2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanelRounded2Layout.createSequentialGroup()
+                .addGap(20, 20, 20)
+                .addGroup(jPanelRounded2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(jLabel5)
+                    .addComponent(jLabel4))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 53, Short.MAX_VALUE)
+                .addComponent(jLabel6, javax.swing.GroupLayout.PREFERRED_SIZE, 84, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(20, 20, 20))
+        );
+        jPanelRounded2Layout.setVerticalGroup(
+            jPanelRounded2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanelRounded2Layout.createSequentialGroup()
+                .addGap(23, 23, 23)
+                .addComponent(jLabel4)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(jLabel5)
+                .addGap(27, 27, 27))
+            .addGroup(jPanelRounded2Layout.createSequentialGroup()
+                .addGap(40, 40, 40)
+                .addComponent(jLabel6)
+                .addContainerGap(40, Short.MAX_VALUE))
         );
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
@@ -52,21 +135,38 @@ public class menuDashboard extends javax.swing.JPanel {
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addGap(214, 214, 214)
+                .addGap(361, 361, 361)
                 .addComponent(jPanelRounded1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(382, Short.MAX_VALUE))
+                .addContainerGap(506, Short.MAX_VALUE))
+            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                .addGroup(layout.createSequentialGroup()
+                    .addGap(36, 36, 36)
+                    .addComponent(jPanelRounded2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addContainerGap(815, Short.MAX_VALUE)))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addGap(31, 31, 31)
+                .addGap(23, 23, 23)
                 .addComponent(jPanelRounded1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(310, Short.MAX_VALUE))
+                .addContainerGap(404, Short.MAX_VALUE))
+            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                .addGroup(layout.createSequentialGroup()
+                    .addGap(23, 23, 23)
+                    .addComponent(jPanelRounded2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addContainerGap(406, Short.MAX_VALUE)))
         );
     }// </editor-fold>//GEN-END:initComponents
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JLabel jLabel1;
+    private javax.swing.JLabel jLabel2;
+    private javax.swing.JLabel jLabel3;
+    private javax.swing.JLabel jLabel4;
+    private javax.swing.JLabel jLabel5;
+    private javax.swing.JLabel jLabel6;
     private pallet.JPanelRounded jPanelRounded1;
+    private pallet.JPanelRounded jPanelRounded2;
     // End of variables declaration//GEN-END:variables
 }
