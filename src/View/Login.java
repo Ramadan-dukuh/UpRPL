@@ -5,6 +5,10 @@
  */
 package View;
 
+import Dao.LoginDao;
+import javax.swing.JOptionPane;
+import model.Petugas;
+
 /**
  *
  * @author Hp
@@ -117,6 +121,11 @@ public class Login extends javax.swing.JFrame {
         btnLogin.setForeground(new java.awt.Color(255, 255, 255));
         btnLogin.setText("Login");
         btnLogin.setBorder(javax.swing.BorderFactory.createEmptyBorder(1, 1, 1, 1));
+        btnLogin.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnLoginActionPerformed(evt);
+            }
+        });
 
         jLabel5.setFont(new java.awt.Font("Verdana", 0, 14)); // NOI18N
         jLabel5.setText("Doesn't have an account?");
@@ -221,6 +230,34 @@ public class Login extends javax.swing.JFrame {
         SignUpFrame.setLocationRelativeTo(null);
         this.dispose();
     }//GEN-LAST:event_btnSignupActionPerformed
+
+    private void btnLoginActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnLoginActionPerformed
+        // TODO add your handling code here:
+   // Mendapatkan input dari text field
+    String username = itemUser.getText().trim();
+    String password = new String(itemPass.getPassword()).trim();
+
+    // Validasi jika input kosong
+    if (username.isEmpty() || password.isEmpty()) {
+        JOptionPane.showMessageDialog(this, "Username atau Password tidak boleh kosong!", "Peringatan", JOptionPane.WARNING_MESSAGE);
+        return;
+    }
+
+    // Membuat objek LoginDao dan mencari user di database
+    LoginDao loginDao = new LoginDao();
+    Petugas petugas = loginDao.getPetugas(username);
+
+    // Validasi jika username ditemukan dan password cocok
+    if (petugas != null && petugas.getPassword().equals(password)) {
+        JOptionPane.showMessageDialog(this, "Login Berhasil!", "Sukses", JOptionPane.INFORMATION_MESSAGE);
+        
+        // Pindah ke halaman dashboard
+        new MenutView().setVisible(true);
+        this.dispose(); // Menutup form login
+    } else {
+        JOptionPane.showMessageDialog(this, "Username atau Password salah!", "Gagal", JOptionPane.ERROR_MESSAGE);
+    }
+    }//GEN-LAST:event_btnLoginActionPerformed
 
     /**
      * @param args the command line arguments
