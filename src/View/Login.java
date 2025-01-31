@@ -121,6 +121,11 @@ public class Login extends javax.swing.JFrame {
         btnLogin.setForeground(new java.awt.Color(255, 255, 255));
         btnLogin.setText("Login");
         btnLogin.setBorder(javax.swing.BorderFactory.createEmptyBorder(1, 1, 1, 1));
+        btnLogin.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                btnLoginMouseClicked(evt);
+            }
+        });
         btnLogin.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnLoginActionPerformed(evt);
@@ -188,7 +193,7 @@ public class Login extends javax.swing.JFrame {
         );
 
         pn_putih.add(pn_abuKanan);
-        pn_abuKanan.setBounds(400, 0, 400, 500);
+        pn_abuKanan.setBounds(400, 0, 400, 502);
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -258,6 +263,34 @@ public class Login extends javax.swing.JFrame {
         JOptionPane.showMessageDialog(this, "Username atau Password salah!", "Gagal", JOptionPane.ERROR_MESSAGE);
     }
     }//GEN-LAST:event_btnLoginActionPerformed
+
+    private void btnLoginMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnLoginMouseClicked
+        // TODO add your handling code here:
+        // Mendapatkan input dari text field
+         String username = itemUser.getText().trim();
+         String password = new String(itemPass.getPassword()).trim();
+
+         // Validasi jika input kosong
+         if (username.isEmpty() || password.isEmpty()) {
+             JOptionPane.showMessageDialog(this, "Username atau Password tidak boleh kosong!", "Peringatan", JOptionPane.WARNING_MESSAGE);
+             return;
+         }
+
+         // Membuat objek LoginDao dan mencari user di database
+         LoginDao loginDao = new LoginDao();
+         Petugas petugas = loginDao.getPetugas(username);
+
+         // Validasi jika username ditemukan dan password cocok
+         if (petugas != null && petugas.getPassword().equals(password)) {
+             JOptionPane.showMessageDialog(this, "Login Berhasil!", "Sukses", JOptionPane.INFORMATION_MESSAGE);
+
+             // Pindah ke halaman dashboard
+             new MenutView().setVisible(true);
+             this.dispose(); // Menutup form login
+         } else {
+             JOptionPane.showMessageDialog(this, "Username atau Password salah!", "Gagal", JOptionPane.ERROR_MESSAGE);
+         }
+    }//GEN-LAST:event_btnLoginMouseClicked
 
     /**
      * @param args the command line arguments
