@@ -36,6 +36,10 @@ public class MenutView extends javax.swing.JFrame {
         pn_DashboardLine = new javax.swing.JPanel();
         lb_iconDashboard = new javax.swing.JLabel();
         lb_Dashboard = new javax.swing.JLabel();
+        pn_DashboardMain1 = new javax.swing.JPanel();
+        pn_DashboardLine1 = new javax.swing.JPanel();
+        lb_iconDashboard1 = new javax.swing.JLabel();
+        lb_Dashboard1 = new javax.swing.JLabel();
         pn_kanan = new java.awt.Panel();
         pn_dasar = new javax.swing.JPanel();
         pn_utama = new javax.swing.JPanel();
@@ -54,6 +58,7 @@ public class MenutView extends javax.swing.JFrame {
             }
         });
 
+        pn_kiri.setBackground(new java.awt.Color(255, 204, 204));
         pn_kiri.setPreferredSize(new java.awt.Dimension(300, 636));
 
         jLabel1.setFont(new java.awt.Font("Verdana", 1, 17)); // NOI18N
@@ -129,22 +134,86 @@ public class MenutView extends javax.swing.JFrame {
                 .addContainerGap())
         );
 
+        pn_DashboardMain1.setPreferredSize(new java.awt.Dimension(228, 60));
+        pn_DashboardMain1.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                pn_DashboardMain1MouseClicked(evt);
+            }
+            public void mouseEntered(java.awt.event.MouseEvent evt) {
+                pn_DashboardMain1MouseEntered(evt);
+            }
+            public void mouseExited(java.awt.event.MouseEvent evt) {
+                pn_DashboardMain1MouseExited(evt);
+            }
+        });
+
+        pn_DashboardLine1.setBackground(new java.awt.Color(51, 51, 51));
+
+        javax.swing.GroupLayout pn_DashboardLine1Layout = new javax.swing.GroupLayout(pn_DashboardLine1);
+        pn_DashboardLine1.setLayout(pn_DashboardLine1Layout);
+        pn_DashboardLine1Layout.setHorizontalGroup(
+            pn_DashboardLine1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 10, Short.MAX_VALUE)
+        );
+        pn_DashboardLine1Layout.setVerticalGroup(
+            pn_DashboardLine1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 0, Short.MAX_VALUE)
+        );
+
+        lb_iconDashboard1.setFont(new java.awt.Font("Verdana", 0, 15)); // NOI18N
+        lb_iconDashboard1.setForeground(new java.awt.Color(153, 153, 153));
+        lb_iconDashboard1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Image/icProduct-transformed.png"))); // NOI18N
+
+        lb_Dashboard1.setFont(new java.awt.Font("Verdana", 1, 14)); // NOI18N
+        lb_Dashboard1.setForeground(new java.awt.Color(51, 51, 51));
+        lb_Dashboard1.setText("Product");
+
+        javax.swing.GroupLayout pn_DashboardMain1Layout = new javax.swing.GroupLayout(pn_DashboardMain1);
+        pn_DashboardMain1.setLayout(pn_DashboardMain1Layout);
+        pn_DashboardMain1Layout.setHorizontalGroup(
+            pn_DashboardMain1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(pn_DashboardMain1Layout.createSequentialGroup()
+                .addGap(5, 5, 5)
+                .addComponent(pn_DashboardLine1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addComponent(lb_iconDashboard1, javax.swing.GroupLayout.PREFERRED_SIZE, 26, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(18, 18, 18)
+                .addComponent(lb_Dashboard1)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+        );
+        pn_DashboardMain1Layout.setVerticalGroup(
+            pn_DashboardMain1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(pn_DashboardMain1Layout.createSequentialGroup()
+                .addGap(5, 5, 5)
+                .addComponent(pn_DashboardLine1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addGap(5, 5, 5))
+            .addGroup(pn_DashboardMain1Layout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(lb_iconDashboard1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addContainerGap())
+            .addGroup(pn_DashboardMain1Layout.createSequentialGroup()
+                .addGap(21, 21, 21)
+                .addComponent(lb_Dashboard1)
+                .addContainerGap(21, Short.MAX_VALUE))
+        );
+
         javax.swing.GroupLayout pn_kiriLayout = new javax.swing.GroupLayout(pn_kiri);
         pn_kiri.setLayout(pn_kiriLayout);
         pn_kiriLayout.setHorizontalGroup(
             pn_kiriLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(pn_kiriLayout.createSequentialGroup()
                 .addContainerGap()
-                .addGroup(pn_kiriLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(pn_kiriLayout.createSequentialGroup()
+                .addGroup(pn_kiriLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                    .addGroup(javax.swing.GroupLayout.Alignment.LEADING, pn_kiriLayout.createSequentialGroup()
                         .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 75, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addComponent(jLabel3))
-                    .addGroup(pn_kiriLayout.createSequentialGroup()
+                    .addGroup(javax.swing.GroupLayout.Alignment.LEADING, pn_kiriLayout.createSequentialGroup()
                         .addGap(10, 10, 10)
-                        .addGroup(pn_kiriLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                        .addGroup(pn_kiriLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                             .addComponent(jLabel2)
-                            .addComponent(pn_DashboardMain, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))))
+                            .addComponent(pn_DashboardMain, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addComponent(pn_DashboardMain1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))))
                 .addContainerGap(35, Short.MAX_VALUE))
         );
         pn_kiriLayout.setVerticalGroup(
@@ -161,7 +230,9 @@ public class MenutView extends javax.swing.JFrame {
                 .addComponent(jLabel2, javax.swing.GroupLayout.PREFERRED_SIZE, 18, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(18, 18, 18)
                 .addComponent(pn_DashboardMain, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(670, Short.MAX_VALUE))
+                .addGap(18, 18, 18)
+                .addComponent(pn_DashboardMain1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(592, Short.MAX_VALUE))
         );
 
         getContentPane().add(pn_kiri, java.awt.BorderLayout.LINE_START);
@@ -200,8 +271,8 @@ public class MenutView extends javax.swing.JFrame {
             .addGroup(pn_dasarLayout.createSequentialGroup()
                 .addComponent(jPanelGradient1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(20, 20, 20)
-                .addComponent(pn_utama, javax.swing.GroupLayout.DEFAULT_SIZE, 744, Short.MAX_VALUE)
-                .addGap(20, 20, 20))
+                .addComponent(pn_utama, javax.swing.GroupLayout.PREFERRED_SIZE, 743, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(21, Short.MAX_VALUE))
         );
 
         pn_kanan.add(pn_dasar, java.awt.BorderLayout.CENTER);
@@ -242,6 +313,18 @@ public class MenutView extends javax.swing.JFrame {
         pn_DashboardMain.setBackground(new Color(240, 240, 240));
         pn_DashboardLine.setBackground(new Color(51, 51, 51));
     }//GEN-LAST:event_pn_DashboardMainMouseExited
+
+    private void pn_DashboardMain1MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_pn_DashboardMain1MouseClicked
+        // TODO add your handling code here:
+    }//GEN-LAST:event_pn_DashboardMain1MouseClicked
+
+    private void pn_DashboardMain1MouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_pn_DashboardMain1MouseEntered
+        // TODO add your handling code here:
+    }//GEN-LAST:event_pn_DashboardMain1MouseEntered
+
+    private void pn_DashboardMain1MouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_pn_DashboardMain1MouseExited
+        // TODO add your handling code here:
+    }//GEN-LAST:event_pn_DashboardMain1MouseExited
 
     /**
      * @param args the command line arguments
@@ -284,9 +367,13 @@ public class MenutView extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel3;
     private pallet.JPanelGradient jPanelGradient1;
     private javax.swing.JLabel lb_Dashboard;
+    private javax.swing.JLabel lb_Dashboard1;
     private javax.swing.JLabel lb_iconDashboard;
+    private javax.swing.JLabel lb_iconDashboard1;
     private javax.swing.JPanel pn_DashboardLine;
+    private javax.swing.JPanel pn_DashboardLine1;
     private javax.swing.JPanel pn_DashboardMain;
+    private javax.swing.JPanel pn_DashboardMain1;
     private javax.swing.JPanel pn_dasar;
     private java.awt.Panel pn_kanan;
     private java.awt.Panel pn_kiri;
