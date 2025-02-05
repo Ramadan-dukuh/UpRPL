@@ -35,11 +35,11 @@ public class MenutView extends javax.swing.JFrame {
         pn_DashboardMain = new javax.swing.JPanel();
         pn_DashboardLine = new javax.swing.JPanel();
         lb_iconDashboard = new javax.swing.JLabel();
-        lb_Dashboard = new javax.swing.JLabel();
-        pn_DashboardMain1 = new javax.swing.JPanel();
-        pn_DashboardLine1 = new javax.swing.JPanel();
-        lb_iconDashboard1 = new javax.swing.JLabel();
-        lb_Dashboard1 = new javax.swing.JLabel();
+        btn_Dashboard = new javax.swing.JLabel();
+        pn_ProductMain = new javax.swing.JPanel();
+        pn_ProductLine = new javax.swing.JPanel();
+        lb_iconProduct = new javax.swing.JLabel();
+        btn_Product = new javax.swing.JLabel();
         pn_kanan = new java.awt.Panel();
         pn_dasar = new javax.swing.JPanel();
         pn_utama = new javax.swing.JPanel();
@@ -100,9 +100,9 @@ public class MenutView extends javax.swing.JFrame {
         lb_iconDashboard.setForeground(new java.awt.Color(153, 153, 153));
         lb_iconDashboard.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Image/icDashboard.png"))); // NOI18N
 
-        lb_Dashboard.setFont(new java.awt.Font("Verdana", 1, 14)); // NOI18N
-        lb_Dashboard.setForeground(new java.awt.Color(51, 51, 51));
-        lb_Dashboard.setText("Dashboard");
+        btn_Dashboard.setFont(new java.awt.Font("Verdana", 1, 14)); // NOI18N
+        btn_Dashboard.setForeground(new java.awt.Color(51, 51, 51));
+        btn_Dashboard.setText("Dashboard");
 
         javax.swing.GroupLayout pn_DashboardMainLayout = new javax.swing.GroupLayout(pn_DashboardMain);
         pn_DashboardMain.setLayout(pn_DashboardMainLayout);
@@ -114,7 +114,7 @@ public class MenutView extends javax.swing.JFrame {
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(lb_iconDashboard, javax.swing.GroupLayout.PREFERRED_SIZE, 26, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(18, 18, 18)
-                .addComponent(lb_Dashboard)
+                .addComponent(btn_Dashboard)
                 .addContainerGap(73, Short.MAX_VALUE))
         );
         pn_DashboardMainLayout.setVerticalGroup(
@@ -129,71 +129,71 @@ public class MenutView extends javax.swing.JFrame {
                     .addComponent(lb_iconDashboard, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addGroup(pn_DashboardMainLayout.createSequentialGroup()
                         .addGap(8, 8, 8)
-                        .addComponent(lb_Dashboard)
+                        .addComponent(btn_Dashboard)
                         .addGap(0, 8, Short.MAX_VALUE)))
                 .addContainerGap())
         );
 
-        pn_DashboardMain1.setPreferredSize(new java.awt.Dimension(228, 60));
-        pn_DashboardMain1.addMouseListener(new java.awt.event.MouseAdapter() {
+        pn_ProductMain.setPreferredSize(new java.awt.Dimension(228, 60));
+        pn_ProductMain.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
-                pn_DashboardMain1MouseClicked(evt);
+                pn_ProductMainMouseClicked(evt);
             }
             public void mouseEntered(java.awt.event.MouseEvent evt) {
-                pn_DashboardMain1MouseEntered(evt);
+                pn_ProductMainMouseEntered(evt);
             }
             public void mouseExited(java.awt.event.MouseEvent evt) {
-                pn_DashboardMain1MouseExited(evt);
+                pn_ProductMainMouseExited(evt);
             }
         });
 
-        pn_DashboardLine1.setBackground(new java.awt.Color(51, 51, 51));
+        pn_ProductLine.setBackground(new java.awt.Color(51, 51, 51));
 
-        javax.swing.GroupLayout pn_DashboardLine1Layout = new javax.swing.GroupLayout(pn_DashboardLine1);
-        pn_DashboardLine1.setLayout(pn_DashboardLine1Layout);
-        pn_DashboardLine1Layout.setHorizontalGroup(
-            pn_DashboardLine1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+        javax.swing.GroupLayout pn_ProductLineLayout = new javax.swing.GroupLayout(pn_ProductLine);
+        pn_ProductLine.setLayout(pn_ProductLineLayout);
+        pn_ProductLineLayout.setHorizontalGroup(
+            pn_ProductLineLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGap(0, 10, Short.MAX_VALUE)
         );
-        pn_DashboardLine1Layout.setVerticalGroup(
-            pn_DashboardLine1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+        pn_ProductLineLayout.setVerticalGroup(
+            pn_ProductLineLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGap(0, 0, Short.MAX_VALUE)
         );
 
-        lb_iconDashboard1.setFont(new java.awt.Font("Verdana", 0, 15)); // NOI18N
-        lb_iconDashboard1.setForeground(new java.awt.Color(153, 153, 153));
-        lb_iconDashboard1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Image/icProduct-transformed.png"))); // NOI18N
+        lb_iconProduct.setFont(new java.awt.Font("Verdana", 0, 15)); // NOI18N
+        lb_iconProduct.setForeground(new java.awt.Color(153, 153, 153));
+        lb_iconProduct.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Image/icProduct-transformed.png"))); // NOI18N
 
-        lb_Dashboard1.setFont(new java.awt.Font("Verdana", 1, 14)); // NOI18N
-        lb_Dashboard1.setForeground(new java.awt.Color(51, 51, 51));
-        lb_Dashboard1.setText("Product");
+        btn_Product.setFont(new java.awt.Font("Verdana", 1, 14)); // NOI18N
+        btn_Product.setForeground(new java.awt.Color(51, 51, 51));
+        btn_Product.setText("Product");
 
-        javax.swing.GroupLayout pn_DashboardMain1Layout = new javax.swing.GroupLayout(pn_DashboardMain1);
-        pn_DashboardMain1.setLayout(pn_DashboardMain1Layout);
-        pn_DashboardMain1Layout.setHorizontalGroup(
-            pn_DashboardMain1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(pn_DashboardMain1Layout.createSequentialGroup()
+        javax.swing.GroupLayout pn_ProductMainLayout = new javax.swing.GroupLayout(pn_ProductMain);
+        pn_ProductMain.setLayout(pn_ProductMainLayout);
+        pn_ProductMainLayout.setHorizontalGroup(
+            pn_ProductMainLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(pn_ProductMainLayout.createSequentialGroup()
                 .addGap(5, 5, 5)
-                .addComponent(pn_DashboardLine1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(pn_ProductLine, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(lb_iconDashboard1, javax.swing.GroupLayout.PREFERRED_SIZE, 26, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(lb_iconProduct, javax.swing.GroupLayout.PREFERRED_SIZE, 26, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(18, 18, 18)
-                .addComponent(lb_Dashboard1)
+                .addComponent(btn_Product)
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
-        pn_DashboardMain1Layout.setVerticalGroup(
-            pn_DashboardMain1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(pn_DashboardMain1Layout.createSequentialGroup()
+        pn_ProductMainLayout.setVerticalGroup(
+            pn_ProductMainLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(pn_ProductMainLayout.createSequentialGroup()
                 .addGap(5, 5, 5)
-                .addComponent(pn_DashboardLine1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(pn_ProductLine, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addGap(5, 5, 5))
-            .addGroup(pn_DashboardMain1Layout.createSequentialGroup()
+            .addGroup(pn_ProductMainLayout.createSequentialGroup()
                 .addContainerGap()
-                .addComponent(lb_iconDashboard1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(lb_iconProduct, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addContainerGap())
-            .addGroup(pn_DashboardMain1Layout.createSequentialGroup()
+            .addGroup(pn_ProductMainLayout.createSequentialGroup()
                 .addGap(21, 21, 21)
-                .addComponent(lb_Dashboard1)
+                .addComponent(btn_Product)
                 .addContainerGap(21, Short.MAX_VALUE))
         );
 
@@ -213,7 +213,7 @@ public class MenutView extends javax.swing.JFrame {
                         .addGroup(pn_kiriLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                             .addComponent(jLabel2)
                             .addComponent(pn_DashboardMain, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                            .addComponent(pn_DashboardMain1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))))
+                            .addComponent(pn_ProductMain, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))))
                 .addContainerGap(35, Short.MAX_VALUE))
         );
         pn_kiriLayout.setVerticalGroup(
@@ -231,7 +231,7 @@ public class MenutView extends javax.swing.JFrame {
                 .addGap(18, 18, 18)
                 .addComponent(pn_DashboardMain, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(18, 18, 18)
-                .addComponent(pn_DashboardMain1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(pn_ProductMain, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap(592, Short.MAX_VALUE))
         );
 
@@ -314,17 +314,17 @@ public class MenutView extends javax.swing.JFrame {
         pn_DashboardLine.setBackground(new Color(51, 51, 51));
     }//GEN-LAST:event_pn_DashboardMainMouseExited
 
-    private void pn_DashboardMain1MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_pn_DashboardMain1MouseClicked
+    private void pn_ProductMainMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_pn_ProductMainMouseClicked
         // TODO add your handling code here:
-    }//GEN-LAST:event_pn_DashboardMain1MouseClicked
+    }//GEN-LAST:event_pn_ProductMainMouseClicked
 
-    private void pn_DashboardMain1MouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_pn_DashboardMain1MouseEntered
+    private void pn_ProductMainMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_pn_ProductMainMouseEntered
         // TODO add your handling code here:
-    }//GEN-LAST:event_pn_DashboardMain1MouseEntered
+    }//GEN-LAST:event_pn_ProductMainMouseEntered
 
-    private void pn_DashboardMain1MouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_pn_DashboardMain1MouseExited
+    private void pn_ProductMainMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_pn_ProductMainMouseExited
         // TODO add your handling code here:
-    }//GEN-LAST:event_pn_DashboardMain1MouseExited
+    }//GEN-LAST:event_pn_ProductMainMouseExited
 
     /**
      * @param args the command line arguments
@@ -362,18 +362,18 @@ public class MenutView extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JLabel btn_Dashboard;
+    private javax.swing.JLabel btn_Product;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
     private pallet.JPanelGradient jPanelGradient1;
-    private javax.swing.JLabel lb_Dashboard;
-    private javax.swing.JLabel lb_Dashboard1;
     private javax.swing.JLabel lb_iconDashboard;
-    private javax.swing.JLabel lb_iconDashboard1;
+    private javax.swing.JLabel lb_iconProduct;
     private javax.swing.JPanel pn_DashboardLine;
-    private javax.swing.JPanel pn_DashboardLine1;
     private javax.swing.JPanel pn_DashboardMain;
-    private javax.swing.JPanel pn_DashboardMain1;
+    private javax.swing.JPanel pn_ProductLine;
+    private javax.swing.JPanel pn_ProductMain;
     private javax.swing.JPanel pn_dasar;
     private java.awt.Panel pn_kanan;
     private java.awt.Panel pn_kiri;

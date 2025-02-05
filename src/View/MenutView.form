@@ -59,7 +59,7 @@
                           <Group type="103" groupAlignment="0" max="-2" attributes="0">
                               <Component id="jLabel2" min="-2" max="-2" attributes="0"/>
                               <Component id="pn_DashboardMain" max="32767" attributes="0"/>
-                              <Component id="pn_DashboardMain1" alignment="0" max="32767" attributes="0"/>
+                              <Component id="pn_ProductMain" alignment="0" max="32767" attributes="0"/>
                           </Group>
                       </Group>
                   </Group>
@@ -85,7 +85,7 @@
                   <EmptySpace type="separate" max="-2" attributes="0"/>
                   <Component id="pn_DashboardMain" min="-2" max="-2" attributes="0"/>
                   <EmptySpace type="separate" max="-2" attributes="0"/>
-                  <Component id="pn_DashboardMain1" min="-2" max="-2" attributes="0"/>
+                  <Component id="pn_ProductMain" min="-2" max="-2" attributes="0"/>
                   <EmptySpace pref="592" max="32767" attributes="0"/>
               </Group>
           </Group>
@@ -137,7 +137,7 @@
                       <EmptySpace type="unrelated" max="-2" attributes="0"/>
                       <Component id="lb_iconDashboard" min="-2" pref="26" max="-2" attributes="0"/>
                       <EmptySpace type="separate" max="-2" attributes="0"/>
-                      <Component id="lb_Dashboard" min="-2" max="-2" attributes="0"/>
+                      <Component id="btn_Dashboard" min="-2" max="-2" attributes="0"/>
                       <EmptySpace pref="73" max="32767" attributes="0"/>
                   </Group>
               </Group>
@@ -155,7 +155,7 @@
                           <Component id="lb_iconDashboard" max="32767" attributes="0"/>
                           <Group type="102" alignment="0" attributes="0">
                               <EmptySpace min="-2" pref="8" max="-2" attributes="0"/>
-                              <Component id="lb_Dashboard" min="-2" max="-2" attributes="0"/>
+                              <Component id="btn_Dashboard" min="-2" max="-2" attributes="0"/>
                               <EmptySpace min="0" pref="8" max="32767" attributes="0"/>
                           </Group>
                       </Group>
@@ -198,7 +198,7 @@
                 </Property>
               </Properties>
             </Component>
-            <Component class="javax.swing.JLabel" name="lb_Dashboard">
+            <Component class="javax.swing.JLabel" name="btn_Dashboard">
               <Properties>
                 <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
                   <Font name="Verdana" size="14" style="1"/>
@@ -211,16 +211,16 @@
             </Component>
           </SubComponents>
         </Container>
-        <Container class="javax.swing.JPanel" name="pn_DashboardMain1">
+        <Container class="javax.swing.JPanel" name="pn_ProductMain">
           <Properties>
             <Property name="preferredSize" type="java.awt.Dimension" editor="org.netbeans.beaninfo.editors.DimensionEditor">
               <Dimension value="[228, 60]"/>
             </Property>
           </Properties>
           <Events>
-            <EventHandler event="mouseClicked" listener="java.awt.event.MouseListener" parameters="java.awt.event.MouseEvent" handler="pn_DashboardMain1MouseClicked"/>
-            <EventHandler event="mouseEntered" listener="java.awt.event.MouseListener" parameters="java.awt.event.MouseEvent" handler="pn_DashboardMain1MouseEntered"/>
-            <EventHandler event="mouseExited" listener="java.awt.event.MouseListener" parameters="java.awt.event.MouseEvent" handler="pn_DashboardMain1MouseExited"/>
+            <EventHandler event="mouseClicked" listener="java.awt.event.MouseListener" parameters="java.awt.event.MouseEvent" handler="pn_ProductMainMouseClicked"/>
+            <EventHandler event="mouseEntered" listener="java.awt.event.MouseListener" parameters="java.awt.event.MouseEvent" handler="pn_ProductMainMouseEntered"/>
+            <EventHandler event="mouseExited" listener="java.awt.event.MouseListener" parameters="java.awt.event.MouseEvent" handler="pn_ProductMainMouseExited"/>
           </Events>
 
           <Layout>
@@ -228,11 +228,11 @@
               <Group type="103" groupAlignment="0" attributes="0">
                   <Group type="102" alignment="0" attributes="0">
                       <EmptySpace min="-2" pref="5" max="-2" attributes="0"/>
-                      <Component id="pn_DashboardLine1" min="-2" max="-2" attributes="0"/>
+                      <Component id="pn_ProductLine" min="-2" max="-2" attributes="0"/>
                       <EmptySpace type="unrelated" max="-2" attributes="0"/>
-                      <Component id="lb_iconDashboard1" min="-2" pref="26" max="-2" attributes="0"/>
+                      <Component id="lb_iconProduct" min="-2" pref="26" max="-2" attributes="0"/>
                       <EmptySpace type="separate" max="-2" attributes="0"/>
-                      <Component id="lb_Dashboard1" min="-2" max="-2" attributes="0"/>
+                      <Component id="btn_Product" min="-2" max="-2" attributes="0"/>
                       <EmptySpace max="32767" attributes="0"/>
                   </Group>
               </Group>
@@ -241,24 +241,24 @@
               <Group type="103" groupAlignment="0" attributes="0">
                   <Group type="102" alignment="0" attributes="0">
                       <EmptySpace min="-2" pref="5" max="-2" attributes="0"/>
-                      <Component id="pn_DashboardLine1" max="32767" attributes="0"/>
+                      <Component id="pn_ProductLine" max="32767" attributes="0"/>
                       <EmptySpace min="-2" pref="5" max="-2" attributes="0"/>
                   </Group>
                   <Group type="102" alignment="0" attributes="0">
                       <EmptySpace max="-2" attributes="0"/>
-                      <Component id="lb_iconDashboard1" max="32767" attributes="0"/>
+                      <Component id="lb_iconProduct" max="32767" attributes="0"/>
                       <EmptySpace max="-2" attributes="0"/>
                   </Group>
                   <Group type="102" alignment="0" attributes="0">
                       <EmptySpace min="-2" pref="21" max="-2" attributes="0"/>
-                      <Component id="lb_Dashboard1" min="-2" max="-2" attributes="0"/>
+                      <Component id="btn_Product" min="-2" max="-2" attributes="0"/>
                       <EmptySpace pref="21" max="32767" attributes="0"/>
                   </Group>
               </Group>
             </DimensionLayout>
           </Layout>
           <SubComponents>
-            <Container class="javax.swing.JPanel" name="pn_DashboardLine1">
+            <Container class="javax.swing.JPanel" name="pn_ProductLine">
               <Properties>
                 <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
                   <Color blue="33" green="33" red="33" type="rgb"/>
@@ -278,7 +278,7 @@
                 </DimensionLayout>
               </Layout>
             </Container>
-            <Component class="javax.swing.JLabel" name="lb_iconDashboard1">
+            <Component class="javax.swing.JLabel" name="lb_iconProduct">
               <Properties>
                 <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
                   <Font name="Verdana" size="15" style="0"/>
@@ -291,7 +291,7 @@
                 </Property>
               </Properties>
             </Component>
-            <Component class="javax.swing.JLabel" name="lb_Dashboard1">
+            <Component class="javax.swing.JLabel" name="btn_Product">
               <Properties>
                 <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
                   <Font name="Verdana" size="14" style="1"/>
