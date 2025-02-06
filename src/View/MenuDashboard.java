@@ -5,6 +5,8 @@
  */
 package View;
 
+import Dao.DashboardDao;
+
 /**
  *
  * @author Daffa
@@ -16,6 +18,8 @@ public class MenuDashboard extends javax.swing.JPanel {
      */
     public MenuDashboard() {
         initComponents();
+        DashboardDao dashboardDao = new DashboardDao();
+        jTable1.setModel(dashboardDao.getStockData());
     }
 
     /**
