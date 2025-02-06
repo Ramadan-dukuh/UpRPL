@@ -368,14 +368,11 @@ public class MenutView extends javax.swing.JFrame {
     
         if (confirm == JOptionPane.YES_OPTION) {
             // Menutup frame utama yang berisi panel ini
-            JFrame frame = (JFrame) javax.swing.SwingUtilities.getWindowAncestor(this);
-            if (frame != null) {
-                frame.dispose();
-            }
-
-            // Membuka kembali form login
-            Login login = new Login(); // Ganti dengan nama form login Anda
-            login.setVisible(true);
+            Login LoginFrame = new Login();
+            LoginFrame.setVisible(true);
+            LoginFrame.pack();
+            LoginFrame.setLocationRelativeTo(null);
+            this.dispose();
         }
     }//GEN-LAST:event_LogoutActionPerformed
 
