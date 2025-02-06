@@ -65,7 +65,7 @@ public class MenutView extends javax.swing.JFrame {
             }
         });
 
-        pn_kiri.setBackground(new java.awt.Color(255, 204, 204));
+        pn_kiri.setBackground(new java.awt.Color(255, 255, 255));
         pn_kiri.setPreferredSize(new java.awt.Dimension(300, 636));
 
         jLabel1.setFont(new java.awt.Font("Verdana", 1, 17)); // NOI18N
@@ -239,7 +239,7 @@ public class MenutView extends javax.swing.JFrame {
                 .addComponent(pn_DashboardMain, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(18, 18, 18)
                 .addComponent(pn_ProductMain, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(628, Short.MAX_VALUE))
+                .addContainerGap(646, Short.MAX_VALUE))
         );
 
         getContentPane().add(pn_kiri, java.awt.BorderLayout.LINE_START);
@@ -279,9 +279,9 @@ public class MenutView extends javax.swing.JFrame {
             jPanelGradient1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanelGradient1Layout.createSequentialGroup()
                 .addGap(32, 32, 32)
-                .addGroup(jPanelGradient1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(lblWelcome)
-                    .addComponent(Logout))
+                .addGroup(jPanelGradient1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(Logout)
+                    .addComponent(lblWelcome))
                 .addContainerGap(42, Short.MAX_VALUE))
         );
 
