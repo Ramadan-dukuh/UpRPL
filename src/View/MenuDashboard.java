@@ -5,6 +5,8 @@
  */
 package View;
 
+import Dao.DashboardDao;
+
 /**
  *
  * @author Daffa
@@ -16,6 +18,15 @@ public class MenuDashboard extends javax.swing.JPanel {
      */
     public MenuDashboard() {
         initComponents();
+        DashboardDao dashboardDao = new DashboardDao();
+        jTable1.setModel(dashboardDao.getStockData());
+        
+         // Mengisi jumlah petugas
+    int totalPetugas = dashboardDao.getTotalPetugas();
+    lb_jumlahAnggota.setText(String.valueOf(totalPetugas));
+    
+    int totalStock = dashboardDao.getTotalStock();
+    lb_jumlahStock.setText(String.valueOf(totalStock));
     }
 
     /**
@@ -92,6 +103,7 @@ public class MenuDashboard extends javax.swing.JPanel {
 
         card_petugas.setBackground(new java.awt.Color(153, 204, 255));
         card_petugas.setForeground(new java.awt.Color(0, 153, 204));
+        card_petugas.setPreferredSize(new java.awt.Dimension(271, 165));
         card_petugas.setRoundBottomLeft(30);
         card_petugas.setRoundBottomRight(30);
         card_petugas.setRoundTopLeft(30);
@@ -134,7 +146,7 @@ public class MenuDashboard extends javax.swing.JPanel {
             .addGroup(card_petugasLayout.createSequentialGroup()
                 .addGap(40, 40, 40)
                 .addComponent(lb_iconPetugas)
-                .addContainerGap(40, Short.MAX_VALUE))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
         jTable1.setModel(new javax.swing.table.DefaultTableModel(
@@ -159,11 +171,11 @@ public class MenuDashboard extends javax.swing.JPanel {
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addGap(183, 183, 183)
+                .addGap(189, 189, 189)
                 .addComponent(card_petugas, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(124, 124, 124)
+                .addGap(82, 82, 82)
                 .addComponent(card_stock, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(103, 189, Short.MAX_VALUE))
+                .addGap(103, 225, Short.MAX_VALUE))
             .addGroup(layout.createSequentialGroup()
                 .addGap(20, 20, 20)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -178,9 +190,9 @@ public class MenuDashboard extends javax.swing.JPanel {
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
                 .addGap(23, 23, 23)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(card_petugas, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(card_stock, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                    .addComponent(card_stock, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(card_petugas, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addComponent(jLabel1)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
