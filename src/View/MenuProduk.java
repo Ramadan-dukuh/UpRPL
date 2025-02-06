@@ -31,11 +31,11 @@ public class MenuProduk extends javax.swing.JPanel {
         this.setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 1038, Short.MAX_VALUE)
+            .addGap(0, 1033, Short.MAX_VALUE)
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 744, Short.MAX_VALUE)
+            .addGap(0, 745, Short.MAX_VALUE)
         );
     }// </editor-fold>//GEN-END:initComponents
 
