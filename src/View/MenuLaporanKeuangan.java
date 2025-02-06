@@ -35,7 +35,7 @@ public class MenuLaporanKeuangan extends javax.swing.JPanel {
         jPanelGradient1 = new pallet.JPanelGradient();
         jLabel2 = new javax.swing.JLabel();
         jScrollPane1 = new javax.swing.JScrollPane();
-        jTable1 = new javax.swing.JTable();
+        tblKeuangan = new javax.swing.JTable();
 
         TBLnilai.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
@@ -89,7 +89,7 @@ public class MenuLaporanKeuangan extends javax.swing.JPanel {
                 .addContainerGap())
         );
 
-        jTable1.setModel(new javax.swing.table.DefaultTableModel(
+        tblKeuangan.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
                 {null, null, null, null, null},
                 {null, null, null, null, null},
@@ -101,7 +101,7 @@ public class MenuLaporanKeuangan extends javax.swing.JPanel {
                 "Nama barang", "Tanggal dibuat", "Total Pemasukan", "Total Pengeluaran", "Laba Bersih"
             }
         ));
-        jScrollPane1.setViewportView(jTable1);
+        jScrollPane1.setViewportView(tblKeuangan);
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
         this.setLayout(layout);
@@ -155,7 +155,7 @@ public class MenuLaporanKeuangan extends javax.swing.JPanel {
     private javax.swing.JLabel jLabel5;
     private pallet.JPanelGradient jPanelGradient1;
     private javax.swing.JScrollPane jScrollPane1;
-    private javax.swing.JTable jTable1;
     private javax.swing.JScrollPane scrNilai;
+    private javax.swing.JTable tblKeuangan;
     // End of variables declaration//GEN-END:variables
 }
