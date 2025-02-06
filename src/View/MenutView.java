@@ -7,7 +7,8 @@ package View;
 
 import java.awt.Color;
 import javax.swing.ImageIcon;
-
+import javax.swing.JFrame;
+import javax.swing.JOptionPane;
 /**
  *
  * @author Daffa
@@ -49,6 +50,7 @@ public class MenutView extends javax.swing.JFrame {
         pn_utama = new javax.swing.JPanel();
         jPanelGradient1 = new pallet.JPanelGradient();
         lblWelcome = new javax.swing.JLabel();
+        Logout = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setUndecorated(true);
@@ -237,7 +239,7 @@ public class MenutView extends javax.swing.JFrame {
                 .addComponent(pn_DashboardMain, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(18, 18, 18)
                 .addComponent(pn_ProductMain, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(592, Short.MAX_VALUE))
+                .addContainerGap(628, Short.MAX_VALUE))
         );
 
         getContentPane().add(pn_kiri, java.awt.BorderLayout.LINE_START);
@@ -254,6 +256,14 @@ public class MenutView extends javax.swing.JFrame {
         lblWelcome.setForeground(new java.awt.Color(255, 255, 255));
         lblWelcome.setText("jLabel4");
 
+        Logout.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Image/logout.png"))); // NOI18N
+        Logout.setContentAreaFilled(false);
+        Logout.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                LogoutActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout jPanelGradient1Layout = new javax.swing.GroupLayout(jPanelGradient1);
         jPanelGradient1.setLayout(jPanelGradient1Layout);
         jPanelGradient1Layout.setHorizontalGroup(
@@ -261,14 +271,18 @@ public class MenutView extends javax.swing.JFrame {
             .addGroup(jPanelGradient1Layout.createSequentialGroup()
                 .addGap(67, 67, 67)
                 .addComponent(lblWelcome)
-                .addContainerGap(946, Short.MAX_VALUE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 877, Short.MAX_VALUE)
+                .addComponent(Logout, javax.swing.GroupLayout.PREFERRED_SIZE, 36, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(33, 33, 33))
         );
         jPanelGradient1Layout.setVerticalGroup(
             jPanelGradient1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanelGradient1Layout.createSequentialGroup()
                 .addGap(32, 32, 32)
-                .addComponent(lblWelcome)
-                .addContainerGap(37, Short.MAX_VALUE))
+                .addGroup(jPanelGradient1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(lblWelcome)
+                    .addComponent(Logout))
+                .addContainerGap(42, Short.MAX_VALUE))
         );
 
         javax.swing.GroupLayout pn_dasarLayout = new javax.swing.GroupLayout(pn_dasar);
@@ -287,7 +301,7 @@ public class MenutView extends javax.swing.JFrame {
                 .addComponent(jPanelGradient1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(20, 20, 20)
                 .addComponent(pn_utama, javax.swing.GroupLayout.PREFERRED_SIZE, 743, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(7, Short.MAX_VALUE))
+                .addGap(20, 20, 20))
         );
 
         pn_kanan.add(pn_dasar, java.awt.BorderLayout.CENTER);
@@ -330,16 +344,40 @@ public class MenutView extends javax.swing.JFrame {
     }//GEN-LAST:event_pn_DashboardMainMouseExited
 
     private void pn_ProductMainMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_pn_ProductMainMouseClicked
-        // TODO add your handling code here:
+        pn_ProductMain.setBackground(new Color(240, 240, 240));
+        pn_ProductLine.setBackground(new Color(255, 255, 255));
+
+        pn_utama.removeAll();
+        pn_utama.add(new MenuDashboard());
+        pn_utama.repaint();
+        pn_utama.revalidate();
     }//GEN-LAST:event_pn_ProductMainMouseClicked
 
     private void pn_ProductMainMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_pn_ProductMainMouseEntered
-        // TODO add your handling code here:
+        pn_ProductMain.setBackground(new Color(255, 255, 255));
+        pn_ProductLine.setBackground(new Color(0, 255, 255));
     }//GEN-LAST:event_pn_ProductMainMouseEntered
 
     private void pn_ProductMainMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_pn_ProductMainMouseExited
-        // TODO add your handling code here:
+        pn_ProductMain.setBackground(new Color(240, 240, 240));
+        pn_ProductLine.setBackground(new Color(51, 51, 51));
     }//GEN-LAST:event_pn_ProductMainMouseExited
+
+    private void LogoutActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_LogoutActionPerformed
+       int confirm = JOptionPane.showConfirmDialog(this, "Apakah Anda yakin ingin logout?", "Konfirmasi Logout", JOptionPane.YES_NO_OPTION);
+    
+        if (confirm == JOptionPane.YES_OPTION) {
+            // Menutup frame utama yang berisi panel ini
+            JFrame frame = (JFrame) javax.swing.SwingUtilities.getWindowAncestor(this);
+            if (frame != null) {
+                frame.dispose();
+            }
+
+            // Membuka kembali form login
+            Login login = new Login(); // Ganti dengan nama form login Anda
+            login.setVisible(true);
+        }
+    }//GEN-LAST:event_LogoutActionPerformed
 
     /**
      * @param args the command line arguments
@@ -377,6 +415,7 @@ public class MenutView extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JButton Logout;
     private javax.swing.JLabel btn_Dashboard;
     private javax.swing.JLabel btn_Product;
     private javax.swing.JLabel jLabel1;
