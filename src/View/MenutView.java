@@ -13,10 +13,14 @@ import javax.swing.ImageIcon;
  * @author Daffa
  */
 public class MenutView extends javax.swing.JFrame {
+    
+    private String username;
 
     int xx, xy;
-    public MenutView() {
+    public MenutView(String username) {
         initComponents();
+        this.username =username;
+        lblWelcome.setText("Welcome "+ username);
     }
 
     /**
@@ -44,6 +48,7 @@ public class MenutView extends javax.swing.JFrame {
         pn_dasar = new javax.swing.JPanel();
         pn_utama = new javax.swing.JPanel();
         jPanelGradient1 = new pallet.JPanelGradient();
+        lblWelcome = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setUndecorated(true);
@@ -245,15 +250,25 @@ public class MenutView extends javax.swing.JFrame {
         jPanelGradient1.setColorEnd(new java.awt.Color(51, 255, 255));
         jPanelGradient1.setColorStart(new java.awt.Color(0, 0, 255));
 
+        lblWelcome.setFont(new java.awt.Font("Verdana", 0, 18)); // NOI18N
+        lblWelcome.setForeground(new java.awt.Color(255, 255, 255));
+        lblWelcome.setText("jLabel4");
+
         javax.swing.GroupLayout jPanelGradient1Layout = new javax.swing.GroupLayout(jPanelGradient1);
         jPanelGradient1.setLayout(jPanelGradient1Layout);
         jPanelGradient1Layout.setHorizontalGroup(
             jPanelGradient1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 1078, Short.MAX_VALUE)
+            .addGroup(jPanelGradient1Layout.createSequentialGroup()
+                .addGap(67, 67, 67)
+                .addComponent(lblWelcome)
+                .addContainerGap(946, Short.MAX_VALUE))
         );
         jPanelGradient1Layout.setVerticalGroup(
             jPanelGradient1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 78, Short.MAX_VALUE)
+            .addGroup(jPanelGradient1Layout.createSequentialGroup()
+                .addGap(32, 32, 32)
+                .addComponent(lblWelcome)
+                .addContainerGap(37, Short.MAX_VALUE))
         );
 
         javax.swing.GroupLayout pn_dasarLayout = new javax.swing.GroupLayout(pn_dasar);
@@ -272,7 +287,7 @@ public class MenutView extends javax.swing.JFrame {
                 .addComponent(jPanelGradient1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(20, 20, 20)
                 .addComponent(pn_utama, javax.swing.GroupLayout.PREFERRED_SIZE, 743, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(21, Short.MAX_VALUE))
+                .addContainerGap(7, Short.MAX_VALUE))
         );
 
         pn_kanan.add(pn_dasar, java.awt.BorderLayout.CENTER);
@@ -354,11 +369,11 @@ public class MenutView extends javax.swing.JFrame {
         //</editor-fold>
 
         /* Create and display the form */
-        java.awt.EventQueue.invokeLater(new Runnable() {
-            public void run() {
-                new MenutView().setVisible(true);
-            }
-        });
+//        java.awt.EventQueue.invokeLater(new Runnable() {
+//            public void run() {
+//                new MenutView().setVisible(true);
+//            }
+//        });
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
@@ -370,6 +385,7 @@ public class MenutView extends javax.swing.JFrame {
     private pallet.JPanelGradient jPanelGradient1;
     private javax.swing.JLabel lb_iconDashboard;
     private javax.swing.JLabel lb_iconProduct;
+    private javax.swing.JLabel lblWelcome;
     private javax.swing.JPanel pn_DashboardLine;
     private javax.swing.JPanel pn_DashboardMain;
     private javax.swing.JPanel pn_ProductLine;

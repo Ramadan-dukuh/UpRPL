@@ -257,7 +257,7 @@ public class Login extends javax.swing.JFrame {
         JOptionPane.showMessageDialog(this, "Login Berhasil!", "Sukses", JOptionPane.INFORMATION_MESSAGE);
         
         // Pindah ke halaman dashboard
-        new MenutView().setVisible(true);
+        new MenutView(username).setVisible(true);
         this.dispose(); // Menutup form login
     } else {
         JOptionPane.showMessageDialog(this, "Username atau Password salah!", "Gagal", JOptionPane.ERROR_MESSAGE);
@@ -285,7 +285,7 @@ public class Login extends javax.swing.JFrame {
              JOptionPane.showMessageDialog(this, "Login Berhasil!", "Sukses", JOptionPane.INFORMATION_MESSAGE);
 
              // Pindah ke halaman dashboard
-             new MenutView().setVisible(true);
+             new MenutView(username).setVisible(true);
              this.dispose(); // Menutup form login
          } else {
              JOptionPane.showMessageDialog(this, "Username atau Password salah!", "Gagal", JOptionPane.ERROR_MESSAGE);
