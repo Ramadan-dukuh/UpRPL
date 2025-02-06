@@ -42,4 +42,31 @@ public class DashboardDao {
         
         return model;
     }
+    public int getTotalPetugas(){
+        int total = 0;
+        try{
+            ps = kon.prepareStatement("SELECT COUNT(*) AS total_petugas FROM petugas");
+            rs = ps.executeQuery();
+            if (rs.next()) {
+            total = rs.getInt("total_petugas");
+        }
+    } catch (SQLException se) {
+        System.out.println("Error : " + se);
+    }
+    return total;
+    }
+    
+    public int getTotalStock(){
+        int total = 0;
+        try{
+            ps = kon.prepareStatement("SELECT SUM(stock) AS total_stock FROM produk");
+            rs = ps.executeQuery();
+            if (rs.next()) {
+            total = rs.getInt("total_stock");
+        }
+    } catch (SQLException se) {
+        System.out.println("Error : " + se);
+    }
+    return total;
+    }
 }
