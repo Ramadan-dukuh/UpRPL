@@ -89,7 +89,7 @@
                           <Component id="lb_HeaderUP" min="-2" max="-2" attributes="0"/>
                       </Group>
                   </Group>
-                  <EmptySpace min="-2" pref="20" max="-2" attributes="0"/>
+                  <EmptySpace min="-2" pref="35" max="-2" attributes="0"/>
                   <Component id="lb_MasterData" min="-2" pref="18" max="-2" attributes="0"/>
                   <EmptySpace min="-2" pref="15" max="-2" attributes="0"/>
                   <Component id="pn_DashboardMain" min="-2" max="-2" attributes="0"/>
@@ -107,7 +107,7 @@
                   <Component id="pn_LpKeuanganMain" min="-2" max="-2" attributes="0"/>
                   <EmptySpace min="-2" pref="15" max="-2" attributes="0"/>
                   <Component id="pn_LpTransaksiMain" min="-2" max="-2" attributes="0"/>
-                  <EmptySpace pref="228" max="32767" attributes="0"/>
+                  <EmptySpace pref="213" max="32767" attributes="0"/>
               </Group>
           </Group>
         </DimensionLayout>

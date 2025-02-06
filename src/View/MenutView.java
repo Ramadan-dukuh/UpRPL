@@ -519,7 +519,7 @@ public class MenutView extends javax.swing.JFrame {
                     .addGroup(pn_kiriLayout.createSequentialGroup()
                         .addGap(50, 50, 50)
                         .addComponent(lb_HeaderUP)))
-                .addGap(20, 20, 20)
+                .addGap(35, 35, 35)
                 .addComponent(lb_MasterData, javax.swing.GroupLayout.PREFERRED_SIZE, 18, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(15, 15, 15)
                 .addComponent(pn_DashboardMain, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -537,7 +537,7 @@ public class MenutView extends javax.swing.JFrame {
                 .addComponent(pn_LpKeuanganMain, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(15, 15, 15)
                 .addComponent(pn_LpTransaksiMain, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(228, Short.MAX_VALUE))
+                .addContainerGap(213, Short.MAX_VALUE))
         );
 
         getContentPane().add(pn_kiri, java.awt.BorderLayout.LINE_START);
