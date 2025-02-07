@@ -242,23 +242,21 @@ public class Login extends javax.swing.JFrame {
     String username = itemUser.getText().trim();
     String password = new String(itemPass.getPassword()).trim();
 
-    // Validasi jika input kosong
     if (username.isEmpty() || password.isEmpty()) {
         JOptionPane.showMessageDialog(this, "Username atau Password tidak boleh kosong!", "Peringatan", JOptionPane.WARNING_MESSAGE);
         return;
     }
 
-    // Membuat objek LoginDao dan mencari user di database
     LoginDao loginDao = new LoginDao();
     Petugas petugas = loginDao.getPetugas(username);
 
-    // Validasi jika username ditemukan dan password cocok
     if (petugas != null && petugas.getPassword().equals(password)) {
-        JOptionPane.showMessageDialog(this, "Login Berhasil!", "Sukses", JOptionPane.INFORMATION_MESSAGE);
-        
-        // Pindah ke halaman dashboard
-        new MenutView(username).setVisible(true);
-        this.dispose(); // Menutup form login
+//        JOptionPane.showMessageDialog(this, "Login Berhasil!\nUsername: " + petugas.getUsername() + "\nKelas: " + petugas.getKelas(), "Sukses", JOptionPane.INFORMATION_MESSAGE);
+
+        // Kirim username dan kelas ke halaman berikutnya (contoh: MenutView)
+        MenutView menu = new MenutView(petugas.getUsername(), petugas.getKelas());
+        menu.setVisible(true);
+        this.dispose();
     } else {
         JOptionPane.showMessageDialog(this, "Username atau Password salah!", "Gagal", JOptionPane.ERROR_MESSAGE);
     }
@@ -268,28 +266,26 @@ public class Login extends javax.swing.JFrame {
         // TODO add your handling code here:
         // Mendapatkan input dari text field
          String username = itemUser.getText().trim();
-         String password = new String(itemPass.getPassword()).trim();
+    String password = new String(itemPass.getPassword()).trim();
 
-         // Validasi jika input kosong
-         if (username.isEmpty() || password.isEmpty()) {
-             JOptionPane.showMessageDialog(this, "Username atau Password tidak boleh kosong!", "Peringatan", JOptionPane.WARNING_MESSAGE);
-             return;
-         }
+    if (username.isEmpty() || password.isEmpty()) {
+        JOptionPane.showMessageDialog(this, "Username atau Password tidak boleh kosong!", "Peringatan", JOptionPane.WARNING_MESSAGE);
+        return;
+    }
 
-         // Membuat objek LoginDao dan mencari user di database
-         LoginDao loginDao = new LoginDao();
-         Petugas petugas = loginDao.getPetugas(username);
+    LoginDao loginDao = new LoginDao();
+    Petugas petugas = loginDao.getPetugas(username);
 
-         // Validasi jika username ditemukan dan password cocok
-         if (petugas != null && petugas.getPassword().equals(password)) {
-             JOptionPane.showMessageDialog(this, "Login Berhasil!", "Sukses", JOptionPane.INFORMATION_MESSAGE);
+    if (petugas != null && petugas.getPassword().equals(password)) {
+//        JOptionPane.showMessageDialog(this, "Login Berhasil!\nUsername: " + petugas.getUsername() + "\nKelas: " + petugas.getKelas(), "Sukses", JOptionPane.INFORMATION_MESSAGE);
 
-             // Pindah ke halaman dashboard
-             new MenutView(username).setVisible(true);
-             this.dispose(); // Menutup form login
-         } else {
-             JOptionPane.showMessageDialog(this, "Username atau Password salah!", "Gagal", JOptionPane.ERROR_MESSAGE);
-         }
+        // Kirim username dan kelas ke halaman berikutnya (contoh: MenutView)
+        MenutView menu = new MenutView(petugas.getUsername(), petugas.getKelas());
+        menu.setVisible(true);
+        this.dispose();
+    } else {
+        JOptionPane.showMessageDialog(this, "Username atau Password salah!", "Gagal", JOptionPane.ERROR_MESSAGE);
+    }
     }//GEN-LAST:event_btnLoginMouseClicked
 
     /**
