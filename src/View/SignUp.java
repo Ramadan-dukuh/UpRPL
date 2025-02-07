@@ -8,6 +8,8 @@ package View;
 import javax.swing.JOptionPane;
 import model.Petugas;
 import Dao.RegisterDao;
+import java.awt.event.KeyAdapter;
+import java.awt.event.KeyEvent;
 /**
  *
  * @author Hp
@@ -21,7 +23,44 @@ public class SignUp extends javax.swing.JFrame {
      */
     public SignUp() {
         initComponents();
+        
+        // Event ketika menekan Enter di input Nama Lengkap
+        itemNmLengkap.addKeyListener(new KeyAdapter() {
+            public void keyPressed(KeyEvent evt) {
+                if (evt.getKeyCode() == KeyEvent.VK_ENTER) {
+                    CbKelas.requestFocus();
+                }
+            }
+        });
+
+        // Event ketika menekan Enter di ComboBox Kelas
+        CbKelas.addKeyListener(new KeyAdapter() {
+            public void keyPressed(KeyEvent evt) {
+                if (evt.getKeyCode() == KeyEvent.VK_ENTER) {
+                    itemUsername.requestFocus();
+                }
+            }
+        });
+
+        // Event ketika menekan Enter di input Username
+        itemUsername.addKeyListener(new KeyAdapter() {
+            public void keyPressed(KeyEvent evt) {
+                if (evt.getKeyCode() == KeyEvent.VK_ENTER) {
+                    itemPass.requestFocus();
+                }
+            }
+        });
+
+        // Event ketika menekan Enter di input Password
+        itemPass.addKeyListener(new KeyAdapter() {
+            public void keyPressed(KeyEvent evt) {
+                if (evt.getKeyCode() == KeyEvent.VK_ENTER) {
+                    btnSignup.doClick(); // Klik tombol signup secara otomatis
+                }
+            }
+        });
     }
+  
 
     /**
      * This method is called from within the constructor to initialize the form.
@@ -155,6 +194,11 @@ public class SignUp extends javax.swing.JFrame {
         CbKelas.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 CbKelasActionPerformed(evt);
+            }
+        });
+        CbKelas.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyPressed(java.awt.event.KeyEvent evt) {
+                CbKelasKeyPressed(evt);
             }
         });
 
@@ -328,6 +372,10 @@ public class SignUp extends javax.swing.JFrame {
         LoginFrame.setLocationRelativeTo(null);
         this.dispose();
     }//GEN-LAST:event_btnLoginActionPerformed
+
+    private void CbKelasKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_CbKelasKeyPressed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_CbKelasKeyPressed
 
     /**
      * @param args the command line arguments
