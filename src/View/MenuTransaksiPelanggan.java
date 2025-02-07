@@ -9,12 +9,12 @@ package View;
  *
  * @author Hp
  */
-public class MenuTransaksi extends javax.swing.JPanel {
+public class MenuTransaksiPelanggan extends javax.swing.JPanel {
 
     /**
      * Creates new form MenuTransaksi
      */
-    public MenuTransaksi() {
+    public MenuTransaksiPelanggan() {
         initComponents();
     }
 
@@ -31,11 +31,11 @@ public class MenuTransaksi extends javax.swing.JPanel {
         this.setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 1033, Short.MAX_VALUE)
+            .addGap(0, 1378, Short.MAX_VALUE)
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 745, Short.MAX_VALUE)
+            .addGap(0, 898, Short.MAX_VALUE)
         );
     }// </editor-fold>//GEN-END:initComponents
 

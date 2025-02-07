@@ -35,8 +35,10 @@ public class MenutView extends javax.swing.JFrame {
 
         pn_kiri = new java.awt.Panel();
         jLabel1 = new javax.swing.JLabel();
-        jLabel3 = new javax.swing.JLabel();
-        jLabel2 = new javax.swing.JLabel();
+        lb_HeaderUP = new javax.swing.JLabel();
+        lb_MasterData = new javax.swing.JLabel();
+        lb_Transaksi = new javax.swing.JLabel();
+        lb_Laporan = new javax.swing.JLabel();
         pn_DashboardMain = new javax.swing.JPanel();
         pn_DashboardLine = new javax.swing.JPanel();
         lb_iconDashboard = new javax.swing.JLabel();
@@ -45,6 +47,22 @@ public class MenutView extends javax.swing.JFrame {
         pn_ProductLine = new javax.swing.JPanel();
         lb_iconProduct = new javax.swing.JLabel();
         btn_Product = new javax.swing.JLabel();
+        pn_TrPelangganMain = new javax.swing.JPanel();
+        pn_TrPelangganLine = new javax.swing.JPanel();
+        lb_iconTrPelanggan = new javax.swing.JLabel();
+        btn_TrPelanggan = new javax.swing.JLabel();
+        pn_TrSuplierMain = new javax.swing.JPanel();
+        pn_TrSuplierLine = new javax.swing.JPanel();
+        lb_iconTrSuplier = new javax.swing.JLabel();
+        btn_TrSuplier = new javax.swing.JLabel();
+        pn_LpKeuanganMain = new javax.swing.JPanel();
+        pn_LpKeuanganLine = new javax.swing.JPanel();
+        lb_iconLpKeuangan = new javax.swing.JLabel();
+        btn_LpKeuangan = new javax.swing.JLabel();
+        pn_LpTransaksiMain = new javax.swing.JPanel();
+        pn_LpTransaksiLine = new javax.swing.JPanel();
+        lb_iconLpTransaksi = new javax.swing.JLabel();
+        btn_LpTransaksi = new javax.swing.JLabel();
         pn_kanan = new java.awt.Panel();
         pn_dasar = new javax.swing.JPanel();
         pn_utama = new javax.swing.JPanel();
@@ -65,18 +83,26 @@ public class MenutView extends javax.swing.JFrame {
             }
         });
 
-        pn_kiri.setBackground(new java.awt.Color(255, 204, 204));
+        pn_kiri.setBackground(new java.awt.Color(255, 255, 255));
         pn_kiri.setPreferredSize(new java.awt.Dimension(300, 636));
 
         jLabel1.setFont(new java.awt.Font("Verdana", 1, 17)); // NOI18N
         jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Image/logo_rpl_75px.png"))); // NOI18N
 
-        jLabel3.setFont(new java.awt.Font("Verdana", 1, 17)); // NOI18N
-        jLabel3.setText("Unit Produksi RPL");
+        lb_HeaderUP.setFont(new java.awt.Font("Verdana", 1, 17)); // NOI18N
+        lb_HeaderUP.setText("Unit Produksi RPL");
 
-        jLabel2.setFont(new java.awt.Font("Verdana", 0, 15)); // NOI18N
-        jLabel2.setForeground(new java.awt.Color(153, 153, 153));
-        jLabel2.setText("Master Data");
+        lb_MasterData.setFont(new java.awt.Font("Verdana", 0, 15)); // NOI18N
+        lb_MasterData.setForeground(new java.awt.Color(153, 153, 153));
+        lb_MasterData.setText("Master Data");
+
+        lb_Transaksi.setFont(new java.awt.Font("Verdana", 0, 15)); // NOI18N
+        lb_Transaksi.setForeground(new java.awt.Color(153, 153, 153));
+        lb_Transaksi.setText("Laporan");
+
+        lb_Laporan.setFont(new java.awt.Font("Verdana", 0, 15)); // NOI18N
+        lb_Laporan.setForeground(new java.awt.Color(153, 153, 153));
+        lb_Laporan.setText("Transaksi");
 
         pn_DashboardMain.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
@@ -122,7 +148,7 @@ public class MenutView extends javax.swing.JFrame {
                 .addComponent(lb_iconDashboard, javax.swing.GroupLayout.PREFERRED_SIZE, 26, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(18, 18, 18)
                 .addComponent(btn_Dashboard)
-                .addContainerGap(73, Short.MAX_VALUE))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         pn_DashboardMainLayout.setVerticalGroup(
             pn_DashboardMainLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -204,24 +230,284 @@ public class MenutView extends javax.swing.JFrame {
                 .addContainerGap(21, Short.MAX_VALUE))
         );
 
+        pn_TrPelangganMain.setPreferredSize(new java.awt.Dimension(228, 60));
+        pn_TrPelangganMain.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                pn_TrPelangganMainMouseClicked(evt);
+            }
+            public void mouseEntered(java.awt.event.MouseEvent evt) {
+                pn_TrPelangganMainMouseEntered(evt);
+            }
+            public void mouseExited(java.awt.event.MouseEvent evt) {
+                pn_TrPelangganMainMouseExited(evt);
+            }
+        });
+
+        pn_TrPelangganLine.setBackground(new java.awt.Color(51, 51, 51));
+
+        javax.swing.GroupLayout pn_TrPelangganLineLayout = new javax.swing.GroupLayout(pn_TrPelangganLine);
+        pn_TrPelangganLine.setLayout(pn_TrPelangganLineLayout);
+        pn_TrPelangganLineLayout.setHorizontalGroup(
+            pn_TrPelangganLineLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 10, Short.MAX_VALUE)
+        );
+        pn_TrPelangganLineLayout.setVerticalGroup(
+            pn_TrPelangganLineLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 0, Short.MAX_VALUE)
+        );
+
+        lb_iconTrPelanggan.setFont(new java.awt.Font("Verdana", 0, 15)); // NOI18N
+        lb_iconTrPelanggan.setForeground(new java.awt.Color(153, 153, 153));
+        lb_iconTrPelanggan.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Image/icProduct-transformed.png"))); // NOI18N
+
+        btn_TrPelanggan.setFont(new java.awt.Font("Verdana", 1, 14)); // NOI18N
+        btn_TrPelanggan.setForeground(new java.awt.Color(51, 51, 51));
+        btn_TrPelanggan.setText("Transaksi Pelanggan");
+
+        javax.swing.GroupLayout pn_TrPelangganMainLayout = new javax.swing.GroupLayout(pn_TrPelangganMain);
+        pn_TrPelangganMain.setLayout(pn_TrPelangganMainLayout);
+        pn_TrPelangganMainLayout.setHorizontalGroup(
+            pn_TrPelangganMainLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(pn_TrPelangganMainLayout.createSequentialGroup()
+                .addGap(5, 5, 5)
+                .addComponent(pn_TrPelangganLine, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addComponent(lb_iconTrPelanggan, javax.swing.GroupLayout.PREFERRED_SIZE, 26, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(18, 18, 18)
+                .addComponent(btn_TrPelanggan)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+        );
+        pn_TrPelangganMainLayout.setVerticalGroup(
+            pn_TrPelangganMainLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(pn_TrPelangganMainLayout.createSequentialGroup()
+                .addGap(5, 5, 5)
+                .addComponent(pn_TrPelangganLine, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addGap(5, 5, 5))
+            .addGroup(pn_TrPelangganMainLayout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(lb_iconTrPelanggan, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addContainerGap())
+            .addGroup(pn_TrPelangganMainLayout.createSequentialGroup()
+                .addGap(21, 21, 21)
+                .addComponent(btn_TrPelanggan)
+                .addContainerGap(21, Short.MAX_VALUE))
+        );
+
+        pn_TrSuplierMain.setPreferredSize(new java.awt.Dimension(228, 60));
+        pn_TrSuplierMain.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                pn_TrSuplierMainMouseClicked(evt);
+            }
+            public void mouseEntered(java.awt.event.MouseEvent evt) {
+                pn_TrSuplierMainMouseEntered(evt);
+            }
+            public void mouseExited(java.awt.event.MouseEvent evt) {
+                pn_TrSuplierMainMouseExited(evt);
+            }
+        });
+
+        pn_TrSuplierLine.setBackground(new java.awt.Color(51, 51, 51));
+
+        javax.swing.GroupLayout pn_TrSuplierLineLayout = new javax.swing.GroupLayout(pn_TrSuplierLine);
+        pn_TrSuplierLine.setLayout(pn_TrSuplierLineLayout);
+        pn_TrSuplierLineLayout.setHorizontalGroup(
+            pn_TrSuplierLineLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 10, Short.MAX_VALUE)
+        );
+        pn_TrSuplierLineLayout.setVerticalGroup(
+            pn_TrSuplierLineLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 0, Short.MAX_VALUE)
+        );
+
+        lb_iconTrSuplier.setFont(new java.awt.Font("Verdana", 0, 15)); // NOI18N
+        lb_iconTrSuplier.setForeground(new java.awt.Color(153, 153, 153));
+        lb_iconTrSuplier.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Image/icProduct-transformed.png"))); // NOI18N
+
+        btn_TrSuplier.setFont(new java.awt.Font("Verdana", 1, 14)); // NOI18N
+        btn_TrSuplier.setForeground(new java.awt.Color(51, 51, 51));
+        btn_TrSuplier.setText("Transaksi Supplier");
+
+        javax.swing.GroupLayout pn_TrSuplierMainLayout = new javax.swing.GroupLayout(pn_TrSuplierMain);
+        pn_TrSuplierMain.setLayout(pn_TrSuplierMainLayout);
+        pn_TrSuplierMainLayout.setHorizontalGroup(
+            pn_TrSuplierMainLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(pn_TrSuplierMainLayout.createSequentialGroup()
+                .addGap(5, 5, 5)
+                .addComponent(pn_TrSuplierLine, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addComponent(lb_iconTrSuplier, javax.swing.GroupLayout.PREFERRED_SIZE, 26, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(18, 18, 18)
+                .addComponent(btn_TrSuplier)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+        );
+        pn_TrSuplierMainLayout.setVerticalGroup(
+            pn_TrSuplierMainLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(pn_TrSuplierMainLayout.createSequentialGroup()
+                .addGap(5, 5, 5)
+                .addComponent(pn_TrSuplierLine, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addGap(5, 5, 5))
+            .addGroup(pn_TrSuplierMainLayout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(lb_iconTrSuplier, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addContainerGap())
+            .addGroup(pn_TrSuplierMainLayout.createSequentialGroup()
+                .addGap(21, 21, 21)
+                .addComponent(btn_TrSuplier)
+                .addContainerGap(21, Short.MAX_VALUE))
+        );
+
+        pn_LpKeuanganMain.setPreferredSize(new java.awt.Dimension(228, 60));
+        pn_LpKeuanganMain.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                pn_LpKeuanganMainMouseClicked(evt);
+            }
+            public void mouseEntered(java.awt.event.MouseEvent evt) {
+                pn_LpKeuanganMainMouseEntered(evt);
+            }
+            public void mouseExited(java.awt.event.MouseEvent evt) {
+                pn_LpKeuanganMainMouseExited(evt);
+            }
+        });
+
+        pn_LpKeuanganLine.setBackground(new java.awt.Color(51, 51, 51));
+
+        javax.swing.GroupLayout pn_LpKeuanganLineLayout = new javax.swing.GroupLayout(pn_LpKeuanganLine);
+        pn_LpKeuanganLine.setLayout(pn_LpKeuanganLineLayout);
+        pn_LpKeuanganLineLayout.setHorizontalGroup(
+            pn_LpKeuanganLineLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 10, Short.MAX_VALUE)
+        );
+        pn_LpKeuanganLineLayout.setVerticalGroup(
+            pn_LpKeuanganLineLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 0, Short.MAX_VALUE)
+        );
+
+        lb_iconLpKeuangan.setFont(new java.awt.Font("Verdana", 0, 15)); // NOI18N
+        lb_iconLpKeuangan.setForeground(new java.awt.Color(153, 153, 153));
+        lb_iconLpKeuangan.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Image/icProduct-transformed.png"))); // NOI18N
+
+        btn_LpKeuangan.setFont(new java.awt.Font("Verdana", 1, 14)); // NOI18N
+        btn_LpKeuangan.setForeground(new java.awt.Color(51, 51, 51));
+        btn_LpKeuangan.setText("Laporan Keuangan");
+
+        javax.swing.GroupLayout pn_LpKeuanganMainLayout = new javax.swing.GroupLayout(pn_LpKeuanganMain);
+        pn_LpKeuanganMain.setLayout(pn_LpKeuanganMainLayout);
+        pn_LpKeuanganMainLayout.setHorizontalGroup(
+            pn_LpKeuanganMainLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(pn_LpKeuanganMainLayout.createSequentialGroup()
+                .addGap(5, 5, 5)
+                .addComponent(pn_LpKeuanganLine, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addComponent(lb_iconLpKeuangan, javax.swing.GroupLayout.PREFERRED_SIZE, 26, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(18, 18, 18)
+                .addComponent(btn_LpKeuangan)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+        );
+        pn_LpKeuanganMainLayout.setVerticalGroup(
+            pn_LpKeuanganMainLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(pn_LpKeuanganMainLayout.createSequentialGroup()
+                .addGap(5, 5, 5)
+                .addComponent(pn_LpKeuanganLine, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addGap(5, 5, 5))
+            .addGroup(pn_LpKeuanganMainLayout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(lb_iconLpKeuangan, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addContainerGap())
+            .addGroup(pn_LpKeuanganMainLayout.createSequentialGroup()
+                .addGap(21, 21, 21)
+                .addComponent(btn_LpKeuangan)
+                .addContainerGap(21, Short.MAX_VALUE))
+        );
+
+        pn_LpTransaksiMain.setPreferredSize(new java.awt.Dimension(228, 60));
+        pn_LpTransaksiMain.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                pn_LpTransaksiMainMouseClicked(evt);
+            }
+            public void mouseEntered(java.awt.event.MouseEvent evt) {
+                pn_LpTransaksiMainMouseEntered(evt);
+            }
+            public void mouseExited(java.awt.event.MouseEvent evt) {
+                pn_LpTransaksiMainMouseExited(evt);
+            }
+        });
+
+        pn_LpTransaksiLine.setBackground(new java.awt.Color(51, 51, 51));
+
+        javax.swing.GroupLayout pn_LpTransaksiLineLayout = new javax.swing.GroupLayout(pn_LpTransaksiLine);
+        pn_LpTransaksiLine.setLayout(pn_LpTransaksiLineLayout);
+        pn_LpTransaksiLineLayout.setHorizontalGroup(
+            pn_LpTransaksiLineLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 10, Short.MAX_VALUE)
+        );
+        pn_LpTransaksiLineLayout.setVerticalGroup(
+            pn_LpTransaksiLineLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 0, Short.MAX_VALUE)
+        );
+
+        lb_iconLpTransaksi.setFont(new java.awt.Font("Verdana", 0, 15)); // NOI18N
+        lb_iconLpTransaksi.setForeground(new java.awt.Color(153, 153, 153));
+        lb_iconLpTransaksi.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Image/icProduct-transformed.png"))); // NOI18N
+
+        btn_LpTransaksi.setFont(new java.awt.Font("Verdana", 1, 14)); // NOI18N
+        btn_LpTransaksi.setForeground(new java.awt.Color(51, 51, 51));
+        btn_LpTransaksi.setText("Laporan Transaksi");
+
+        javax.swing.GroupLayout pn_LpTransaksiMainLayout = new javax.swing.GroupLayout(pn_LpTransaksiMain);
+        pn_LpTransaksiMain.setLayout(pn_LpTransaksiMainLayout);
+        pn_LpTransaksiMainLayout.setHorizontalGroup(
+            pn_LpTransaksiMainLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(pn_LpTransaksiMainLayout.createSequentialGroup()
+                .addGap(5, 5, 5)
+                .addComponent(pn_LpTransaksiLine, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addComponent(lb_iconLpTransaksi, javax.swing.GroupLayout.PREFERRED_SIZE, 26, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(18, 18, 18)
+                .addComponent(btn_LpTransaksi)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+        );
+        pn_LpTransaksiMainLayout.setVerticalGroup(
+            pn_LpTransaksiMainLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(pn_LpTransaksiMainLayout.createSequentialGroup()
+                .addGap(5, 5, 5)
+                .addComponent(pn_LpTransaksiLine, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addGap(5, 5, 5))
+            .addGroup(pn_LpTransaksiMainLayout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(lb_iconLpTransaksi, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addContainerGap())
+            .addGroup(pn_LpTransaksiMainLayout.createSequentialGroup()
+                .addGap(21, 21, 21)
+                .addComponent(btn_LpTransaksi)
+                .addContainerGap(21, Short.MAX_VALUE))
+        );
+
         javax.swing.GroupLayout pn_kiriLayout = new javax.swing.GroupLayout(pn_kiri);
         pn_kiri.setLayout(pn_kiriLayout);
         pn_kiriLayout.setHorizontalGroup(
             pn_kiriLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(pn_kiriLayout.createSequentialGroup()
                 .addContainerGap()
-                .addGroup(pn_kiriLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                    .addGroup(javax.swing.GroupLayout.Alignment.LEADING, pn_kiriLayout.createSequentialGroup()
-                        .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 75, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(jLabel3))
-                    .addGroup(javax.swing.GroupLayout.Alignment.LEADING, pn_kiriLayout.createSequentialGroup()
+                .addGroup(pn_kiriLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(pn_kiriLayout.createSequentialGroup()
                         .addGap(10, 10, 10)
-                        .addGroup(pn_kiriLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                            .addComponent(jLabel2)
-                            .addComponent(pn_DashboardMain, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                            .addComponent(pn_ProductMain, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))))
-                .addContainerGap(35, Short.MAX_VALUE))
+                        .addGroup(pn_kiriLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(lb_Transaksi)
+                            .addGroup(pn_kiriLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                                .addComponent(lb_MasterData)
+                                .addComponent(pn_DashboardMain, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                .addComponent(pn_ProductMain, javax.swing.GroupLayout.DEFAULT_SIZE, 243, Short.MAX_VALUE)
+                                .addComponent(pn_TrPelangganMain, javax.swing.GroupLayout.DEFAULT_SIZE, 243, Short.MAX_VALUE)
+                                .addComponent(pn_TrSuplierMain, javax.swing.GroupLayout.DEFAULT_SIZE, 243, Short.MAX_VALUE)
+                                .addComponent(lb_Laporan))
+                            .addComponent(pn_LpKeuanganMain, javax.swing.GroupLayout.DEFAULT_SIZE, 243, Short.MAX_VALUE)
+                            .addComponent(pn_LpTransaksiMain, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, 243, Short.MAX_VALUE))
+                        .addContainerGap(35, Short.MAX_VALUE))
+                    .addGroup(pn_kiriLayout.createSequentialGroup()
+                        .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 75, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                        .addComponent(lb_HeaderUP)
+                        .addGap(0, 0, Short.MAX_VALUE))))
         );
         pn_kiriLayout.setVerticalGroup(
             pn_kiriLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -230,16 +516,28 @@ public class MenutView extends javax.swing.JFrame {
                     .addGroup(pn_kiriLayout.createSequentialGroup()
                         .addGap(21, 21, 21)
                         .addComponent(jLabel1))
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, pn_kiriLayout.createSequentialGroup()
-                        .addContainerGap()
-                        .addComponent(jLabel3)
-                        .addGap(24, 24, 24)))
-                .addComponent(jLabel2, javax.swing.GroupLayout.PREFERRED_SIZE, 18, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(18, 18, 18)
+                    .addGroup(pn_kiriLayout.createSequentialGroup()
+                        .addGap(50, 50, 50)
+                        .addComponent(lb_HeaderUP)))
+                .addGap(35, 35, 35)
+                .addComponent(lb_MasterData, javax.swing.GroupLayout.PREFERRED_SIZE, 18, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(15, 15, 15)
                 .addComponent(pn_DashboardMain, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(18, 18, 18)
+                .addGap(15, 15, 15)
                 .addComponent(pn_ProductMain, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(628, Short.MAX_VALUE))
+                .addGap(20, 20, 20)
+                .addComponent(lb_Laporan, javax.swing.GroupLayout.PREFERRED_SIZE, 18, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(15, 15, 15)
+                .addComponent(pn_TrPelangganMain, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(15, 15, 15)
+                .addComponent(pn_TrSuplierMain, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(30, 30, 30)
+                .addComponent(lb_Transaksi, javax.swing.GroupLayout.PREFERRED_SIZE, 18, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(15, 15, 15)
+                .addComponent(pn_LpKeuanganMain, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(15, 15, 15)
+                .addComponent(pn_LpTransaksiMain, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(213, Short.MAX_VALUE))
         );
 
         getContentPane().add(pn_kiri, java.awt.BorderLayout.LINE_START);
@@ -279,9 +577,9 @@ public class MenutView extends javax.swing.JFrame {
             jPanelGradient1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanelGradient1Layout.createSequentialGroup()
                 .addGap(32, 32, 32)
-                .addGroup(jPanelGradient1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(lblWelcome)
-                    .addComponent(Logout))
+                .addGroup(jPanelGradient1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(Logout)
+                    .addComponent(lblWelcome))
                 .addContainerGap(42, Short.MAX_VALUE))
         );
 
@@ -376,6 +674,86 @@ public class MenutView extends javax.swing.JFrame {
         }
     }//GEN-LAST:event_LogoutActionPerformed
 
+    private void pn_TrPelangganMainMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_pn_TrPelangganMainMouseClicked
+        pn_TrPelangganMain.setBackground(new Color(240, 240, 240));
+        pn_TrPelangganLine.setBackground(new Color(255, 255, 255));
+
+        pn_utama.removeAll();
+        pn_utama.add(new MenuDashboard());
+        pn_utama.repaint();
+        pn_utama.revalidate();
+    }//GEN-LAST:event_pn_TrPelangganMainMouseClicked
+
+    private void pn_TrPelangganMainMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_pn_TrPelangganMainMouseEntered
+        pn_TrPelangganMain.setBackground(new Color(255, 255, 255));
+        pn_TrPelangganLine.setBackground(new Color(0, 255, 255));
+    }//GEN-LAST:event_pn_TrPelangganMainMouseEntered
+
+    private void pn_TrPelangganMainMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_pn_TrPelangganMainMouseExited
+        pn_TrPelangganMain.setBackground(new Color(240, 240, 240));
+        pn_TrPelangganLine.setBackground(new Color(51, 51, 51));
+    }//GEN-LAST:event_pn_TrPelangganMainMouseExited
+
+    private void pn_TrSuplierMainMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_pn_TrSuplierMainMouseClicked
+        pn_TrSuplierMain.setBackground(new Color(240, 240, 240));
+        pn_TrSuplierLine.setBackground(new Color(255, 255, 255));
+
+        pn_utama.removeAll();
+        pn_utama.add(new MenuDashboard());
+        pn_utama.repaint();
+        pn_utama.revalidate();
+    }//GEN-LAST:event_pn_TrSuplierMainMouseClicked
+
+    private void pn_TrSuplierMainMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_pn_TrSuplierMainMouseEntered
+        pn_TrSuplierMain.setBackground(new Color(255, 255, 255));
+        pn_TrSuplierLine.setBackground(new Color(0, 255, 255));
+    }//GEN-LAST:event_pn_TrSuplierMainMouseEntered
+
+    private void pn_TrSuplierMainMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_pn_TrSuplierMainMouseExited
+        pn_TrSuplierMain.setBackground(new Color(240, 240, 240));
+        pn_TrSuplierLine.setBackground(new Color(51, 51, 51));
+    }//GEN-LAST:event_pn_TrSuplierMainMouseExited
+
+    private void pn_LpKeuanganMainMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_pn_LpKeuanganMainMouseClicked
+        pn_LpKeuanganMain.setBackground(new Color(240, 240, 240));
+        pn_LpKeuanganLine.setBackground(new Color(255, 255, 255));
+
+        pn_utama.removeAll();
+        pn_utama.add(new MenuDashboard());
+        pn_utama.repaint();
+        pn_utama.revalidate();
+    }//GEN-LAST:event_pn_LpKeuanganMainMouseClicked
+
+    private void pn_LpKeuanganMainMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_pn_LpKeuanganMainMouseEntered
+        pn_LpKeuanganMain.setBackground(new Color(255, 255, 255));
+        pn_LpKeuanganLine.setBackground(new Color(0, 255, 255));
+    }//GEN-LAST:event_pn_LpKeuanganMainMouseEntered
+
+    private void pn_LpKeuanganMainMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_pn_LpKeuanganMainMouseExited
+        pn_LpKeuanganMain.setBackground(new Color(240, 240, 240));
+        pn_LpKeuanganLine.setBackground(new Color(51, 51, 51));
+    }//GEN-LAST:event_pn_LpKeuanganMainMouseExited
+
+    private void pn_LpTransaksiMainMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_pn_LpTransaksiMainMouseClicked
+        pn_LpTransaksiMain.setBackground(new Color(240, 240, 240));
+        pn_LpTransaksiLine.setBackground(new Color(255, 255, 255));
+
+        pn_utama.removeAll();
+        pn_utama.add(new MenuDashboard());
+        pn_utama.repaint();
+        pn_utama.revalidate();
+    }//GEN-LAST:event_pn_LpTransaksiMainMouseClicked
+
+    private void pn_LpTransaksiMainMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_pn_LpTransaksiMainMouseEntered
+        pn_LpTransaksiMain.setBackground(new Color(255, 255, 255));
+        pn_LpTransaksiLine.setBackground(new Color(0, 255, 255));
+    }//GEN-LAST:event_pn_LpTransaksiMainMouseEntered
+
+    private void pn_LpTransaksiMainMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_pn_LpTransaksiMainMouseExited
+        pn_LpTransaksiMain.setBackground(new Color(240, 240, 240));
+        pn_LpTransaksiLine.setBackground(new Color(51, 51, 51));
+    }//GEN-LAST:event_pn_LpTransaksiMainMouseExited
+
     /**
      * @param args the command line arguments
      */
@@ -414,18 +792,36 @@ public class MenutView extends javax.swing.JFrame {
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton Logout;
     private javax.swing.JLabel btn_Dashboard;
+    private javax.swing.JLabel btn_LpKeuangan;
+    private javax.swing.JLabel btn_LpTransaksi;
     private javax.swing.JLabel btn_Product;
+    private javax.swing.JLabel btn_TrPelanggan;
+    private javax.swing.JLabel btn_TrSuplier;
     private javax.swing.JLabel jLabel1;
-    private javax.swing.JLabel jLabel2;
-    private javax.swing.JLabel jLabel3;
     private pallet.JPanelGradient jPanelGradient1;
+    private javax.swing.JLabel lb_HeaderUP;
+    private javax.swing.JLabel lb_Laporan;
+    private javax.swing.JLabel lb_MasterData;
+    private javax.swing.JLabel lb_Transaksi;
     private javax.swing.JLabel lb_iconDashboard;
+    private javax.swing.JLabel lb_iconLpKeuangan;
+    private javax.swing.JLabel lb_iconLpTransaksi;
     private javax.swing.JLabel lb_iconProduct;
+    private javax.swing.JLabel lb_iconTrPelanggan;
+    private javax.swing.JLabel lb_iconTrSuplier;
     private javax.swing.JLabel lblWelcome;
     private javax.swing.JPanel pn_DashboardLine;
     private javax.swing.JPanel pn_DashboardMain;
+    private javax.swing.JPanel pn_LpKeuanganLine;
+    private javax.swing.JPanel pn_LpKeuanganMain;
+    private javax.swing.JPanel pn_LpTransaksiLine;
+    private javax.swing.JPanel pn_LpTransaksiMain;
     private javax.swing.JPanel pn_ProductLine;
     private javax.swing.JPanel pn_ProductMain;
+    private javax.swing.JPanel pn_TrPelangganLine;
+    private javax.swing.JPanel pn_TrPelangganMain;
+    private javax.swing.JPanel pn_TrSuplierLine;
+    private javax.swing.JPanel pn_TrSuplierMain;
     private javax.swing.JPanel pn_dasar;
     private java.awt.Panel pn_kanan;
     private java.awt.Panel pn_kiri;
