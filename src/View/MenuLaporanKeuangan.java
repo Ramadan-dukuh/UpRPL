@@ -66,8 +66,8 @@ public class MenuLaporanKeuangan extends javax.swing.JPanel {
         jLabel1.setFont(new java.awt.Font("Tahoma", 1, 48)); // NOI18N
 
         jPanelGradient1.setBackground(new java.awt.Color(153, 153, 153));
-        jPanelGradient1.setColorEnd(new java.awt.Color(153, 153, 153));
-        jPanelGradient1.setColorStart(new java.awt.Color(153, 153, 153));
+        jPanelGradient1.setColorEnd(new java.awt.Color(0, 204, 204));
+        jPanelGradient1.setColorStart(new java.awt.Color(0, 51, 255));
 
         jLabel2.setFont(new java.awt.Font("Tahoma", 1, 36)); // NOI18N
         jLabel2.setText("Laporan Keuangan");

@@ -22,11 +22,11 @@ public class MenuDashboard extends javax.swing.JPanel {
         jTable1.setModel(dashboardDao.getStockData());
         
          // Mengisi jumlah petugas
-    int totalPetugas = dashboardDao.getTotalPetugas();
-    lb_jumlahAnggota.setText(String.valueOf(totalPetugas));
-    
-    int totalStock = dashboardDao.getTotalStock();
-    lb_jumlahStock.setText(String.valueOf(totalStock));
+        int totalPetugas = dashboardDao.getTotalPetugas();
+        lb_jumlahAnggota.setText(String.valueOf(totalPetugas));
+
+        int totalStock = dashboardDao.getTotalStock();
+        lb_jumlahStock.setText(String.valueOf(totalStock));
     }
 
     /**
