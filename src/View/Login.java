@@ -20,6 +20,24 @@ public class Login extends javax.swing.JFrame {
      */
     public Login() {
         initComponents();
+        
+         itemUser.addKeyListener(new java.awt.event.KeyAdapter() {
+        public void keyPressed(java.awt.event.KeyEvent evt) {
+            if (evt.getKeyCode() == java.awt.event.KeyEvent.VK_ENTER) {
+                itemPass.requestFocus();
+            }
+        }
+    });
+
+    // Login jika enter ditekan pada password
+        itemPass.addKeyListener(new java.awt.event.KeyAdapter() {
+        public void keyPressed(java.awt.event.KeyEvent evt) {
+            if (evt.getKeyCode() == java.awt.event.KeyEvent.VK_ENTER) {
+                btnLogin.doClick();
+            }
+        }
+    });
+
     }
 
     /**
