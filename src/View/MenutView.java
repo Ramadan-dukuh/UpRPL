@@ -659,7 +659,7 @@ public class MenutView extends javax.swing.JFrame {
         pn_ProductLine.setBackground(new Color(255, 255, 255));
 
         pn_utama.removeAll();
-        pn_utama.add(new MenuDashboard());
+        pn_utama.add(new MenuProduk());
         pn_utama.repaint();
         pn_utama.revalidate();
     }//GEN-LAST:event_pn_ProductMainMouseClicked
@@ -692,7 +692,7 @@ public class MenutView extends javax.swing.JFrame {
         pn_TrPelangganLine.setBackground(new Color(255, 255, 255));
 
         pn_utama.removeAll();
-        pn_utama.add(new MenuDashboard());
+        pn_utama.add(new MenuTransaksiPelanggan());
         pn_utama.repaint();
         pn_utama.revalidate();
     }//GEN-LAST:event_pn_TrPelangganMainMouseClicked
@@ -712,7 +712,7 @@ public class MenutView extends javax.swing.JFrame {
         pn_TrSuplierLine.setBackground(new Color(255, 255, 255));
 
         pn_utama.removeAll();
-        pn_utama.add(new MenuDashboard());
+        pn_utama.add(new MenuTransaksiSuplier());
         pn_utama.repaint();
         pn_utama.revalidate();
     }//GEN-LAST:event_pn_TrSuplierMainMouseClicked
@@ -732,7 +732,7 @@ public class MenutView extends javax.swing.JFrame {
         pn_LpKeuanganLine.setBackground(new Color(255, 255, 255));
 
         pn_utama.removeAll();
-        pn_utama.add(new MenuDashboard());
+        pn_utama.add(new MenuLaporanKeuangan());
         pn_utama.repaint();
         pn_utama.revalidate();
     }//GEN-LAST:event_pn_LpKeuanganMainMouseClicked
@@ -752,7 +752,7 @@ public class MenutView extends javax.swing.JFrame {
         pn_LpTransaksiLine.setBackground(new Color(255, 255, 255));
 
         pn_utama.removeAll();
-        pn_utama.add(new MenuDashboard());
+        pn_utama.add(new MenuLaporanTransaksi());
         pn_utama.repaint();
         pn_utama.revalidate();
     }//GEN-LAST:event_pn_LpTransaksiMainMouseClicked
