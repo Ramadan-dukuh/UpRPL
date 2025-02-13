@@ -71,6 +71,11 @@ public class MenuTransaksiPemesanan extends javax.swing.JPanel {
 
         btnPerbarui.setBackground(new java.awt.Color(0, 0, 51));
         btnPerbarui.setText("PERBARUI");
+        btnPerbarui.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnPerbaruiActionPerformed(evt);
+            }
+        });
 
         jTextField2.setText("    Pencarian");
         jTextField2.setBorder(javax.swing.BorderFactory.createMatteBorder(0, 0, 1, 0, new java.awt.Color(0, 0, 0)));
@@ -290,6 +295,10 @@ public class MenuTransaksiPemesanan extends javax.swing.JPanel {
     private void jTextField2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextField2ActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_jTextField2ActionPerformed
+
+    private void btnPerbaruiActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnPerbaruiActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_btnPerbaruiActionPerformed
 
     public static void main(String args[]) {
         /* Set the Nimbus look and feel */
