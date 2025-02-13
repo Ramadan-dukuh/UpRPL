@@ -61,10 +61,10 @@
                                   <Component id="pn_TrSuplierMain" alignment="0" pref="243" max="32767" attributes="0"/>
                                   <Component id="lb_Laporan" min="-2" max="-2" attributes="0"/>
                               </Group>
-                              <Component id="pn_LpKeuanganMain" alignment="0" pref="246" max="32767" attributes="0"/>
-                              <Component id="pn_LpTransaksiMain" alignment="1" pref="246" max="32767" attributes="0"/>
+                              <Component id="pn_LpKeuanganMain" alignment="0" pref="248" max="32767" attributes="0"/>
+                              <Component id="pn_LpTransaksiMain" alignment="1" pref="248" max="32767" attributes="0"/>
                           </Group>
-                          <EmptySpace pref="35" max="32767" attributes="0"/>
+                          <EmptySpace pref="36" max="32767" attributes="0"/>
                       </Group>
                       <Group type="102" alignment="0" attributes="0">
                           <Component id="jLabel1" min="-2" pref="75" max="-2" attributes="0"/>
@@ -609,7 +609,7 @@
                   <Color blue="99" green="99" red="99" type="rgb"/>
                 </Property>
                 <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
-                  <Image iconType="3" name="/Image/icProduct-transformed.png"/>
+                  <Image iconType="3" name="/Image/payments.png"/>
                 </Property>
               </Properties>
             </Component>
@@ -702,7 +702,7 @@
                   <Color blue="99" green="99" red="99" type="rgb"/>
                 </Property>
                 <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
-                  <Image iconType="3" name="/Image/icProduct-transformed.png"/>
+                  <Image iconType="3" name="/Image/history.png"/>
                 </Property>
               </Properties>
             </Component>

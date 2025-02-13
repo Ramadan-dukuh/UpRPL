@@ -281,7 +281,7 @@ public class MenutView extends javax.swing.JFrame {
                 .addComponent(lb_iconTrPelanggan, javax.swing.GroupLayout.PREFERRED_SIZE, 26, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(18, 18, 18)
                 .addComponent(btn_TrPelanggan)
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addContainerGap(12, Short.MAX_VALUE))
         );
         pn_TrPelangganMainLayout.setVerticalGroup(
             pn_TrPelangganMainLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -390,7 +390,7 @@ public class MenutView extends javax.swing.JFrame {
 
         lb_iconLpKeuangan.setFont(new java.awt.Font("Verdana", 0, 15)); // NOI18N
         lb_iconLpKeuangan.setForeground(new java.awt.Color(153, 153, 153));
-        lb_iconLpKeuangan.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Image/icProduct-transformed.png"))); // NOI18N
+        lb_iconLpKeuangan.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Image/payments.png"))); // NOI18N
 
         btn_LpKeuangan.setFont(new java.awt.Font("Verdana", 1, 14)); // NOI18N
         btn_LpKeuangan.setForeground(new java.awt.Color(51, 51, 51));
@@ -453,7 +453,7 @@ public class MenutView extends javax.swing.JFrame {
 
         lb_iconLpTransaksi.setFont(new java.awt.Font("Verdana", 0, 15)); // NOI18N
         lb_iconLpTransaksi.setForeground(new java.awt.Color(153, 153, 153));
-        lb_iconLpTransaksi.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Image/icProduct-transformed.png"))); // NOI18N
+        lb_iconLpTransaksi.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Image/history.png"))); // NOI18N
 
         btn_LpTransaksi.setFont(new java.awt.Font("Verdana", 1, 14)); // NOI18N
         btn_LpTransaksi.setForeground(new java.awt.Color(51, 51, 51));
@@ -506,9 +506,9 @@ public class MenutView extends javax.swing.JFrame {
                                 .addComponent(pn_TrPelangganMain, javax.swing.GroupLayout.DEFAULT_SIZE, 243, Short.MAX_VALUE)
                                 .addComponent(pn_TrSuplierMain, javax.swing.GroupLayout.DEFAULT_SIZE, 243, Short.MAX_VALUE)
                                 .addComponent(lb_Laporan))
-                            .addComponent(pn_LpKeuanganMain, javax.swing.GroupLayout.DEFAULT_SIZE, 243, Short.MAX_VALUE)
-                            .addComponent(pn_LpTransaksiMain, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, 243, Short.MAX_VALUE))
-                        .addContainerGap(35, Short.MAX_VALUE))
+                            .addComponent(pn_LpKeuanganMain, javax.swing.GroupLayout.DEFAULT_SIZE, 248, Short.MAX_VALUE)
+                            .addComponent(pn_LpTransaksiMain, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, 248, Short.MAX_VALUE))
+                        .addContainerGap(36, Short.MAX_VALUE))
                     .addGroup(pn_kiriLayout.createSequentialGroup()
                         .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 75, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
@@ -543,7 +543,7 @@ public class MenutView extends javax.swing.JFrame {
                 .addComponent(pn_LpKeuanganMain, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(15, 15, 15)
                 .addComponent(pn_LpTransaksiMain, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(96, Short.MAX_VALUE))
+                .addContainerGap(155, Short.MAX_VALUE))
         );
 
         getContentPane().add(pn_kiri, java.awt.BorderLayout.LINE_START);
@@ -612,7 +612,7 @@ public class MenutView extends javax.swing.JFrame {
             .addGroup(pn_dasarLayout.createSequentialGroup()
                 .addComponent(jPanelGradient1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(20, 20, 20)
-                .addComponent(pn_utama, javax.swing.GroupLayout.PREFERRED_SIZE, 621, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(pn_utama, javax.swing.GroupLayout.PREFERRED_SIZE, 680, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(20, 20, 20))
         );
 
