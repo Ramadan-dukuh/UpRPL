@@ -6,6 +6,9 @@
 package View;
 
 import Dao.ProdukDao;
+import LookUp.AddProduk;
+import java.awt.Color;
+import javax.swing.table.DefaultTableModel;
 
 /**
  *
@@ -13,16 +16,18 @@ import Dao.ProdukDao;
  */
 public class MenuProduk extends javax.swing.JPanel {
 
-    /**
-     * Creates new form MenuProduk
-     */
+    ProdukDao produkDao = new ProdukDao(); // DAO untuk ambil data
+    
     public MenuProduk() {
         initComponents();
         
-        ProdukDao produkDao = new ProdukDao();
-        tblProduct.setModel(produkDao.getProduct());
+        tampilData(""); // Menampilkan semua produk saat pertama kali dijalankan
     }
 
+    private void tampilData(String keyword) {
+        DefaultTableModel model = produkDao.getProductBySearch(keyword);
+        tblProduct.setModel(model);
+    }
     /**
      * This method is called from within the constructor to initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is always
@@ -38,6 +43,8 @@ public class MenuProduk extends javax.swing.JPanel {
         btnAdd = new javax.swing.JButton();
         jLabel1 = new javax.swing.JLabel();
 
+        setBackground(new java.awt.Color(255, 255, 255));
+
         tblProduct.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
                 {null, null, null, null},
@@ -52,6 +59,14 @@ public class MenuProduk extends javax.swing.JPanel {
         jScrollPane1.setViewportView(tblProduct);
 
         txtSearch.setText("Search");
+        txtSearch.addFocusListener(new java.awt.event.FocusAdapter() {
+            public void focusGained(java.awt.event.FocusEvent evt) {
+                txtSearchFocusGained(evt);
+            }
+            public void focusLost(java.awt.event.FocusEvent evt) {
+                txtSearchFocusLost(evt);
+            }
+        });
         txtSearch.addKeyListener(new java.awt.event.KeyAdapter() {
             public void keyReleased(java.awt.event.KeyEvent evt) {
                 txtSearchKeyReleased(evt);
@@ -103,12 +118,27 @@ public class MenuProduk extends javax.swing.JPanel {
     }// </editor-fold>//GEN-END:initComponents
 
     private void btnAddActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAddActionPerformed
-        // TODO add your handling code here:
+       AddProduk addProdukForm = new AddProduk();
+        addProdukForm.setVisible(true);
     }//GEN-LAST:event_btnAddActionPerformed
 
     private void txtSearchKeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtSearchKeyReleased
-        // TODO add your handling code here:
+        tampilData(txtSearch.getText()); // Update tabel saat user mengetik di pencarian
     }//GEN-LAST:event_txtSearchKeyReleased
+
+    private void txtSearchFocusGained(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_txtSearchFocusGained
+        if(txtSearch.getText().equals("Search")) {
+        txtSearch.setText("");
+        txtSearch.setForeground(Color.BLACK);
+        }
+    }//GEN-LAST:event_txtSearchFocusGained
+
+    private void txtSearchFocusLost(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_txtSearchFocusLost
+        if(txtSearch.getText().trim().isEmpty()) {
+        txtSearch.setText("Search");
+        txtSearch.setForeground(Color.GRAY);
+        }
+    }//GEN-LAST:event_txtSearchFocusLost
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
