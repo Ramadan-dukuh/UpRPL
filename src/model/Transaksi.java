@@ -5,37 +5,31 @@
  */
 package model;
 
+import java.sql.Date;
+
 /**
  *
  * @author Hp
  */
 public class Transaksi {
-    private String idTransaksi;
-    private String harga;
-    private String tglTransaksi;
+    private String noOrder;
+    private Date tglTransaksi;
     private String nmPelanggan;
+    private Integer total;
 
-    public String getIdTransaksi() {
-        return idTransaksi;
+    public String getNoOrder() {
+        return noOrder;
     }
 
-    public void setIdTransaksi(String idTransaksi) {
-        this.idTransaksi = idTransaksi;
+    public void setNoOrder(String noOrder) {
+        this.noOrder = noOrder;
     }
 
-    public String getHarga() {
-        return harga;
-    }
-
-    public void setHarga(String harga) {
-        this.harga = harga;
-    }
-
-    public String getTglTransaksi() {
+    public Date getTglTransaksi() {
         return tglTransaksi;
     }
 
-    public void setTglTransaksi(String tglTransaksi) {
+    public void setTglTransaksi(Date tglTransaksi) {
         this.tglTransaksi = tglTransaksi;
     }
 
@@ -47,5 +41,11 @@ public class Transaksi {
         this.nmPelanggan = nmPelanggan;
     }
 
-    
+    public Integer getTotal() {
+        return total;
+    }
+
+    public void setTotal(Integer total) {
+        this.total = total;
+    }
 }
