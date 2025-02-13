@@ -264,7 +264,7 @@ public class MenutView extends javax.swing.JFrame {
 
         lb_iconTrPelanggan.setFont(new java.awt.Font("Verdana", 0, 15)); // NOI18N
         lb_iconTrPelanggan.setForeground(new java.awt.Color(153, 153, 153));
-        lb_iconTrPelanggan.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Image/icProduct-transformed.png"))); // NOI18N
+        lb_iconTrPelanggan.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Image/transaksiPlgn.png"))); // NOI18N
 
         btn_TrPelanggan.setFont(new java.awt.Font("Verdana", 1, 14)); // NOI18N
         btn_TrPelanggan.setForeground(new java.awt.Color(51, 51, 51));
@@ -327,7 +327,7 @@ public class MenutView extends javax.swing.JFrame {
 
         lb_iconTrSuplier.setFont(new java.awt.Font("Verdana", 0, 15)); // NOI18N
         lb_iconTrSuplier.setForeground(new java.awt.Color(153, 153, 153));
-        lb_iconTrSuplier.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Image/icProduct-transformed.png"))); // NOI18N
+        lb_iconTrSuplier.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Image/trSup.png"))); // NOI18N
 
         btn_TrSuplier.setFont(new java.awt.Font("Verdana", 1, 14)); // NOI18N
         btn_TrSuplier.setForeground(new java.awt.Color(51, 51, 51));
