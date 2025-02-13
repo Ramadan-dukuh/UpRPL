@@ -13,9 +13,9 @@ public class Produk {
     private String idProduk;
     private String nmProduk;
     private String jenisProduk;
-    private String hargaBeli;
-    private String hargaJual;
-    private String stock;
+    private Integer hargaBeli;
+    private Integer hargaJual;
+    private Integer stock;
 
     public String getIdProduk() {
         return idProduk;
@@ -41,29 +41,30 @@ public class Produk {
         this.jenisProduk = jenisProduk;
     }
 
-    public String getHargaBeli() {
+    public Integer getHargaBeli() {
         return hargaBeli;
     }
 
-    public void setHargaBeli(String hargaBeli) {
+    public void setHargaBeli(Integer hargaBeli) {
         this.hargaBeli = hargaBeli;
     }
 
-    public String getHargaJual() {
+    public Integer getHargaJual() {
         return hargaJual;
     }
 
-    public void setHargaJual(String hargaJual) {
+    public void setHargaJual(Integer hargaJual) {
         this.hargaJual = hargaJual;
     }
 
-    public String getStock() {
+    public Integer getStock() {
         return stock;
     }
 
-    public void setStock(String stock) {
+    public void setStock(Integer stock) {
         this.stock = stock;
     }
-    
+
+
     
 }

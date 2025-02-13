@@ -61,8 +61,8 @@
                                   <Component id="pn_TrSuplierMain" alignment="0" pref="243" max="32767" attributes="0"/>
                                   <Component id="lb_Laporan" min="-2" max="-2" attributes="0"/>
                               </Group>
-                              <Component id="pn_LpKeuanganMain" alignment="0" pref="243" max="32767" attributes="0"/>
-                              <Component id="pn_LpTransaksiMain" alignment="1" pref="243" max="32767" attributes="0"/>
+                              <Component id="pn_LpKeuanganMain" alignment="0" pref="246" max="32767" attributes="0"/>
+                              <Component id="pn_LpTransaksiMain" alignment="1" pref="246" max="32767" attributes="0"/>
                           </Group>
                           <EmptySpace pref="35" max="32767" attributes="0"/>
                       </Group>
@@ -369,7 +369,7 @@
                       <Component id="lb_iconTrPelanggan" min="-2" pref="26" max="-2" attributes="0"/>
                       <EmptySpace type="separate" max="-2" attributes="0"/>
                       <Component id="btn_TrPelanggan" min="-2" max="-2" attributes="0"/>
-                      <EmptySpace max="32767" attributes="0"/>
+                      <EmptySpace pref="12" max="32767" attributes="0"/>
                   </Group>
               </Group>
             </DimensionLayout>
