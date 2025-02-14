@@ -570,6 +570,7 @@ public class MenutView extends javax.swing.JFrame {
             }
         });
 
+        lblKelas.setForeground(new java.awt.Color(255, 255, 255));
         lblKelas.setText("jLabel2");
 
         javax.swing.GroupLayout jPanelGradient1Layout = new javax.swing.GroupLayout(jPanelGradient1);
