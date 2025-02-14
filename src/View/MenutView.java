@@ -110,6 +110,7 @@ public class MenutView extends javax.swing.JFrame {
         lb_Laporan.setForeground(new java.awt.Color(153, 153, 153));
         lb_Laporan.setText("Transaksi");
 
+        pn_DashboardMain.setPreferredSize(new java.awt.Dimension(228, 60));
         pn_DashboardMain.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 pn_DashboardMainMouseClicked(evt);
@@ -169,7 +170,7 @@ public class MenutView extends javax.swing.JFrame {
                     .addGroup(pn_DashboardMainLayout.createSequentialGroup()
                         .addGap(8, 8, 8)
                         .addComponent(btn_Dashboard)
-                        .addGap(0, 8, Short.MAX_VALUE)))
+                        .addGap(0, 22, Short.MAX_VALUE)))
                 .addContainerGap())
         );
 
@@ -501,14 +502,14 @@ public class MenutView extends javax.swing.JFrame {
                             .addComponent(lb_Transaksi)
                             .addGroup(pn_kiriLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                                 .addComponent(lb_MasterData)
-                                .addComponent(pn_DashboardMain, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                .addComponent(pn_DashboardMain, javax.swing.GroupLayout.DEFAULT_SIZE, 243, Short.MAX_VALUE)
                                 .addComponent(pn_ProductMain, javax.swing.GroupLayout.DEFAULT_SIZE, 243, Short.MAX_VALUE)
                                 .addComponent(pn_TrPelangganMain, javax.swing.GroupLayout.DEFAULT_SIZE, 243, Short.MAX_VALUE)
                                 .addComponent(pn_TrSuplierMain, javax.swing.GroupLayout.DEFAULT_SIZE, 243, Short.MAX_VALUE)
                                 .addComponent(lb_Laporan))
-                            .addComponent(pn_LpKeuanganMain, javax.swing.GroupLayout.DEFAULT_SIZE, 248, Short.MAX_VALUE)
-                            .addComponent(pn_LpTransaksiMain, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, 248, Short.MAX_VALUE))
-                        .addContainerGap(36, Short.MAX_VALUE))
+                            .addComponent(pn_LpKeuanganMain, javax.swing.GroupLayout.DEFAULT_SIZE, 246, Short.MAX_VALUE)
+                            .addComponent(pn_LpTransaksiMain, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, 246, Short.MAX_VALUE))
+                        .addContainerGap(38, Short.MAX_VALUE))
                     .addGroup(pn_kiriLayout.createSequentialGroup()
                         .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 75, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
@@ -543,7 +544,7 @@ public class MenutView extends javax.swing.JFrame {
                 .addComponent(pn_LpKeuanganMain, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(15, 15, 15)
                 .addComponent(pn_LpTransaksiMain, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(155, Short.MAX_VALUE))
+                .addContainerGap(96, Short.MAX_VALUE))
         );
 
         getContentPane().add(pn_kiri, java.awt.BorderLayout.LINE_START);
@@ -612,7 +613,7 @@ public class MenutView extends javax.swing.JFrame {
             .addGroup(pn_dasarLayout.createSequentialGroup()
                 .addComponent(jPanelGradient1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(20, 20, 20)
-                .addComponent(pn_utama, javax.swing.GroupLayout.PREFERRED_SIZE, 680, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(pn_utama, javax.swing.GroupLayout.PREFERRED_SIZE, 621, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(20, 20, 20))
         );
 

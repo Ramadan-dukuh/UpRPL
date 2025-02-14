@@ -32,10 +32,9 @@ public class MenuLaporanKeuangan extends javax.swing.JPanel {
         jLabel5 = new javax.swing.JLabel();
         jButton1 = new javax.swing.JButton();
         jLabel1 = new javax.swing.JLabel();
-        jPanelGradient1 = new pallet.JPanelGradient();
-        jLabel2 = new javax.swing.JLabel();
         jScrollPane1 = new javax.swing.JScrollPane();
         tblKeuangan = new javax.swing.JTable();
+        jLabel2 = new javax.swing.JLabel();
 
         TBLnilai.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
@@ -51,6 +50,7 @@ public class MenuLaporanKeuangan extends javax.swing.JPanel {
         scrNilai.setViewportView(TBLnilai);
 
         setBackground(new java.awt.Color(255, 255, 255));
+        setPreferredSize(new java.awt.Dimension(1038, 621));
 
         jLabel5.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
 
@@ -64,30 +64,6 @@ public class MenuLaporanKeuangan extends javax.swing.JPanel {
         });
 
         jLabel1.setFont(new java.awt.Font("Tahoma", 1, 48)); // NOI18N
-
-        jPanelGradient1.setBackground(new java.awt.Color(153, 153, 153));
-        jPanelGradient1.setColorEnd(new java.awt.Color(0, 204, 204));
-        jPanelGradient1.setColorStart(new java.awt.Color(0, 51, 255));
-
-        jLabel2.setFont(new java.awt.Font("Tahoma", 1, 36)); // NOI18N
-        jLabel2.setText("Laporan Keuangan");
-
-        javax.swing.GroupLayout jPanelGradient1Layout = new javax.swing.GroupLayout(jPanelGradient1);
-        jPanelGradient1.setLayout(jPanelGradient1Layout);
-        jPanelGradient1Layout.setHorizontalGroup(
-            jPanelGradient1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanelGradient1Layout.createSequentialGroup()
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addComponent(jLabel2, javax.swing.GroupLayout.PREFERRED_SIZE, 355, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(333, 333, 333))
-        );
-        jPanelGradient1Layout.setVerticalGroup(
-            jPanelGradient1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanelGradient1Layout.createSequentialGroup()
-                .addGap(9, 9, 9)
-                .addComponent(jLabel2, javax.swing.GroupLayout.DEFAULT_SIZE, 67, Short.MAX_VALUE)
-                .addContainerGap())
-        );
 
         tblKeuangan.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
@@ -103,6 +79,9 @@ public class MenuLaporanKeuangan extends javax.swing.JPanel {
         ));
         jScrollPane1.setViewportView(tblKeuangan);
 
+        jLabel2.setFont(new java.awt.Font("Tahoma", 1, 36)); // NOI18N
+        jLabel2.setText("Laporan Keuangan");
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
         this.setLayout(layout);
         layout.setHorizontalGroup(
@@ -113,13 +92,14 @@ public class MenuLaporanKeuangan extends javax.swing.JPanel {
                 .addGap(0, 0, Short.MAX_VALUE))
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                    .addGroup(layout.createSequentialGroup()
-                        .addGap(0, 0, Short.MAX_VALUE)
-                        .addComponent(jButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 245, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addComponent(jPanelGradient1, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addGroup(javax.swing.GroupLayout.Alignment.LEADING, layout.createSequentialGroup()
                         .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 1057, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(0, 0, Short.MAX_VALUE)))
+                        .addGap(0, 0, Short.MAX_VALUE))
+                    .addGroup(layout.createSequentialGroup()
+                        .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addComponent(jLabel2, javax.swing.GroupLayout.PREFERRED_SIZE, 355, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(100, 100, 100)
+                        .addComponent(jButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 245, javax.swing.GroupLayout.PREFERRED_SIZE)))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jLabel1))
         );
@@ -131,9 +111,11 @@ public class MenuLaporanKeuangan extends javax.swing.JPanel {
                         .addGap(317, 317, 317)
                         .addComponent(jLabel1))
                     .addGroup(layout.createSequentialGroup()
-                        .addComponent(jPanelGradient1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(18, 18, 18)
-                        .addComponent(jButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 48, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(layout.createSequentialGroup()
+                                .addGap(100, 100, 100)
+                                .addComponent(jButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 48, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addComponent(jLabel2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                         .addGap(26, 26, 26)
                         .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 1127, javax.swing.GroupLayout.PREFERRED_SIZE)))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
@@ -153,7 +135,6 @@ public class MenuLaporanKeuangan extends javax.swing.JPanel {
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel5;
-    private pallet.JPanelGradient jPanelGradient1;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JScrollPane scrNilai;
     private javax.swing.JTable tblKeuangan;

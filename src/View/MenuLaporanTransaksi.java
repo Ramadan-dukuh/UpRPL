@@ -5,17 +5,26 @@
  */
 package View;
 
+import Dao.LpTransaksiDao;
+import java.awt.Color;
+import javax.swing.table.DefaultTableModel;
+
 /**
  *
  * @author Hp
  */
 public class MenuLaporanTransaksi extends javax.swing.JPanel {
 
-    /**
-     * Creates new form MenuLaporanTransaksi
-     */
+    LpTransaksiDao lpTransaksiDao = new LpTransaksiDao();
+    
     public MenuLaporanTransaksi() {
         initComponents();
+     tampilData(""); // Menampilkan semua produk saat pertama kali dijalankan
+    }
+
+    private void tampilData(String keyword) {
+        DefaultTableModel model = lpTransaksiDao.getTransaksiBySearch(keyword);
+        tblTransaksi.setModel(model);
     }
 
     /**
@@ -27,19 +36,104 @@ public class MenuLaporanTransaksi extends javax.swing.JPanel {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
+        jLabel1 = new javax.swing.JLabel();
+        jScrollPane1 = new javax.swing.JScrollPane();
+        tblTransaksi = new javax.swing.JTable();
+        txtSearch = new javax.swing.JTextField();
+
+        setPreferredSize(new java.awt.Dimension(1038, 621));
+
+        jLabel1.setFont(new java.awt.Font("sansserif", 0, 24)); // NOI18N
+        jLabel1.setText("Laporan Transaksi");
+
+        tblTransaksi.setModel(new javax.swing.table.DefaultTableModel(
+            new Object [][] {
+                {null, null, null, null},
+                {null, null, null, null},
+                {null, null, null, null},
+                {null, null, null, null}
+            },
+            new String [] {
+                "Title 1", "Title 2", "Title 3", "Title 4"
+            }
+        ));
+        jScrollPane1.setViewportView(tblTransaksi);
+
+        txtSearch.setText("Search");
+        txtSearch.addFocusListener(new java.awt.event.FocusAdapter() {
+            public void focusGained(java.awt.event.FocusEvent evt) {
+                txtSearchFocusGained(evt);
+            }
+            public void focusLost(java.awt.event.FocusEvent evt) {
+                txtSearchFocusLost(evt);
+            }
+        });
+        txtSearch.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                txtSearchActionPerformed(evt);
+            }
+        });
+        txtSearch.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyReleased(java.awt.event.KeyEvent evt) {
+                txtSearchKeyReleased(evt);
+            }
+        });
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
         this.setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 1038, Short.MAX_VALUE)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(jLabel1)
+                .addGap(411, 411, 411))
+            .addGroup(layout.createSequentialGroup()
+                .addGap(80, 80, 80)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(txtSearch, javax.swing.GroupLayout.PREFERRED_SIZE, 678, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 841, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(0, 117, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 744, Short.MAX_VALUE)
+            .addGroup(layout.createSequentialGroup()
+                .addGap(56, 56, 56)
+                .addComponent(jLabel1)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 143, Short.MAX_VALUE)
+                .addComponent(txtSearch, javax.swing.GroupLayout.PREFERRED_SIZE, 32, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(39, 39, 39)
+                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(14, 14, 14))
         );
     }// </editor-fold>//GEN-END:initComponents
 
+    private void txtSearchFocusGained(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_txtSearchFocusGained
+        if(txtSearch.getText().equals("Search")) {
+            txtSearch.setText("");
+            txtSearch.setForeground(Color.BLACK);
+        }
+    }//GEN-LAST:event_txtSearchFocusGained
+
+    private void txtSearchFocusLost(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_txtSearchFocusLost
+        if(txtSearch.getText().trim().isEmpty()) {
+            txtSearch.setText("Search");
+            txtSearch.setForeground(Color.GRAY);
+        }
+    }//GEN-LAST:event_txtSearchFocusLost
+
+    private void txtSearchKeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtSearchKeyReleased
+        tampilData(txtSearch.getText()); // Update tabel saat user mengetik di pencarian
+    }//GEN-LAST:event_txtSearchKeyReleased
+
+    private void txtSearchActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtSearchActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_txtSearchActionPerformed
+
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JLabel jLabel1;
+    private javax.swing.JScrollPane jScrollPane1;
+    private javax.swing.JTable tblTransaksi;
+    private javax.swing.JTextField txtSearch;
     // End of variables declaration//GEN-END:variables
 }

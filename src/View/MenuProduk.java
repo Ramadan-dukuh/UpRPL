@@ -67,6 +67,11 @@ public class MenuProduk extends javax.swing.JPanel {
                 txtSearchFocusLost(evt);
             }
         });
+        txtSearch.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                txtSearchActionPerformed(evt);
+            }
+        });
         txtSearch.addKeyListener(new java.awt.event.KeyAdapter() {
             public void keyReleased(java.awt.event.KeyEvent evt) {
                 txtSearchKeyReleased(evt);
@@ -139,6 +144,10 @@ public class MenuProduk extends javax.swing.JPanel {
         txtSearch.setForeground(Color.GRAY);
         }
     }//GEN-LAST:event_txtSearchFocusLost
+
+    private void txtSearchActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtSearchActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_txtSearchActionPerformed
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
