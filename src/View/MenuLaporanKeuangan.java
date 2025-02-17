@@ -5,17 +5,23 @@
  */
 package View;
 
+import Dao.LpKeuanganDao;
+
 /**
  *
  * @author Hp
  */
 public class MenuLaporanKeuangan extends javax.swing.JPanel {
-
+     LpKeuanganDao laporan = new LpKeuanganDao();
     /**
      * Creates new form MenuLaporanKeuangan
      */
     public MenuLaporanKeuangan() {
         initComponents();
+         loadTable();
+    }
+    private void loadTable() {
+        tblKeuangan.setModel(laporan.getTableLaporanKeuangan());
     }
 
     /**
