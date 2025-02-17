@@ -36,8 +36,6 @@ public class MenuDashboard extends javax.swing.JPanel {
         setPreferredSize(new java.awt.Dimension(1038, 621));
 
         jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Image/UNIT PRODUCTION RPL.png"))); // NOI18N
-        jLabel1.setMaximumSize(new java.awt.Dimension(1038, 621));
-        jLabel1.setMinimumSize(new java.awt.Dimension(1038, 621));
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
         this.setLayout(layout);
@@ -47,7 +45,7 @@ public class MenuDashboard extends javax.swing.JPanel {
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+            .addComponent(jLabel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
         );
     }// </editor-fold>//GEN-END:initComponents
 

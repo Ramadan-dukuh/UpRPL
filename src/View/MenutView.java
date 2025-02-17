@@ -77,7 +77,6 @@ public class MenutView extends javax.swing.JFrame {
         lblKelas = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
-        setUndecorated(true);
         addMouseMotionListener(new java.awt.event.MouseMotionAdapter() {
             public void mouseDragged(java.awt.event.MouseEvent evt) {
                 formMouseDragged(evt);
@@ -170,7 +169,7 @@ public class MenutView extends javax.swing.JFrame {
                     .addGroup(pn_DashboardMainLayout.createSequentialGroup()
                         .addGap(8, 8, 8)
                         .addComponent(btn_Dashboard)
-                        .addGap(0, 22, Short.MAX_VALUE)))
+                        .addGap(0, 8, Short.MAX_VALUE)))
                 .addContainerGap())
         );
 
@@ -282,7 +281,7 @@ public class MenutView extends javax.swing.JFrame {
                 .addComponent(lb_iconTrPelanggan, javax.swing.GroupLayout.PREFERRED_SIZE, 26, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(18, 18, 18)
                 .addComponent(btn_TrPelanggan)
-                .addContainerGap(12, Short.MAX_VALUE))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         pn_TrPelangganMainLayout.setVerticalGroup(
             pn_TrPelangganMainLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -507,8 +506,8 @@ public class MenutView extends javax.swing.JFrame {
                                 .addComponent(pn_TrPelangganMain, javax.swing.GroupLayout.DEFAULT_SIZE, 243, Short.MAX_VALUE)
                                 .addComponent(pn_TrSuplierMain, javax.swing.GroupLayout.DEFAULT_SIZE, 243, Short.MAX_VALUE)
                                 .addComponent(lb_Laporan))
-                            .addComponent(pn_LpKeuanganMain, javax.swing.GroupLayout.DEFAULT_SIZE, 246, Short.MAX_VALUE)
-                            .addComponent(pn_LpTransaksiMain, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, 246, Short.MAX_VALUE))
+                            .addComponent(pn_LpKeuanganMain, javax.swing.GroupLayout.DEFAULT_SIZE, 243, Short.MAX_VALUE)
+                            .addComponent(pn_LpTransaksiMain, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, 243, Short.MAX_VALUE))
                         .addContainerGap(38, Short.MAX_VALUE))
                     .addGroup(pn_kiriLayout.createSequentialGroup()
                         .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 75, javax.swing.GroupLayout.PREFERRED_SIZE)
