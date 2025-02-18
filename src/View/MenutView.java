@@ -26,7 +26,6 @@ public class MenutView extends javax.swing.JFrame {
         this.kelas = kelas;
         lblKelas.setText(kelas);
     }
-
     
 
     /**
@@ -694,7 +693,7 @@ public class MenutView extends javax.swing.JFrame {
         pn_TrPelangganLine.setBackground(new Color(255, 255, 255));
 
         pn_utama.removeAll();
-        pn_utama.add(new MenuTransaksiPemesanan());
+        pn_utama.add(new MenuTransaksiPemesanan(this));
         pn_utama.repaint();
         pn_utama.revalidate();
     }//GEN-LAST:event_pn_TrPelangganMainMouseClicked

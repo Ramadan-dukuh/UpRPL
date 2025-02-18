@@ -5,16 +5,24 @@
  */
 package View;
 
+import LookUp.ShowProduk;
+import java.awt.Frame;
+import javax.swing.JFrame;
+
+
+
 /**
  *
  * @author Hp
  */
 public class MenuTransaksiPemesanan extends javax.swing.JPanel {
-
+    private JFrame frame;
+    
     /**
      * Creates new form MenuLaporanTransaksi
      */
-    public MenuTransaksiPemesanan() {
+    public MenuTransaksiPemesanan(JFrame parent) {
+        frame = parent;
         initComponents();
     }
 
@@ -138,6 +146,11 @@ public class MenuTransaksiPemesanan extends javax.swing.JPanel {
         btnList.setBackground(new java.awt.Color(204, 204, 204));
         btnList.setForeground(new java.awt.Color(0, 0, 51));
         btnList.setText("LIST PRODUK");
+        btnList.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnListActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout tampilDataLayout = new javax.swing.GroupLayout(tampilData);
         tampilData.setLayout(tampilDataLayout);
@@ -248,6 +261,12 @@ public class MenuTransaksiPemesanan extends javax.swing.JPanel {
         // TODO add your handling code here:
     }//GEN-LAST:event_btnPerbaruiActionPerformed
 
+    private void btnListActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnListActionPerformed
+        // TODO add your handling code here:
+          ShowProduk ShowProdukForm = new ShowProduk(frame, true); // Tambahkan 'this' dan 'true'
+    ShowProdukForm.setVisible(true);
+    }//GEN-LAST:event_btnListActionPerformed
+
     public static void main(String args[]) {
         /* Set the Nimbus look and feel */
         //<editor-fold defaultstate="collapsed" desc=" Look and feel setting code (optional) ">
@@ -275,7 +294,7 @@ public class MenuTransaksiPemesanan extends javax.swing.JPanel {
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
-                new MenuTransaksiPemesanan().setVisible(true);
+//                new MenuTransaksiPemesanan(frame).setVisible(true);
             }
         });
     }
