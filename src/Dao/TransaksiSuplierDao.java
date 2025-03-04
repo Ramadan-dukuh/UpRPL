@@ -58,7 +58,7 @@ public class TransaksiSuplierDao {
         String query = "INSERT INTO transaksi_suplier(kodeSuplier, id_trsup, idProduk, jumlah) VALUES (?, ?, ?, ?)";
 
         try (PreparedStatement ps = kon.prepareStatement(query)) {
-            ps.setString(1, transaksi.getKodeSuplier());
+            ps.setString(1, transaksi.getNmSuplier());
             ps.setString(2, transaksi.getId_trsup());
             ps.setString(3, transaksi.getId_produk());
             ps.setString(4, transaksi.getJumlah());

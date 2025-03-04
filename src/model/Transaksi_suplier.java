@@ -5,22 +5,26 @@
  */
 package model;
 
+import java.sql.Date;
+
 /**
  *
  * @author Hp
  */
 public class Transaksi_suplier {
-    private String kodeSuplier;
+    private String nmSuplier;
     private String id_trsup;
     private String id_produk;
     private String jumlah;
+    private String status;
+    private Date tglRestock;
 
-    public String getKodeSuplier() {
-        return kodeSuplier;
+    public String getNmSuplier() {
+        return nmSuplier;
     }
 
-    public void setKodeSuplier(String kodeSuplier) {
-        this.kodeSuplier = kodeSuplier;
+    public void setNmSuplier(String nmSuplier) {
+        this.nmSuplier = nmSuplier;
     }
 
     public String getId_trsup() {
@@ -45,6 +49,22 @@ public class Transaksi_suplier {
 
     public void setJumlah(String jumlah) {
         this.jumlah = jumlah;
+    }
+
+    public String getStatus() {
+        return status;
+    }
+
+    public void setStatus(String status) {
+        this.status = status;
+    }
+
+    public Date getTglRestock() {
+        return tglRestock;
+    }
+
+    public void setTglRestock(Date tglRestock) {
+        this.tglRestock = tglRestock;
     }
     
     

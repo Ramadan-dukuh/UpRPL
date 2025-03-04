@@ -8,12 +8,17 @@ package View;
 import Dao.ProdukDao;
 import LookUp.AddProduk;
 import java.awt.Color;
+import java.sql.Connection;
+import java.sql.PreparedStatement;
+import java.sql.SQLException;
 import javax.swing.DefaultComboBoxModel;
 import javax.swing.JButton;
 import javax.swing.JComboBox;
+import javax.swing.JOptionPane;
 import javax.swing.JTable;
 import javax.swing.SwingUtilities;
 import javax.swing.table.DefaultTableModel;
+import static koneksi.Koneksi.getConnection;
 
 /**
  *
@@ -22,6 +27,7 @@ import javax.swing.table.DefaultTableModel;
 public class MenuProduk extends javax.swing.JPanel {
     
     ProdukDao produkDao = new ProdukDao(); // DAO untuk ambil data
+    Connection kon;
     
     public MenuProduk() {
         initComponents();
@@ -80,6 +86,11 @@ public class MenuProduk extends javax.swing.JPanel {
                 "Title 1", "Title 2", "Title 3", "Title 4"
             }
         ));
+        tblProduct.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                tblProductMouseClicked(evt);
+            }
+        });
         jScrollPane1.setViewportView(tblProduct);
 
         txtSearch.setText("Search");
@@ -174,10 +185,51 @@ public class MenuProduk extends javax.swing.JPanel {
     ShowProdukForm.setVisible(true);
     }//GEN-LAST:event_btnAddActionPerformed
 
+    private void tblProductMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_tblProductMouseClicked
+        kon = getConnection();
+        if (evt.getClickCount() == 2) { // Deteksi double-click
+        int row = tblProduct.getSelectedRow();
+        if (row == -1) {
+            JOptionPane.showMessageDialog(this, "Pilih produk yang ingin direstock!", "Peringatan", JOptionPane.WARNING_MESSAGE);
+            return;
+        }
+
+        String namaProduk = tblProduct.getValueAt(row, 1).toString(); // Asumsi kolom 1 = nama produk
+        int stok = Integer.parseInt(tblProduct.getValueAt(row, 3).toString()); // Asumsi kolom 3 = stok
+
+        if (stok >= 10) {
+            JOptionPane.showMessageDialog(this, "Stok masih cukup, tidak perlu restock!", "Info", JOptionPane.INFORMATION_MESSAGE);
+            return;
+        }
+
+        int konfirmasi = JOptionPane.showConfirmDialog(
+            this, 
+            "Apakah Anda ingin mengirim permintaan restock untuk produk '" + namaProduk + "'?", 
+            "Konfirmasi Restock", 
+            JOptionPane.YES_NO_OPTION
+        );
+
+        if (konfirmasi == JOptionPane.YES_OPTION) {
+            try {
+                String sql = "INSERT INTO permintaan_restock (produk, jumlah, status) VALUES (?, ?, ?)";
+                PreparedStatement ps = kon.prepareStatement(sql);
+                ps.setString(1, namaProduk);
+                ps.setInt(2, 10); // Misal minta restock 10 item
+                ps.setString(3, "Pending");
+
+                ps.executeUpdate();
+                JOptionPane.showMessageDialog(this, "Permintaan restock berhasil dikirim!", "Sukses", JOptionPane.INFORMATION_MESSAGE);
+            } catch (SQLException e) {
+                JOptionPane.showMessageDialog(this, "Gagal mengirim permintaan restock: " + e.getMessage(), "Error", JOptionPane.ERROR_MESSAGE);
+            }
+        }
+    }
+    }//GEN-LAST:event_tblProductMouseClicked
+
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btnAdd;
-    private javax.swing.JComboBox<String> cbFilter;
+    public javax.swing.JComboBox<String> cbFilter;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JTable tblProduct;
