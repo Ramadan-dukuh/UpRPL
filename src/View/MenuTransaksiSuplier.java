@@ -7,6 +7,7 @@ package View;
 
 import Dao.TransaksiSuplierDao;
 import javax.swing.table.DefaultTableModel;
+import model.Transaksi_suplier;
 
 /**
  *
@@ -35,18 +36,18 @@ public class MenuTransaksiSuplier extends javax.swing.JPanel {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        jTextField1 = new javax.swing.JTextField();
+        itemJumlah = new javax.swing.JTextField();
         jLabel2 = new javax.swing.JLabel();
         jLabel1 = new javax.swing.JLabel();
         jLabel3 = new javax.swing.JLabel();
-        jTextField2 = new javax.swing.JTextField();
+        itemIdProduk = new javax.swing.JTextField();
         itemKode = new javax.swing.JTextField();
-        jButton1 = new javax.swing.JButton();
+        btnBuy = new javax.swing.JButton();
         jLabel4 = new javax.swing.JLabel();
         jLabel5 = new javax.swing.JLabel();
         jScrollPane1 = new javax.swing.JScrollPane();
         jTable1 = new javax.swing.JTable();
-        jTextField5 = new javax.swing.JTextField();
+        itemIdTransaksi = new javax.swing.JTextField();
 
         setPreferredSize(new java.awt.Dimension(1038, 621));
 
@@ -57,9 +58,9 @@ public class MenuTransaksiSuplier extends javax.swing.JPanel {
 
         jLabel3.setText("ID Transaksi");
 
-        jTextField2.addActionListener(new java.awt.event.ActionListener() {
+        itemIdProduk.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jTextField2ActionPerformed(evt);
+                itemIdProdukActionPerformed(evt);
             }
         });
 
@@ -69,7 +70,12 @@ public class MenuTransaksiSuplier extends javax.swing.JPanel {
             }
         });
 
-        jButton1.setText("Buy");
+        btnBuy.setText("Buy");
+        btnBuy.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnBuyActionPerformed(evt);
+            }
+        });
 
         jLabel4.setText("ID Produk");
 
@@ -86,11 +92,16 @@ public class MenuTransaksiSuplier extends javax.swing.JPanel {
                 "ID Produk", "Nama Produk", "Jenis Produk", "Harga Beli", "Harga Jual", "Stock"
             }
         ));
+        jTable1.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                jTable1MouseClicked(evt);
+            }
+        });
         jScrollPane1.setViewportView(jTable1);
 
-        jTextField5.addActionListener(new java.awt.event.ActionListener() {
+        itemIdTransaksi.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jTextField5ActionPerformed(evt);
+                itemIdTransaksiActionPerformed(evt);
             }
         });
 
@@ -111,7 +122,7 @@ public class MenuTransaksiSuplier extends javax.swing.JPanel {
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addGroup(layout.createSequentialGroup()
-                                .addComponent(jTextField5, javax.swing.GroupLayout.PREFERRED_SIZE, 220, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addComponent(itemIdTransaksi, javax.swing.GroupLayout.PREFERRED_SIZE, 220, javax.swing.GroupLayout.PREFERRED_SIZE)
                                 .addGap(18, 18, 18)
                                 .addComponent(jLabel5))
                             .addGroup(layout.createSequentialGroup()
@@ -120,11 +131,11 @@ public class MenuTransaksiSuplier extends javax.swing.JPanel {
                                 .addComponent(jLabel4, javax.swing.GroupLayout.PREFERRED_SIZE, 66, javax.swing.GroupLayout.PREFERRED_SIZE)))
                         .addGap(30, 30, 30)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(jTextField2, javax.swing.GroupLayout.PREFERRED_SIZE, 220, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(itemIdProduk, javax.swing.GroupLayout.PREFERRED_SIZE, 220, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addGroup(layout.createSequentialGroup()
-                                .addComponent(jTextField1, javax.swing.GroupLayout.PREFERRED_SIZE, 220, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addComponent(itemJumlah, javax.swing.GroupLayout.PREFERRED_SIZE, 220, javax.swing.GroupLayout.PREFERRED_SIZE)
                                 .addGap(18, 18, 18)
-                                .addComponent(jButton1)))
+                                .addComponent(btnBuy)))
                         .addGap(158, 158, 158))
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
                         .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 839, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -136,39 +147,86 @@ public class MenuTransaksiSuplier extends javax.swing.JPanel {
                 .addComponent(jLabel1)
                 .addGap(69, 69, 69)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jTextField2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(itemIdProduk, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jLabel2)
                     .addComponent(jLabel4)
                     .addComponent(itemKode, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(18, 18, 18)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jButton1)
-                    .addComponent(jTextField1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(btnBuy)
+                    .addComponent(itemJumlah, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jLabel5)
-                    .addComponent(jTextField5, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(itemIdTransaksi, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jLabel3))
                 .addGap(32, 32, 32)
                 .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(152, Short.MAX_VALUE))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
     }// </editor-fold>//GEN-END:initComponents
 
-    private void jTextField2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextField2ActionPerformed
+    private void itemIdProdukActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_itemIdProdukActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_jTextField2ActionPerformed
+    }//GEN-LAST:event_itemIdProdukActionPerformed
 
-    private void jTextField5ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextField5ActionPerformed
+    private void itemIdTransaksiActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_itemIdTransaksiActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_jTextField5ActionPerformed
+    }//GEN-LAST:event_itemIdTransaksiActionPerformed
 
     private void itemKodeActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_itemKodeActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_itemKodeActionPerformed
 
+    private void btnBuyActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnBuyActionPerformed
+        // TODO add your handling code here:
+        try {
+        String kodeSuplier = itemKode.getText().trim();        
+        String id_trsup = itemIdTransaksi.getText().trim();
+        String idProduk = itemIdProduk.getText().trim();
+        String jumlah = itemJumlah.getText().trim();
+
+        // Validasi input tidak boleh kosong
+        if (kodeSuplier.isEmpty() || id_trsup.isEmpty() || idProduk.isEmpty() || jumlah.isEmpty()) {
+            javax.swing.JOptionPane.showMessageDialog(this, "Semua field harus diisi!", "Error", javax.swing.JOptionPane.ERROR_MESSAGE);
+            return;
+        }
+
+        // Buat objek transaksi
+        Transaksi_suplier transaksi = new Transaksi_suplier();
+        transaksi.setKodeSuplier(kodeSuplier);
+        transaksi.setId_trsup(id_trsup);
+        transaksi.setId_produk(idProduk);
+        transaksi.setJumlah(jumlah);
+       
+        TransaksiSuplierDao dao = new TransaksiSuplierDao();
+
+        boolean sukses = dao.buatTransaksi(transaksi);
+        if (sukses) {
+            javax.swing.JOptionPane.showMessageDialog(this, "Produk berhasil disimpan!");
+        } else {
+            javax.swing.JOptionPane.showMessageDialog(this, "Gagal menyimpan produk!", "Error", javax.swing.JOptionPane.ERROR_MESSAGE);
+        }
+    } catch (Exception e) {
+        e.printStackTrace();
+        javax.swing.JOptionPane.showMessageDialog(this, "Terjadi kesalahan: " + e.getMessage(), "Error", javax.swing.JOptionPane.ERROR_MESSAGE);
+    }      
+    }//GEN-LAST:event_btnBuyActionPerformed
+
+    private void jTable1MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jTable1MouseClicked
+        // TODO add your handling code here:
+        int selectedRow = jTable1.getSelectedRow();
+        if (selectedRow != -1) {
+                    itemIdProduk.setText(jTable1.getValueAt(selectedRow, 0).toString());                    
+                    itemJumlah.setText(jTable1.getValueAt(selectedRow, 5).toString()); // Stock
+                }
+    }//GEN-LAST:event_jTable1MouseClicked
+
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JButton btnBuy;
+    private javax.swing.JTextField itemIdProduk;
+    private javax.swing.JTextField itemIdTransaksi;
+    private javax.swing.JTextField itemJumlah;
     private javax.swing.JTextField itemKode;
-    private javax.swing.JButton jButton1;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
@@ -176,8 +234,5 @@ public class MenuTransaksiSuplier extends javax.swing.JPanel {
     private javax.swing.JLabel jLabel5;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JTable jTable1;
-    private javax.swing.JTextField jTextField1;
-    private javax.swing.JTextField jTextField2;
-    private javax.swing.JTextField jTextField5;
     // End of variables declaration//GEN-END:variables
 }
