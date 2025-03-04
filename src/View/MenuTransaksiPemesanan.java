@@ -5,9 +5,11 @@
  */
 package View;
 
-import LookUp.showProduk;
+import Dao.LpTransaksiDao;
+import LookUp.ShowProduk;
 import java.awt.Frame;
 import javax.swing.JFrame;
+import javax.swing.table.DefaultTableModel;
 
 
 
@@ -16,16 +18,63 @@ import javax.swing.JFrame;
  * @author Hp
  */
 public class MenuTransaksiPemesanan extends javax.swing.JPanel {
-    private JFrame frame;
+
+    LpTransaksiDao dao = new LpTransaksiDao();
+    ShowProduk showProduk = new ShowProduk();
     
     /**
      * Creates new form MenuLaporanTransaksi
      */
-    public MenuTransaksiPemesanan(JFrame parent) {
-        frame = parent;
+    public MenuTransaksiPemesanan() {
         initComponents();
     }
+    
+    public void totalBiaya(){
+        int jumlahBaris = tblBarang.getRowCount();
+        int totalBiaya = 0;
+        int jumlahBarang, hargaBarang;
+        for (int i = 0; i < jumlahBaris; i++) {
+            jumlahBarang = Integer.parseInt(tblBarang.getValueAt(i, 3).toString());
+            hargaBarang = Integer.parseInt(tblBarang.getValueAt(i, 4).toString());
+            totalBiaya = totalBiaya + (jumlahBarang * hargaBarang);
+        }
+        txtTotal.setText(String.valueOf(totalBiaya));
+    }
+    
+    public void clear2(){
+        txtIDProduk.setText("");
+        txtProduk.setText("");
+        txtHargaProduk.setText("");
+        jmlBeli.setValue(1);
+    }
+    
+    public void loadData(){
+        DefaultTableModel model = (DefaultTableModel) tblBarang.getModel();
+        model.addRow(new Object[]{
+            txtIDProduk.getText(),
+            txtProduk.getText(),
+            txtHargaProduk.getText(),
+            txtTanggal.getText(),
+            txtPelanggan.getText(),
+            jmlBeli.getAccessibleContext()
+        });
+    }
 
+    
+    public void tambahTransaksi(){
+        int jumlah, harga, total;
+        
+        jumlah = (int) jmlBeli.getValue();
+        harga = Integer.valueOf(txtHargaProduk.getText());
+        total = jumlah * harga;
+        
+        txtTotal.setText(String.valueOf(total));
+        
+        loadData();
+        totalBiaya();
+        clear2();
+        txtIDProduk.requestFocus();
+    }
     /**
      * This method is called from within the constructor to initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is always
@@ -46,13 +95,13 @@ public class MenuTransaksiPemesanan extends javax.swing.JPanel {
         btnCetak = new javax.swing.JButton();
         btnPerbarui = new javax.swing.JButton();
         jScrollPane2 = new javax.swing.JScrollPane();
-        tblBarang1 = new javax.swing.JTable();
+        tblBarang = new javax.swing.JTable();
         txtPelanggan = new javax.swing.JTextField();
         lblPelanggan = new javax.swing.JLabel();
         txtProduk = new javax.swing.JTextField();
         lblProduk = new javax.swing.JLabel();
         jLabel4 = new javax.swing.JLabel();
-        jSpinner1 = new javax.swing.JSpinner();
+        jmlBeli = new javax.swing.JSpinner();
         txtHargaProduk = new javax.swing.JTextField();
         lblProduk1 = new javax.swing.JLabel();
         txtIDProduk = new javax.swing.JTextField();
@@ -60,6 +109,8 @@ public class MenuTransaksiPemesanan extends javax.swing.JPanel {
         txtTanggal = new javax.swing.JTextField();
         lblTanggal = new javax.swing.JLabel();
         btnList = new javax.swing.JButton();
+        txtTotal = new javax.swing.JTextField();
+        lblProduk3 = new javax.swing.JLabel();
 
         txtProduk2.setFont(new java.awt.Font("Verdana", 0, 14)); // NOI18N
 
@@ -85,6 +136,11 @@ public class MenuTransaksiPemesanan extends javax.swing.JPanel {
         btnTambah.setBackground(new java.awt.Color(204, 204, 204));
         btnTambah.setForeground(new java.awt.Color(0, 0, 51));
         btnTambah.setText("TAMBAH");
+        btnTambah.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnTambahActionPerformed(evt);
+            }
+        });
 
         btnCetak.setBackground(new java.awt.Color(204, 204, 204));
         btnCetak.setText("CETAK");
@@ -97,7 +153,7 @@ public class MenuTransaksiPemesanan extends javax.swing.JPanel {
             }
         });
 
-        tblBarang1.setModel(new javax.swing.table.DefaultTableModel(
+        tblBarang.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
                 {null, null, null, null},
                 {null, null, null, null},
@@ -108,8 +164,8 @@ public class MenuTransaksiPemesanan extends javax.swing.JPanel {
                 "Title 1", "Title 2", "Title 3", "Title 4"
             }
         ));
-        tblBarang1.setGridColor(new java.awt.Color(0, 0, 51));
-        jScrollPane2.setViewportView(tblBarang1);
+        tblBarang.setGridColor(new java.awt.Color(0, 0, 51));
+        jScrollPane2.setViewportView(tblBarang);
 
         txtPelanggan.setFont(new java.awt.Font("Verdana", 0, 14)); // NOI18N
 
@@ -152,6 +208,12 @@ public class MenuTransaksiPemesanan extends javax.swing.JPanel {
             }
         });
 
+        txtTotal.setFont(new java.awt.Font("Verdana", 0, 14)); // NOI18N
+        txtTotal.setEnabled(false);
+
+        lblProduk3.setFont(new java.awt.Font("Verdana", 0, 14)); // NOI18N
+        lblProduk3.setText("Total Harga");
+
         javax.swing.GroupLayout tampilDataLayout = new javax.swing.GroupLayout(tampilData);
         tampilData.setLayout(tampilDataLayout);
         tampilDataLayout.setHorizontalGroup(
@@ -161,11 +223,14 @@ public class MenuTransaksiPemesanan extends javax.swing.JPanel {
                 .addComponent(jLabel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
             .addGroup(tampilDataLayout.createSequentialGroup()
                 .addGap(41, 41, 41)
-                .addGroup(tampilDataLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                    .addComponent(lblProduk)
-                    .addComponent(lblPelanggan)
-                    .addComponent(txtPelanggan, javax.swing.GroupLayout.DEFAULT_SIZE, 200, Short.MAX_VALUE)
-                    .addComponent(txtProduk))
+                .addGroup(tampilDataLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(tampilDataLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                        .addComponent(lblProduk)
+                        .addComponent(lblPelanggan)
+                        .addComponent(txtPelanggan, javax.swing.GroupLayout.DEFAULT_SIZE, 200, Short.MAX_VALUE)
+                        .addComponent(txtProduk))
+                    .addComponent(lblProduk3)
+                    .addComponent(txtTotal, javax.swing.GroupLayout.PREFERRED_SIZE, 160, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(37, 37, 37)
                 .addGroup(tampilDataLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(tampilDataLayout.createSequentialGroup()
@@ -189,7 +254,7 @@ public class MenuTransaksiPemesanan extends javax.swing.JPanel {
                                         .addGroup(tampilDataLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                                             .addComponent(jLabel4)
                                             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, tampilDataLayout.createSequentialGroup()
-                                                .addComponent(jSpinner1, javax.swing.GroupLayout.PREFERRED_SIZE, 44, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                                .addComponent(jmlBeli, javax.swing.GroupLayout.PREFERRED_SIZE, 44, javax.swing.GroupLayout.PREFERRED_SIZE)
                                                 .addGap(1, 1, 1)))))
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
                         .addComponent(btnPerbarui)
@@ -238,16 +303,24 @@ public class MenuTransaksiPemesanan extends javax.swing.JPanel {
                             .addGroup(tampilDataLayout.createSequentialGroup()
                                 .addComponent(jLabel4, javax.swing.GroupLayout.PREFERRED_SIZE, 18, javax.swing.GroupLayout.PREFERRED_SIZE)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addComponent(jSpinner1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                                .addComponent(jmlBeli, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addComponent(txtIDProduk, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addGap(63, 63, 63)
-                .addGroup(tampilDataLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(btnTambah)
-                    .addComponent(btnCetak, javax.swing.GroupLayout.PREFERRED_SIZE, 26, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(btnPerbarui, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(btnList))
-                .addGap(18, 18, 18)
+                .addGroup(tampilDataLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(tampilDataLayout.createSequentialGroup()
+                        .addGap(63, 63, 63)
+                        .addGroup(tampilDataLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(btnTambah)
+                            .addComponent(btnCetak, javax.swing.GroupLayout.PREFERRED_SIZE, 26, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(btnPerbarui, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addComponent(btnList))
+                        .addGap(18, 18, 18))
+                    .addGroup(tampilDataLayout.createSequentialGroup()
+                        .addGap(22, 22, 22)
+                        .addComponent(lblProduk3)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(txtTotal, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
                 .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 267, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap())
         );
@@ -262,10 +335,17 @@ public class MenuTransaksiPemesanan extends javax.swing.JPanel {
     }//GEN-LAST:event_btnPerbaruiActionPerformed
 
     private void btnListActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnListActionPerformed
-        // TODO add your handling code here:
-          showProduk ShowProdukForm = new showProduk(frame, true); // Tambahkan 'this' dan 'true'
-    ShowProdukForm.setVisible(true);
+   
+    showProduk.setModal(true);
+        showProduk.lblProduk.setText("List Produk");
+        showProduk.tblProduk.setModel(dao.getLookProduk());
+        showProduk.scrLookup.setViewportView(showProduk.tblProduk);
+        showProduk.setVisible(true);
     }//GEN-LAST:event_btnListActionPerformed
+
+    private void btnTambahActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnTambahActionPerformed
+        tambahTransaksi();
+    }//GEN-LAST:event_btnTambahActionPerformed
 
     public static void main(String args[]) {
         /* Set the Nimbus look and feel */
@@ -307,17 +387,18 @@ public class MenuTransaksiPemesanan extends javax.swing.JPanel {
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel4;
     private javax.swing.JScrollPane jScrollPane2;
-    private javax.swing.JSpinner jSpinner1;
+    private javax.swing.JSpinner jmlBeli;
     private javax.swing.JLabel lblIDproduk;
     private javax.swing.JLabel lblPelanggan;
     private javax.swing.JLabel lblProduk;
     private javax.swing.JLabel lblProduk1;
     private javax.swing.JLabel lblProduk2;
+    private javax.swing.JLabel lblProduk3;
     private javax.swing.JLabel lblProduk4;
     private javax.swing.JLabel lblTanggal;
     private javax.swing.JPanel mainPanel;
     private javax.swing.JPanel tampilData;
-    private javax.swing.JTable tblBarang1;
+    private javax.swing.JTable tblBarang;
     private javax.swing.JTextField txtHargaProduk;
     private javax.swing.JTextField txtIDProduk;
     private javax.swing.JTextField txtPelanggan;
@@ -325,5 +406,6 @@ public class MenuTransaksiPemesanan extends javax.swing.JPanel {
     private javax.swing.JTextField txtProduk2;
     private javax.swing.JTextField txtProduk4;
     private javax.swing.JTextField txtTanggal;
+    private javax.swing.JTextField txtTotal;
     // End of variables declaration//GEN-END:variables
 }

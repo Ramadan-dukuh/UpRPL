@@ -9,18 +9,17 @@ import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.util.ArrayList;
 import javax.swing.table.DefaultTableModel;
 import static koneksi.Koneksi.getConnection;
+import model.Produk;
 
-/**
- *
- * @author Hp
- */
 public class LpTransaksiDao {
     Connection kon;
     PreparedStatement ps;
     ResultSet rs;
-    
+    ArrayList<Produk> listProduk; // Deklarasi listProduk
+
     public LpTransaksiDao() {
         kon = getConnection();
     }
@@ -98,4 +97,47 @@ public class LpTransaksiDao {
         }
         return model;
     }
+    
+    public DefaultTableModel getLookProduk() {
+        DefaultTableModel modelProduk = new DefaultTableModel();
+        modelProduk.addColumn("ID Produk");
+        modelProduk.addColumn("Nama Produk");
+        modelProduk.addColumn("Harga Produk");
+
+        listProduk = new ArrayList<>(); // Inisialisasi listProduk
+
+        try {
+            String query = "SELECT idProduk, nmProduk, hargaJual FROM produk";
+            ps = kon.prepareStatement(query);
+            rs = ps.executeQuery();
+
+            while (rs.next()) {
+                Produk produk = new Produk();
+                produk.setIdProduk(rs.getString("idProduk"));
+                produk.setNmProduk(rs.getString("nmProduk"));
+                produk.setHargaJual(rs.getInt("hargaJual"));
+                listProduk.add(produk);
+
+                // Menambahkan data langsung ke DefaultTableModel
+                Object[] rowData = {
+                    produk.getIdProduk(),
+                    produk.getNmProduk(),
+                    produk.getHargaJual()
+                };
+                modelProduk.addRow(rowData);
+            }
+        } catch (SQLException se) {
+            System.out.println("Error : " + se.getMessage());
+        } finally {
+            try {
+                if (rs != null) rs.close();
+                if (ps != null) ps.close();
+            } catch (SQLException e) {
+                System.out.println("Error saat menutup koneksi: " + e.getMessage());
+            }
+        }
+
+        return modelProduk;
+    }
+
 }

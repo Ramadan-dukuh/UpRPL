@@ -192,7 +192,7 @@ public class MenuLaporanKeuangan extends javax.swing.JPanel {
         // TODO add your handling code here:
          JOptionPane.showMessageDialog(this, 
             "Feature not implemented yet: Create New Financial Report", 
-            "Not Implemented",   JOptionPane.INFORMATION_MESSAGE);
+            "Not Implemented AOWKWOWK",   JOptionPane.INFORMATION_MESSAGE);
            
     }//GEN-LAST:event_jButton1ActionPerformed
 
