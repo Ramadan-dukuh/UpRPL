@@ -155,11 +155,17 @@ public class ShowProduk extends javax.swing.JDialog {
 
     private void tblProdukMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_tblProdukMouseClicked
         if (lblProduk.getText().equals("List Produk")) {
-//            MenuTransaksiPemesanan.txtNis.setText(tblLookup.getValueAt(tblLookup.getSelectedRow(),0).toString());
-//            NilaiView.txtNama.setText(tblLookup.getValueAt(tblLookup.getSelectedRow(),1).toString());
+            MenuTransaksiPemesanan.txtIDProduk.setText(tblProduk.getValueAt(tblProduk.getSelectedRow(),0).toString());
+            MenuTransaksiPemesanan.txtProduk.setText(tblProduk.getValueAt(tblProduk.getSelectedRow(),1).toString());
+            MenuTransaksiPemesanan.txtHargaProduk.setText(tblProduk.getValueAt(tblProduk.getSelectedRow(),2).toString());
         }
+        dispose();
     }//GEN-LAST:event_tblProdukMouseClicked
 
+    public void setTableModel(DefaultTableModel model){
+        tblProduk.setModel(model);
+    }
+    
     /**
     * @param args the command line arguments
     */

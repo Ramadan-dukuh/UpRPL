@@ -8,6 +8,8 @@ package View;
 import Dao.LpTransaksiDao;
 import LookUp.ShowProduk;
 import java.awt.Frame;
+import java.text.SimpleDateFormat;
+import java.util.Date;
 import javax.swing.JFrame;
 import javax.swing.table.DefaultTableModel;
 
@@ -27,6 +29,8 @@ public class MenuTransaksiPemesanan extends javax.swing.JPanel {
      */
     public MenuTransaksiPemesanan() {
         initComponents();
+        kosong();
+        setTgl();
     }
     
     public void totalBiaya(){
@@ -34,18 +38,32 @@ public class MenuTransaksiPemesanan extends javax.swing.JPanel {
         int totalBiaya = 0;
         int jumlahBarang, hargaBarang;
         for (int i = 0; i < jumlahBaris; i++) {
-            jumlahBarang = Integer.parseInt(tblBarang.getValueAt(i, 3).toString());
-            hargaBarang = Integer.parseInt(tblBarang.getValueAt(i, 4).toString());
+            jumlahBarang = Integer.parseInt(tblBarang.getValueAt(i, 2).toString());
+            hargaBarang = Integer.parseInt(tblBarang.getValueAt(i, 3).toString());
             totalBiaya = totalBiaya + (jumlahBarang * hargaBarang);
         }
         txtTotal.setText(String.valueOf(totalBiaya));
     }
     
+    public void kosong(){
+        DefaultTableModel model = (DefaultTableModel) tblBarang.getModel();
+        
+        while (model.getRowCount()>0) {
+            model.removeRow(0);
+        }
+    }
+    
+    public void setTgl() {
+        SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd"); // Format tanggal
+        String tanggalHariIni = sdf.format(new Date()); // Ambil tanggal hari ini
+        txtTanggal.setText(tanggalHariIni); // Set ke JTextField
+    }
+
     public void clear2(){
         txtIDProduk.setText("");
         txtProduk.setText("");
         txtHargaProduk.setText("");
-        jmlBeli.setValue(1);
+        jmlBeli.setValue(0);
     }
     
     public void loadData(){
@@ -53,10 +71,10 @@ public class MenuTransaksiPemesanan extends javax.swing.JPanel {
         model.addRow(new Object[]{
             txtIDProduk.getText(),
             txtProduk.getText(),
+            jmlBeli.getValue(),
             txtHargaProduk.getText(),
             txtTanggal.getText(),
-            txtPelanggan.getText(),
-            jmlBeli.getAccessibleContext()
+            txtPelanggan.getText()
         });
     }
 
@@ -335,8 +353,7 @@ public class MenuTransaksiPemesanan extends javax.swing.JPanel {
     }//GEN-LAST:event_btnPerbaruiActionPerformed
 
     private void btnListActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnListActionPerformed
-   
-    showProduk.setModal(true);
+        showProduk.setModal(true);
         showProduk.lblProduk.setText("List Produk");
         showProduk.tblProduk.setModel(dao.getLookProduk());
         showProduk.scrLookup.setViewportView(showProduk.tblProduk);
@@ -387,7 +404,7 @@ public class MenuTransaksiPemesanan extends javax.swing.JPanel {
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel4;
     private javax.swing.JScrollPane jScrollPane2;
-    private javax.swing.JSpinner jmlBeli;
+    public static javax.swing.JSpinner jmlBeli;
     private javax.swing.JLabel lblIDproduk;
     private javax.swing.JLabel lblPelanggan;
     private javax.swing.JLabel lblProduk;
@@ -399,13 +416,13 @@ public class MenuTransaksiPemesanan extends javax.swing.JPanel {
     private javax.swing.JPanel mainPanel;
     private javax.swing.JPanel tampilData;
     private javax.swing.JTable tblBarang;
-    private javax.swing.JTextField txtHargaProduk;
-    private javax.swing.JTextField txtIDProduk;
+    public static javax.swing.JTextField txtHargaProduk;
+    public static javax.swing.JTextField txtIDProduk;
     private javax.swing.JTextField txtPelanggan;
-    private javax.swing.JTextField txtProduk;
+    public static javax.swing.JTextField txtProduk;
     private javax.swing.JTextField txtProduk2;
     private javax.swing.JTextField txtProduk4;
-    private javax.swing.JTextField txtTanggal;
-    private javax.swing.JTextField txtTotal;
+    public static javax.swing.JTextField txtTanggal;
+    public static javax.swing.JTextField txtTotal;
     // End of variables declaration//GEN-END:variables
 }
