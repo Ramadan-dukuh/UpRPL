@@ -6,6 +6,8 @@
 package View;
 
 import Dao.LpKeuanganDao;
+import java.time.Year;
+import javax.swing.JOptionPane;
 
 /**
  *
@@ -18,11 +20,27 @@ public class MenuLaporanKeuangan extends javax.swing.JPanel {
      */
     public MenuLaporanKeuangan() {
         initComponents();
-         loadTable();
+         loadYears(); // Mengisi ComboBox Tahun
+        loadTable(); // Menampilkan data saat pertama kali dibuka
     }
-    private void loadTable() {
-        tblKeuangan.setModel(laporan.getTableLaporanKeuangan());
+     private void loadTable() {
+        int bulan = cbBulan.getSelectedIndex() + 1;
+        int tahun = Integer.parseInt(cbTahun.getSelectedItem().toString());
+        
+        lblLaporan.setText("Laporan Keuangan - " + cbBulan.getSelectedItem() + " " + tahun);
+        tblKeuangan.setModel(laporan.getTableLaporanKeuangan(bulan, tahun));
     }
+
+    private void loadYears() {
+        int currentYear = Year.now().getValue();
+        cbTahun.removeAllItems();
+        for (int i = currentYear; i >= currentYear - 5; i--) {
+            cbTahun.addItem(String.valueOf(i));
+        }
+        cbTahun.setSelectedItem(String.valueOf(currentYear)); // Pilih tahun saat ini
+    }
+
+
 
     /**
      * This method is called from within the constructor to initialize the form.
@@ -41,6 +59,10 @@ public class MenuLaporanKeuangan extends javax.swing.JPanel {
         jScrollPane1 = new javax.swing.JScrollPane();
         tblKeuangan = new javax.swing.JTable();
         jLabel2 = new javax.swing.JLabel();
+        cbBulan = new javax.swing.JComboBox<>();
+        cbTahun = new javax.swing.JComboBox<>();
+        btnTampilkan = new javax.swing.JButton();
+        lblLaporan = new javax.swing.JLabel();
 
         TBLnilai.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
@@ -88,6 +110,19 @@ public class MenuLaporanKeuangan extends javax.swing.JPanel {
         jLabel2.setFont(new java.awt.Font("Tahoma", 1, 36)); // NOI18N
         jLabel2.setText("Laporan Keuangan");
 
+        cbBulan.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Januari", "Februari", "Maret", "April", "Mei", "Juni", "Juli", "Agustus", "September", "Oktober", "November", "Desember" }));
+
+        cbTahun.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
+
+        btnTampilkan.setText("Tampilkan");
+        btnTampilkan.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnTampilkanActionPerformed(evt);
+            }
+        });
+
+        lblLaporan.setText("jLabel3");
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
         this.setLayout(layout);
         layout.setHorizontalGroup(
@@ -102,9 +137,22 @@ public class MenuLaporanKeuangan extends javax.swing.JPanel {
                         .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 1057, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(0, 0, Short.MAX_VALUE))
                     .addGroup(layout.createSequentialGroup()
-                        .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addComponent(jLabel2, javax.swing.GroupLayout.PREFERRED_SIZE, 355, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(94, 94, 94)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(layout.createSequentialGroup()
+                                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                .addComponent(jLabel2, javax.swing.GroupLayout.PREFERRED_SIZE, 355, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addGap(94, 94, 94))
+                            .addGroup(layout.createSequentialGroup()
+                                .addContainerGap()
+                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addGroup(layout.createSequentialGroup()
+                                        .addComponent(cbBulan, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                        .addComponent(cbTahun, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                        .addComponent(btnTampilkan))
+                                    .addComponent(lblLaporan))
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
                         .addComponent(jButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 245, javax.swing.GroupLayout.PREFERRED_SIZE)))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jLabel1))
@@ -117,14 +165,22 @@ public class MenuLaporanKeuangan extends javax.swing.JPanel {
                         .addGap(317, 317, 317)
                         .addComponent(jLabel1))
                     .addGroup(layout.createSequentialGroup()
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                             .addGroup(layout.createSequentialGroup()
                                 .addGap(100, 100, 100)
-                                .addComponent(jButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 48, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                .addComponent(jButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 48, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addGap(26, 26, 26))
                             .addGroup(layout.createSequentialGroup()
                                 .addGap(44, 44, 44)
-                                .addComponent(jLabel2, javax.swing.GroupLayout.PREFERRED_SIZE, 63, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                        .addGap(26, 26, 26)
+                                .addComponent(jLabel2, javax.swing.GroupLayout.PREFERRED_SIZE, 63, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                .addComponent(lblLaporan)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                                    .addComponent(cbBulan, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addComponent(cbTahun, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addComponent(btnTampilkan))
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)))
                         .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 1127, javax.swing.GroupLayout.PREFERRED_SIZE)))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jLabel5)
@@ -134,16 +190,29 @@ public class MenuLaporanKeuangan extends javax.swing.JPanel {
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
         // TODO add your handling code here:
+         JOptionPane.showMessageDialog(this, 
+            "Feature not implemented yet: Create New Financial Report", 
+            "Not Implemented",   JOptionPane.INFORMATION_MESSAGE);
+           
     }//GEN-LAST:event_jButton1ActionPerformed
+
+    private void btnTampilkanActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnTampilkanActionPerformed
+        // TODO add your handling code here:
+        loadTable();
+    }//GEN-LAST:event_btnTampilkanActionPerformed
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JTable TBLnilai;
+    private javax.swing.JButton btnTampilkan;
+    private javax.swing.JComboBox<String> cbBulan;
+    private javax.swing.JComboBox<String> cbTahun;
     private javax.swing.JButton jButton1;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel5;
     private javax.swing.JScrollPane jScrollPane1;
+    private javax.swing.JLabel lblLaporan;
     private javax.swing.JScrollPane scrNilai;
     private javax.swing.JTable tblKeuangan;
     // End of variables declaration//GEN-END:variables
