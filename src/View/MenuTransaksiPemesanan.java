@@ -7,11 +7,17 @@ package View;
 
 import Dao.LpTransaksiDao;
 import LookUp.ShowProduk;
+import dao.TransaksiPemesananDao;
 import java.awt.Frame;
 import java.text.SimpleDateFormat;
+import java.util.ArrayList;
 import java.util.Date;
+import java.util.List;
 import javax.swing.JFrame;
+import javax.swing.JOptionPane;
 import javax.swing.table.DefaultTableModel;
+import model.Detail_transaksi;
+import model.Transaksi;
 
 
 
@@ -29,10 +35,16 @@ public class MenuTransaksiPemesanan extends javax.swing.JPanel {
      */
     public MenuTransaksiPemesanan() {
         initComponents();
+        setTableModel();
         kosong();
         setTgl();
     }
-    
+    public void setTableModel() {
+        DefaultTableModel model = new DefaultTableModel();
+        model.setColumnIdentifiers(new Object[]{"ID Produk", "Nama Produk", "Jumlah", "Harga", "Tanggal", "Nama Pelanggan"});
+        tblBarang.setModel(model);
+    }
+
     public void totalBiaya(){
         int jumlahBaris = tblBarang.getRowCount();
         int totalBiaya = 0;
@@ -80,18 +92,34 @@ public class MenuTransaksiPemesanan extends javax.swing.JPanel {
 
     
     public void tambahTransaksi(){
-        int jumlah, harga, total;
-        
-        jumlah = (int) jmlBeli.getValue();
-        harga = Integer.valueOf(txtHargaProduk.getText());
-        total = jumlah * harga;
-        
-        txtTotal.setText(String.valueOf(total));
-        
-        loadData();
-        totalBiaya();
-        clear2();
-        txtIDProduk.requestFocus();
+        // Cek apakah jumlah sudah diisi
+        if (jmlBeli.getValue() == null || (int) jmlBeli.getValue() <= 0) {
+            JOptionPane.showMessageDialog(this, "Jumlah barang harus lebih dari 0!", "Peringatan", JOptionPane.WARNING_MESSAGE);
+            return;
+        }
+
+        // Cek apakah harga kosong atau tidak valid
+        String hargaText = txtHargaProduk.getText().trim();
+        if (hargaText.isEmpty()) {
+            JOptionPane.showMessageDialog(this, "Harga produk tidak boleh kosong!", "Peringatan", JOptionPane.WARNING_MESSAGE);
+            return;
+        }
+
+        try {
+            int jumlah = (int) jmlBeli.getValue();
+            int harga = Integer.parseInt(hargaText);
+            int total = jumlah * harga;
+
+            txtTotal.setText(String.valueOf(total));
+
+            // Tambahkan data ke tabel
+            loadData();
+            totalBiaya();
+            clear2();
+            txtIDProduk.requestFocus();
+        } catch (NumberFormatException e) {
+            JOptionPane.showMessageDialog(this, "Input harga tidak valid!", "Error", JOptionPane.ERROR_MESSAGE);
+        }
     }
     /**
      * This method is called from within the constructor to initialize the form.
@@ -111,7 +139,7 @@ public class MenuTransaksiPemesanan extends javax.swing.JPanel {
         jLabel1 = new javax.swing.JLabel();
         btnTambah = new javax.swing.JButton();
         btnCetak = new javax.swing.JButton();
-        btnPerbarui = new javax.swing.JButton();
+        btnSimpan = new javax.swing.JButton();
         jScrollPane2 = new javax.swing.JScrollPane();
         tblBarang = new javax.swing.JTable();
         txtPelanggan = new javax.swing.JTextField();
@@ -163,11 +191,11 @@ public class MenuTransaksiPemesanan extends javax.swing.JPanel {
         btnCetak.setBackground(new java.awt.Color(204, 204, 204));
         btnCetak.setText("CETAK");
 
-        btnPerbarui.setBackground(new java.awt.Color(204, 204, 204));
-        btnPerbarui.setText("PERBARUI");
-        btnPerbarui.addActionListener(new java.awt.event.ActionListener() {
+        btnSimpan.setBackground(new java.awt.Color(204, 204, 204));
+        btnSimpan.setText("SIMPAN");
+        btnSimpan.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnPerbaruiActionPerformed(evt);
+                btnSimpanActionPerformed(evt);
             }
         });
 
@@ -254,7 +282,7 @@ public class MenuTransaksiPemesanan extends javax.swing.JPanel {
                     .addGroup(tampilDataLayout.createSequentialGroup()
                         .addGroup(tampilDataLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, tampilDataLayout.createSequentialGroup()
-                                .addGap(0, 239, Short.MAX_VALUE)
+                                .addGap(0, 251, Short.MAX_VALUE)
                                 .addComponent(btnList)
                                 .addGap(40, 40, 40)
                                 .addComponent(btnTambah)
@@ -275,7 +303,7 @@ public class MenuTransaksiPemesanan extends javax.swing.JPanel {
                                                 .addComponent(jmlBeli, javax.swing.GroupLayout.PREFERRED_SIZE, 44, javax.swing.GroupLayout.PREFERRED_SIZE)
                                                 .addGap(1, 1, 1)))))
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
-                        .addComponent(btnPerbarui)
+                        .addComponent(btnSimpan)
                         .addGap(51, 51, 51))
                     .addGroup(tampilDataLayout.createSequentialGroup()
                         .addComponent(lblProduk1)
@@ -330,7 +358,7 @@ public class MenuTransaksiPemesanan extends javax.swing.JPanel {
                         .addGroup(tampilDataLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                             .addComponent(btnTambah)
                             .addComponent(btnCetak, javax.swing.GroupLayout.PREFERRED_SIZE, 26, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(btnPerbarui, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addComponent(btnSimpan, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                             .addComponent(btnList))
                         .addGap(18, 18, 18))
                     .addGroup(tampilDataLayout.createSequentialGroup()
@@ -348,9 +376,44 @@ public class MenuTransaksiPemesanan extends javax.swing.JPanel {
         add(mainPanel, "card2");
     }// </editor-fold>//GEN-END:initComponents
 
-    private void btnPerbaruiActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnPerbaruiActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_btnPerbaruiActionPerformed
+    private void btnSimpanActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSimpanActionPerformed
+        Transaksi transaksi = new Transaksi();
+        transaksi.setTglTransaksi(java.sql.Date.valueOf(txtTanggal.getText())); 
+        transaksi.setNmPelanggan(txtPelanggan.getText());
+
+        // Panggil DAO untuk menyimpan transaksi utama
+        TransaksiPemesananDao transaksiDAO = new TransaksiPemesananDao();
+        String noOrder = transaksiDAO.simpanTransaksi(transaksi);
+
+        if (noOrder != null && !noOrder.isEmpty()) { // Cek apakah transaksi berhasil disimpan
+            for (int i = 0; i < tblBarang.getRowCount(); i++) {
+                Detail_transaksi detail = new Detail_transaksi();
+                detail.setNoOrder(noOrder);
+                detail.setIdProduk(tblBarang.getValueAt(i, 0).toString());
+
+                // Validasi jumlah
+                String jumlahStr = tblBarang.getValueAt(i, 2).toString();
+                if (jumlahStr.isEmpty() || !jumlahStr.matches("\\d+")) {
+                    continue; // Lewati jika kosong atau bukan angka
+                }
+                detail.setJumlah(jumlahStr);
+
+                // Validasi harga
+                String hargaStr = tblBarang.getValueAt(i, 3).toString();
+                if (hargaStr.isEmpty() || !hargaStr.matches("\\d+")) {
+                    continue; // Lewati jika kosong atau bukan angka
+                }
+                detail.setHarga(hargaStr);
+
+                // Simpan detail transaksi ke database
+                transaksiDAO.simpanDetailTransaksi(detail);
+            }
+            JOptionPane.showMessageDialog(this, "Transaksi berhasil disimpan!", "Sukses", JOptionPane.INFORMATION_MESSAGE);
+            kosong();
+        } else {
+            JOptionPane.showMessageDialog(this, "Gagal menyimpan transaksi!", "Error", JOptionPane.ERROR_MESSAGE);
+        }
+    }//GEN-LAST:event_btnSimpanActionPerformed
 
     private void btnListActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnListActionPerformed
         showProduk.setModal(true);
@@ -399,7 +462,7 @@ public class MenuTransaksiPemesanan extends javax.swing.JPanel {
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btnCetak;
     private javax.swing.JButton btnList;
-    private javax.swing.JButton btnPerbarui;
+    private javax.swing.JButton btnSimpan;
     private javax.swing.JButton btnTambah;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel4;

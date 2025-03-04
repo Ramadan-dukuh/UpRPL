@@ -13,6 +13,7 @@ public class Detail_transaksi {
     private String id;
     private String noOrder;
     private String idProduk;
+    private String harga;
     private String jumlah;
 
     public String getId() {
@@ -37,6 +38,14 @@ public class Detail_transaksi {
 
     public void setIdProduk(String idProduk) {
         this.idProduk = idProduk;
+    }
+
+    public String getHarga() {
+        return harga;
+    }
+
+    public void setHarga(String harga) {
+        this.harga = harga;
     }
 
     public String getJumlah() {

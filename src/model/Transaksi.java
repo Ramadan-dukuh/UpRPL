@@ -15,7 +15,6 @@ public class Transaksi {
     private String noOrder;
     private Date tglTransaksi;
     private String nmPelanggan;
-    private Integer total;
 
     public String getNoOrder() {
         return noOrder;
@@ -39,13 +38,5 @@ public class Transaksi {
 
     public void setNmPelanggan(String nmPelanggan) {
         this.nmPelanggan = nmPelanggan;
-    }
-
-    public Integer getTotal() {
-        return total;
-    }
-
-    public void setTotal(Integer total) {
-        this.total = total;
     }
 }

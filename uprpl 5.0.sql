@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Mar 04, 2025 at 02:27 PM
+-- Generation Time: Mar 04, 2025 at 03:48 PM
 -- Server version: 10.4.32-MariaDB
 -- PHP Version: 8.2.12
 
@@ -40,7 +40,8 @@ CREATE TABLE `detail_transaksi` (
 --
 
 INSERT INTO `detail_transaksi` (`Id`, `noOrder`, `idProduk`, `harga`, `jumlah`) VALUES
-(1, 'NO001', 'CUS001', 30000, 5);
+(1, 'NO001', 'CUS001', 30000, 5),
+(2, 'NO001', 'CUS002', 10000, 10);
 
 --
 -- Triggers `detail_transaksi`
@@ -104,8 +105,8 @@ CREATE TABLE `produk` (
 --
 
 INSERT INTO `produk` (`idProduk`, `nmProduk`, `jenisProduk`, `hargaBeli`, `hargaJual`, `stock`) VALUES
-('CUS001', 'Custom Mug', 'barang', 20000, 30000, 50),
-('CUS002', 'Custom Totebag', 'barang', 5000, 10000, 50),
+('CUS001', 'Custom Mug', 'barang', 20000, 30000, 95),
+('CUS002', 'Custom Totebag', 'barang', 5000, 10000, 90),
 ('CUS003', 'Custom Calendar', 'barang', 25000, 35000, 0),
 ('FOT001', 'Fotocopy', 'jasa', 0, 1000, 0),
 ('PRI001', 'Print', 'jasa', 0, 1000, 0);
@@ -185,7 +186,7 @@ CREATE TABLE `transaksi` (
 --
 
 INSERT INTO `transaksi` (`noOrder`, `tglTransaksi`, `nmPelanggan`) VALUES
-('NO001', '2025-02-14', 'Buyung');
+('NO001', '2025-03-04', 'Restu');
 
 --
 -- Triggers `transaksi`
@@ -305,7 +306,8 @@ CREATE ALGORITHM=UNDEFINED DEFINER=`root`@`localhost` SQL SECURITY DEFINER VIEW 
 --
 ALTER TABLE `detail_transaksi`
   ADD PRIMARY KEY (`Id`),
-  ADD KEY `idProduk` (`idProduk`);
+  ADD KEY `idProduk` (`idProduk`),
+  ADD KEY `noOrder` (`noOrder`);
 
 --
 -- Indexes for table `petugas`
@@ -341,6 +343,12 @@ ALTER TABLE `transaksi_suplier`
 --
 -- AUTO_INCREMENT for dumped tables
 --
+
+--
+-- AUTO_INCREMENT for table `detail_transaksi`
+--
+ALTER TABLE `detail_transaksi`
+  MODIFY `Id` int(5) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
 
 --
 -- AUTO_INCREMENT for table `petugas`
