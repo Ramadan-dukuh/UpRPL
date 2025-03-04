@@ -82,7 +82,7 @@ public class MenuPetugas extends javax.swing.JPanel {
         jLabel1.setFont(new java.awt.Font("Verdana", 1, 24)); // NOI18N
         jLabel1.setText("List Petugas");
 
-        cbFilter.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Tampilkan Semua", "Tersedia", "Hampir Habis", "Sudah Habis" }));
+        cbFilter.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Tampilkan Semua", "Guru", "Siswa", "Suplier" }));
         cbFilter.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
         cbFilter.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {

@@ -33,6 +33,12 @@ public class MenutView extends javax.swing.JFrame {
     if (level.equalsIgnoreCase("siswa")) {
         pn_LpKeuanganMain.setVisible(false);
         pn_TrSuplierMain.setVisible(false);
+        pn_PetugasMain.setVisible(false);
+        pn_LpTransaksiMain.setVisible(false);
+        lb_Transaksi.setVisible(false);
+    }
+    if (level.equalsIgnoreCase("guru")){
+        pn_TrPelangganMain.setVisible(false);
     }
     }
     

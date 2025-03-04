@@ -116,12 +116,12 @@ public class PetugasDao {
         String query = "SELECT idPetugas, nmPetugas, username, password, kelas, level FROM petugas";
 
         if (filter.equals("Guru")){
-            query += " WHERE level = Guru";
+            query += " WHERE level = 'Guru'";
         }
         else if(filter.equals("Siswa")) {
-            query += " WHERE level = Siswa";
+            query += " WHERE level = 'Siswa'";
         } else if (filter.equals("Suplier")) {
-            query += " WHERE level = Suplier";
+            query += " WHERE level = 'Suplier'";
         } else if (filter.equals("Tampilkan Semua")){
             query += " ";
         }
@@ -142,7 +142,7 @@ public class PetugasDao {
                 model.addRow(rowData);
             }
         } catch (SQLException e) {
-            System.out.println("Error mengambil data petugas berdasarkan stok: " + e.getMessage());
+            System.out.println("Error mengambil data petugas berdasarkan level: " + e.getMessage());
         } finally {
             try {
                 if (rs != null) rs.close();
