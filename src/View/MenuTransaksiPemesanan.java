@@ -138,7 +138,7 @@ public class MenuTransaksiPemesanan extends javax.swing.JPanel {
         tampilData = new javax.swing.JPanel();
         jLabel1 = new javax.swing.JLabel();
         btnTambah = new javax.swing.JButton();
-        btnCetak = new javax.swing.JButton();
+        btnHapus = new javax.swing.JButton();
         btnSimpan = new javax.swing.JButton();
         jScrollPane2 = new javax.swing.JScrollPane();
         tblBarang = new javax.swing.JTable();
@@ -188,8 +188,13 @@ public class MenuTransaksiPemesanan extends javax.swing.JPanel {
             }
         });
 
-        btnCetak.setBackground(new java.awt.Color(204, 204, 204));
-        btnCetak.setText("CETAK");
+        btnHapus.setBackground(new java.awt.Color(204, 204, 204));
+        btnHapus.setText("HAPUS");
+        btnHapus.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnHapusActionPerformed(evt);
+            }
+        });
 
         btnSimpan.setBackground(new java.awt.Color(204, 204, 204));
         btnSimpan.setText("SIMPAN");
@@ -287,7 +292,7 @@ public class MenuTransaksiPemesanan extends javax.swing.JPanel {
                                 .addGap(40, 40, 40)
                                 .addComponent(btnTambah)
                                 .addGap(40, 40, 40)
-                                .addComponent(btnCetak)
+                                .addComponent(btnHapus)
                                 .addGap(40, 40, 40))
                             .addGroup(tampilDataLayout.createSequentialGroup()
                                 .addGroup(tampilDataLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -357,7 +362,7 @@ public class MenuTransaksiPemesanan extends javax.swing.JPanel {
                         .addGap(63, 63, 63)
                         .addGroup(tampilDataLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                             .addComponent(btnTambah)
-                            .addComponent(btnCetak, javax.swing.GroupLayout.PREFERRED_SIZE, 26, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(btnHapus, javax.swing.GroupLayout.PREFERRED_SIZE, 26, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(btnSimpan, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                             .addComponent(btnList))
                         .addGap(18, 18, 18))
@@ -427,6 +432,13 @@ public class MenuTransaksiPemesanan extends javax.swing.JPanel {
         tambahTransaksi();
     }//GEN-LAST:event_btnTambahActionPerformed
 
+    private void btnHapusActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnHapusActionPerformed
+        DefaultTableModel model = (DefaultTableModel) tblBarang.getModel();
+        int row = tblBarang.getSelectedRow();
+        model.removeRow(row);
+        totalBiaya();
+    }//GEN-LAST:event_btnHapusActionPerformed
+
     public static void main(String args[]) {
         /* Set the Nimbus look and feel */
         //<editor-fold defaultstate="collapsed" desc=" Look and feel setting code (optional) ">
@@ -460,7 +472,7 @@ public class MenuTransaksiPemesanan extends javax.swing.JPanel {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton btnCetak;
+    private javax.swing.JButton btnHapus;
     private javax.swing.JButton btnList;
     private javax.swing.JButton btnSimpan;
     private javax.swing.JButton btnTambah;

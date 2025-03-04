@@ -76,6 +76,10 @@ public class MenutView extends javax.swing.JFrame {
         pn_LpTransaksiLine = new javax.swing.JPanel();
         lb_iconLpTransaksi = new javax.swing.JLabel();
         btn_LpTransaksi = new javax.swing.JLabel();
+        pn_PetugasMain = new javax.swing.JPanel();
+        pn_PetugasLine = new javax.swing.JPanel();
+        lb_iconPetugas = new javax.swing.JLabel();
+        btn_Petugas = new javax.swing.JLabel();
         pn_kanan = new java.awt.Panel();
         pn_dasar = new javax.swing.JPanel();
         pn_utama = new javax.swing.JPanel();
@@ -178,20 +182,20 @@ public class MenutView extends javax.swing.JFrame {
                     .addGroup(pn_DashboardMainLayout.createSequentialGroup()
                         .addGap(8, 8, 8)
                         .addComponent(btn_Dashboard)
-                        .addGap(0, 22, Short.MAX_VALUE)))
+                        .addGap(0, 8, Short.MAX_VALUE)))
                 .addContainerGap())
         );
 
         pn_ProductMain.setPreferredSize(new java.awt.Dimension(228, 60));
         pn_ProductMain.addMouseListener(new java.awt.event.MouseAdapter() {
-            public void mouseClicked(java.awt.event.MouseEvent evt) {
-                pn_ProductMainMouseClicked(evt);
-            }
             public void mouseEntered(java.awt.event.MouseEvent evt) {
                 pn_ProductMainMouseEntered(evt);
             }
             public void mouseExited(java.awt.event.MouseEvent evt) {
                 pn_ProductMainMouseExited(evt);
+            }
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                pn_ProductMainMouseClicked(evt);
             }
         });
 
@@ -247,14 +251,14 @@ public class MenutView extends javax.swing.JFrame {
 
         pn_TrPelangganMain.setPreferredSize(new java.awt.Dimension(228, 60));
         pn_TrPelangganMain.addMouseListener(new java.awt.event.MouseAdapter() {
-            public void mouseClicked(java.awt.event.MouseEvent evt) {
-                pn_TrPelangganMainMouseClicked(evt);
-            }
             public void mouseEntered(java.awt.event.MouseEvent evt) {
                 pn_TrPelangganMainMouseEntered(evt);
             }
             public void mouseExited(java.awt.event.MouseEvent evt) {
                 pn_TrPelangganMainMouseExited(evt);
+            }
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                pn_TrPelangganMainMouseClicked(evt);
             }
         });
 
@@ -290,7 +294,7 @@ public class MenutView extends javax.swing.JFrame {
                 .addComponent(lb_iconTrPelanggan, javax.swing.GroupLayout.PREFERRED_SIZE, 26, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(18, 18, 18)
                 .addComponent(btn_TrPelanggan)
-                .addContainerGap(12, Short.MAX_VALUE))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         pn_TrPelangganMainLayout.setVerticalGroup(
             pn_TrPelangganMainLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -310,14 +314,14 @@ public class MenutView extends javax.swing.JFrame {
 
         pn_TrSuplierMain.setPreferredSize(new java.awt.Dimension(228, 60));
         pn_TrSuplierMain.addMouseListener(new java.awt.event.MouseAdapter() {
-            public void mouseClicked(java.awt.event.MouseEvent evt) {
-                pn_TrSuplierMainMouseClicked(evt);
-            }
             public void mouseEntered(java.awt.event.MouseEvent evt) {
                 pn_TrSuplierMainMouseEntered(evt);
             }
             public void mouseExited(java.awt.event.MouseEvent evt) {
                 pn_TrSuplierMainMouseExited(evt);
+            }
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                pn_TrSuplierMainMouseClicked(evt);
             }
         });
 
@@ -373,14 +377,14 @@ public class MenutView extends javax.swing.JFrame {
 
         pn_LpKeuanganMain.setPreferredSize(new java.awt.Dimension(228, 60));
         pn_LpKeuanganMain.addMouseListener(new java.awt.event.MouseAdapter() {
-            public void mouseClicked(java.awt.event.MouseEvent evt) {
-                pn_LpKeuanganMainMouseClicked(evt);
-            }
             public void mouseEntered(java.awt.event.MouseEvent evt) {
                 pn_LpKeuanganMainMouseEntered(evt);
             }
             public void mouseExited(java.awt.event.MouseEvent evt) {
                 pn_LpKeuanganMainMouseExited(evt);
+            }
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                pn_LpKeuanganMainMouseClicked(evt);
             }
         });
 
@@ -436,14 +440,14 @@ public class MenutView extends javax.swing.JFrame {
 
         pn_LpTransaksiMain.setPreferredSize(new java.awt.Dimension(228, 60));
         pn_LpTransaksiMain.addMouseListener(new java.awt.event.MouseAdapter() {
-            public void mouseClicked(java.awt.event.MouseEvent evt) {
-                pn_LpTransaksiMainMouseClicked(evt);
-            }
             public void mouseEntered(java.awt.event.MouseEvent evt) {
                 pn_LpTransaksiMainMouseEntered(evt);
             }
             public void mouseExited(java.awt.event.MouseEvent evt) {
                 pn_LpTransaksiMainMouseExited(evt);
+            }
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                pn_LpTransaksiMainMouseClicked(evt);
             }
         });
 
@@ -497,6 +501,69 @@ public class MenutView extends javax.swing.JFrame {
                 .addContainerGap(21, Short.MAX_VALUE))
         );
 
+        pn_PetugasMain.setPreferredSize(new java.awt.Dimension(228, 60));
+        pn_PetugasMain.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseEntered(java.awt.event.MouseEvent evt) {
+                pn_PetugasMainMouseEntered(evt);
+            }
+            public void mouseExited(java.awt.event.MouseEvent evt) {
+                pn_PetugasMainMouseExited(evt);
+            }
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                pn_PetugasMainMouseClicked(evt);
+            }
+        });
+
+        pn_PetugasLine.setBackground(new java.awt.Color(51, 51, 51));
+
+        javax.swing.GroupLayout pn_PetugasLineLayout = new javax.swing.GroupLayout(pn_PetugasLine);
+        pn_PetugasLine.setLayout(pn_PetugasLineLayout);
+        pn_PetugasLineLayout.setHorizontalGroup(
+            pn_PetugasLineLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 10, Short.MAX_VALUE)
+        );
+        pn_PetugasLineLayout.setVerticalGroup(
+            pn_PetugasLineLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 0, Short.MAX_VALUE)
+        );
+
+        lb_iconPetugas.setFont(new java.awt.Font("Verdana", 0, 15)); // NOI18N
+        lb_iconPetugas.setForeground(new java.awt.Color(153, 153, 153));
+        lb_iconPetugas.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Image/petugasIcon.png"))); // NOI18N
+
+        btn_Petugas.setFont(new java.awt.Font("Verdana", 1, 14)); // NOI18N
+        btn_Petugas.setForeground(new java.awt.Color(51, 51, 51));
+        btn_Petugas.setText("Petugas");
+
+        javax.swing.GroupLayout pn_PetugasMainLayout = new javax.swing.GroupLayout(pn_PetugasMain);
+        pn_PetugasMain.setLayout(pn_PetugasMainLayout);
+        pn_PetugasMainLayout.setHorizontalGroup(
+            pn_PetugasMainLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(pn_PetugasMainLayout.createSequentialGroup()
+                .addGap(5, 5, 5)
+                .addComponent(pn_PetugasLine, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addComponent(lb_iconPetugas, javax.swing.GroupLayout.PREFERRED_SIZE, 26, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(18, 18, 18)
+                .addComponent(btn_Petugas)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+        );
+        pn_PetugasMainLayout.setVerticalGroup(
+            pn_PetugasMainLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(pn_PetugasMainLayout.createSequentialGroup()
+                .addGap(5, 5, 5)
+                .addComponent(pn_PetugasLine, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addGap(5, 5, 5))
+            .addGroup(pn_PetugasMainLayout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(lb_iconPetugas, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addContainerGap())
+            .addGroup(pn_PetugasMainLayout.createSequentialGroup()
+                .addGap(21, 21, 21)
+                .addComponent(btn_Petugas)
+                .addContainerGap(21, Short.MAX_VALUE))
+        );
+
         javax.swing.GroupLayout pn_kiriLayout = new javax.swing.GroupLayout(pn_kiri);
         pn_kiri.setLayout(pn_kiriLayout);
         pn_kiriLayout.setHorizontalGroup(
@@ -506,18 +573,18 @@ public class MenutView extends javax.swing.JFrame {
                 .addGroup(pn_kiriLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(pn_kiriLayout.createSequentialGroup()
                         .addGap(10, 10, 10)
-                        .addGroup(pn_kiriLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                        .addGroup(pn_kiriLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                            .addComponent(lb_MasterData)
+                            .addComponent(pn_DashboardMain, javax.swing.GroupLayout.DEFAULT_SIZE, 243, Short.MAX_VALUE)
+                            .addComponent(pn_ProductMain, javax.swing.GroupLayout.DEFAULT_SIZE, 243, Short.MAX_VALUE)
                             .addComponent(lb_Transaksi)
-                            .addGroup(pn_kiriLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                                .addComponent(lb_MasterData)
-                                .addComponent(pn_DashboardMain, javax.swing.GroupLayout.DEFAULT_SIZE, 243, Short.MAX_VALUE)
-                                .addComponent(pn_ProductMain, javax.swing.GroupLayout.DEFAULT_SIZE, 243, Short.MAX_VALUE)
-                                .addComponent(pn_TrPelangganMain, javax.swing.GroupLayout.DEFAULT_SIZE, 243, Short.MAX_VALUE)
-                                .addComponent(pn_TrSuplierMain, javax.swing.GroupLayout.DEFAULT_SIZE, 243, Short.MAX_VALUE)
-                                .addComponent(lb_Laporan))
-                            .addComponent(pn_LpKeuanganMain, javax.swing.GroupLayout.DEFAULT_SIZE, 245, Short.MAX_VALUE)
-                            .addComponent(pn_LpTransaksiMain, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, 245, Short.MAX_VALUE))
-                        .addContainerGap(39, Short.MAX_VALUE))
+                            .addComponent(pn_TrPelangganMain, javax.swing.GroupLayout.DEFAULT_SIZE, 243, Short.MAX_VALUE)
+                            .addComponent(pn_TrSuplierMain, javax.swing.GroupLayout.DEFAULT_SIZE, 243, Short.MAX_VALUE)
+                            .addComponent(lb_Laporan)
+                            .addComponent(pn_PetugasMain, javax.swing.GroupLayout.DEFAULT_SIZE, 243, Short.MAX_VALUE)
+                            .addComponent(pn_LpKeuanganMain, javax.swing.GroupLayout.DEFAULT_SIZE, 243, Short.MAX_VALUE)
+                            .addComponent(pn_LpTransaksiMain, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, 243, Short.MAX_VALUE))
+                        .addGap(576, 576, 576))
                     .addGroup(pn_kiriLayout.createSequentialGroup()
                         .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 75, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
@@ -540,7 +607,9 @@ public class MenutView extends javax.swing.JFrame {
                 .addComponent(pn_DashboardMain, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(15, 15, 15)
                 .addComponent(pn_ProductMain, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(20, 20, 20)
+                .addGap(15, 15, 15)
+                .addComponent(pn_PetugasMain, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(30, 30, 30)
                 .addComponent(lb_Laporan, javax.swing.GroupLayout.PREFERRED_SIZE, 18, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(15, 15, 15)
                 .addComponent(pn_TrPelangganMain, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -552,7 +621,7 @@ public class MenutView extends javax.swing.JFrame {
                 .addComponent(pn_LpKeuanganMain, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(15, 15, 15)
                 .addComponent(pn_LpTransaksiMain, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(96, Short.MAX_VALUE))
+                .addGap(44, 44, 44))
         );
 
         getContentPane().add(pn_kiri, java.awt.BorderLayout.LINE_START);
@@ -787,6 +856,26 @@ public class MenutView extends javax.swing.JFrame {
         pn_LpTransaksiLine.setBackground(new Color(51, 51, 51));
     }//GEN-LAST:event_pn_LpTransaksiMainMouseExited
 
+    private void pn_PetugasMainMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_pn_PetugasMainMouseEntered
+        pn_PetugasMain.setBackground(new Color(255, 255, 255));
+        pn_PetugasLine.setBackground(new Color(0, 255, 255));
+    }//GEN-LAST:event_pn_PetugasMainMouseEntered
+
+    private void pn_PetugasMainMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_pn_PetugasMainMouseExited
+        pn_PetugasMain.setBackground(new Color(240, 240, 240));
+        pn_PetugasLine.setBackground(new Color(51, 51, 51));
+    }//GEN-LAST:event_pn_PetugasMainMouseExited
+
+    private void pn_PetugasMainMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_pn_PetugasMainMouseClicked
+        pn_PetugasMain.setBackground(new Color(240, 240, 240));
+        pn_PetugasLine.setBackground(new Color(255, 255, 255));
+
+        pn_utama.removeAll();
+        pn_utama.add(new MenuPetugas());
+        pn_utama.repaint();
+        pn_utama.revalidate();
+    }//GEN-LAST:event_pn_PetugasMainMouseClicked
+
     /**
      * @param args the command line arguments
      */
@@ -827,7 +916,9 @@ public class MenutView extends javax.swing.JFrame {
     private javax.swing.JLabel btn_Dashboard;
     private javax.swing.JLabel btn_LpKeuangan;
     private javax.swing.JLabel btn_LpTransaksi;
+    private javax.swing.JLabel btn_Petugas;
     private javax.swing.JLabel btn_Product;
+    private javax.swing.JLabel btn_Product1;
     private javax.swing.JLabel btn_TrPelanggan;
     private javax.swing.JLabel btn_TrSuplier;
     private javax.swing.JLabel jLabel1;
@@ -839,7 +930,9 @@ public class MenutView extends javax.swing.JFrame {
     private javax.swing.JLabel lb_iconDashboard;
     private javax.swing.JLabel lb_iconLpKeuangan;
     private javax.swing.JLabel lb_iconLpTransaksi;
+    private javax.swing.JLabel lb_iconPetugas;
     private javax.swing.JLabel lb_iconProduct;
+    private javax.swing.JLabel lb_iconProduct1;
     private javax.swing.JLabel lb_iconTrPelanggan;
     private javax.swing.JLabel lb_iconTrSuplier;
     private javax.swing.JLabel lblKelas;
@@ -851,8 +944,12 @@ public class MenutView extends javax.swing.JFrame {
     private javax.swing.JPanel pn_LpKeuanganMain;
     private javax.swing.JPanel pn_LpTransaksiLine;
     private javax.swing.JPanel pn_LpTransaksiMain;
+    private javax.swing.JPanel pn_PetugasLine;
+    private javax.swing.JPanel pn_PetugasMain;
     private javax.swing.JPanel pn_ProductLine;
+    private javax.swing.JPanel pn_ProductLine1;
     private javax.swing.JPanel pn_ProductMain;
+    private javax.swing.JPanel pn_ProductMain1;
     private javax.swing.JPanel pn_TrPelangganLine;
     private javax.swing.JPanel pn_TrPelangganMain;
     private javax.swing.JPanel pn_TrSuplierLine;
