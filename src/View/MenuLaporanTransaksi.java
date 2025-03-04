@@ -41,6 +41,7 @@ public class MenuLaporanTransaksi extends javax.swing.JPanel {
         tblTransaksi = new javax.swing.JTable();
         txtSearch = new javax.swing.JTextField();
 
+        setMaximumSize(new java.awt.Dimension(1038, 621));
         setPreferredSize(new java.awt.Dimension(1038, 621));
 
         jLabel1.setFont(new java.awt.Font("sansserif", 0, 24)); // NOI18N

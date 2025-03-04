@@ -54,7 +54,7 @@ public int getTotalModal(int bulan, int tahun) {
     int totalModal = 0;
     String sql = "SELECT SUM(ts.jumlah * p.hargaBeli) AS totalModal " +
                  "FROM transaksi_suplier ts " +
-                 "JOIN transaksi t ON ts.id_trsup = t.noOrder " + 
+                 "JOIN transaksi t ON ts.idTrsuplier = t.noOrder " + 
                  "JOIN produk p ON ts.idProduk = p.idProduk " +
                  "WHERE MONTH(t.tglTransaksi) = ? AND YEAR(t.tglTransaksi) = ?";
 

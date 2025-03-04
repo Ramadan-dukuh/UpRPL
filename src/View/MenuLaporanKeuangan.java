@@ -78,6 +78,7 @@ public class MenuLaporanKeuangan extends javax.swing.JPanel {
         scrNilai.setViewportView(TBLnilai);
 
         setBackground(new java.awt.Color(255, 255, 255));
+        setMaximumSize(new java.awt.Dimension(1038, 621));
         setPreferredSize(new java.awt.Dimension(1038, 621));
 
         jLabel5.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
