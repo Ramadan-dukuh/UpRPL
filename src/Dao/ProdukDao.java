@@ -109,10 +109,15 @@ public class ProdukDao {
 
         String query = "SELECT idProduk, nmProduk, jenisProduk, hargaBeli, hargaJual, stock FROM produk";
 
-        if (filter.equals("Hampir Habis")) {
+        if (filter.equals("Tersedia")){
+            query += " WHERE stock > 10";
+        }
+        else if(filter.equals("Hampir Habis")) {
             query += " WHERE stock < 10 AND stock > 0";
         } else if (filter.equals("Sudah Habis")) {
             query += " WHERE stock = 0";
+        } else if (filter.equals("Tampilkan Semua")){
+            query += " ";
         }
 
         try {

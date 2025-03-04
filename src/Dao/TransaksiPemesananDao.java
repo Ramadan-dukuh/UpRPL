@@ -20,22 +20,6 @@ public class TransaksiPemesananDao {
         kon = getConnection();
     }
     
-    public String generateAutoNumber() {
-        String noTransaksi = "TR0001";
-        try {
-            String sql = "SELECT noOrder FROM transaksi ORDER BY NoFaktur DESC LIMIT 1";
-            ps = kon.prepareStatement(sql);
-            rs = ps.executeQuery();
-            if (rs.next()) {
-                String lastNo = rs.getString("noOrder").substring(2);
-                int newNo = Integer.parseInt(lastNo) + 1;
-                noTransaksi = "TR" + String.format("%04d", newNo);
-            }
-        } catch (SQLException e) {
-            System.out.println("Autonumber error: " + e.getMessage());
-        }
-        return noTransaksi;
-    }
     
     public void simpanTransaksi(Transaksi transaksi, DefaultTableModel model) {
         try {
@@ -73,7 +57,7 @@ public class TransaksiPemesananDao {
             rs = ps.executeQuery();
             while (rs.next()) {
                 Detail_transaksi detail = new Detail_transaksi();
-                detail.setId(rs.getString("id"));
+                detail.setId(rs.getString("Id"));
                 detail.setNoOrder(rs.getString("noOrder"));
                 detail.setIdProduk(rs.getString("idProduk"));
                 detail.setJumlah(rs.getString("Jumlah"));

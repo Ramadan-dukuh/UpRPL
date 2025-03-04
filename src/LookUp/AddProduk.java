@@ -11,15 +11,17 @@ import Dao.ProdukDao;
  *
  * @author Daffa
  */
-public class AddProduk extends javax.swing.JFrame {
+public class AddProduk extends javax.swing.JDialog {
 
     /**
      * Creates new form AddProduk
      */
-    public AddProduk() {
+    public AddProduk(java.awt.Frame parent, boolean modal) {
+        super(parent, modal); // Panggil konstruktor JDialog
         initComponents();
-        setLocationRelativeTo(null); // Menampilkan form di tengah layar
+        setLocationRelativeTo(null);
     }
+
 
     /**
      * This method is called from within the constructor to initialize the form.
@@ -192,7 +194,8 @@ public class AddProduk extends javax.swing.JFrame {
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
-                new AddProduk().setVisible(true);
+                AddProduk dialog = new AddProduk(new javax.swing.JFrame(), true);
+                dialog.setVisible(true);
             }
         });
     }
