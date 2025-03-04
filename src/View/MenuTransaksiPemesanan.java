@@ -5,7 +5,7 @@
  */
 package View;
 
-import LookUp.ShowProduk;
+import LookUp.showProduk;
 import java.awt.Frame;
 import javax.swing.JFrame;
 
@@ -263,7 +263,7 @@ public class MenuTransaksiPemesanan extends javax.swing.JPanel {
 
     private void btnListActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnListActionPerformed
         // TODO add your handling code here:
-          ShowProduk ShowProdukForm = new ShowProduk(frame, true); // Tambahkan 'this' dan 'true'
+          showProduk ShowProdukForm = new showProduk(frame, true); // Tambahkan 'this' dan 'true'
     ShowProdukForm.setVisible(true);
     }//GEN-LAST:event_btnListActionPerformed
 
