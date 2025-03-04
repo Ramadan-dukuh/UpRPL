@@ -17,14 +17,23 @@ public class MenutView extends javax.swing.JFrame {
     
     private String username;
     private String kelas;
+    private String level;
 
     int xx, xy;
-    public MenutView(String username, String kelas) {
+    public MenutView(String username, String kelas,String level) {
         initComponents();
         this.username = username;
         lblWelcome.setText("Welcome "+ username);
         this.kelas = kelas;
         lblKelas.setText(kelas);
+        this.level=level;
+        lblLevel.setText("Kamu adalah "+ level);
+        
+        // Cek level pengguna, jika "guru", sembunyikan panel tertentu
+    if (level.equalsIgnoreCase("siswa")) {
+        pn_LpKeuanganMain.setVisible(false);
+        pn_TrSuplierMain.setVisible(false);
+    }
     }
     
 
@@ -74,6 +83,7 @@ public class MenutView extends javax.swing.JFrame {
         lblWelcome = new javax.swing.JLabel();
         Logout = new javax.swing.JButton();
         lblKelas = new javax.swing.JLabel();
+        lblLevel = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         addMouseMotionListener(new java.awt.event.MouseMotionAdapter() {
@@ -168,7 +178,7 @@ public class MenutView extends javax.swing.JFrame {
                     .addGroup(pn_DashboardMainLayout.createSequentialGroup()
                         .addGap(8, 8, 8)
                         .addComponent(btn_Dashboard)
-                        .addGap(0, 8, Short.MAX_VALUE)))
+                        .addGap(0, 22, Short.MAX_VALUE)))
                 .addContainerGap())
         );
 
@@ -280,7 +290,7 @@ public class MenutView extends javax.swing.JFrame {
                 .addComponent(lb_iconTrPelanggan, javax.swing.GroupLayout.PREFERRED_SIZE, 26, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(18, 18, 18)
                 .addComponent(btn_TrPelanggan)
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addContainerGap(12, Short.MAX_VALUE))
         );
         pn_TrPelangganMainLayout.setVerticalGroup(
             pn_TrPelangganMainLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -505,9 +515,9 @@ public class MenutView extends javax.swing.JFrame {
                                 .addComponent(pn_TrPelangganMain, javax.swing.GroupLayout.DEFAULT_SIZE, 243, Short.MAX_VALUE)
                                 .addComponent(pn_TrSuplierMain, javax.swing.GroupLayout.DEFAULT_SIZE, 243, Short.MAX_VALUE)
                                 .addComponent(lb_Laporan))
-                            .addComponent(pn_LpKeuanganMain, javax.swing.GroupLayout.DEFAULT_SIZE, 243, Short.MAX_VALUE)
-                            .addComponent(pn_LpTransaksiMain, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, 243, Short.MAX_VALUE))
-                        .addContainerGap(38, Short.MAX_VALUE))
+                            .addComponent(pn_LpKeuanganMain, javax.swing.GroupLayout.DEFAULT_SIZE, 245, Short.MAX_VALUE)
+                            .addComponent(pn_LpTransaksiMain, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, 245, Short.MAX_VALUE))
+                        .addContainerGap(39, Short.MAX_VALUE))
                     .addGroup(pn_kiriLayout.createSequentialGroup()
                         .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 75, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
@@ -571,6 +581,8 @@ public class MenutView extends javax.swing.JFrame {
         lblKelas.setForeground(new java.awt.Color(255, 255, 255));
         lblKelas.setText("jLabel2");
 
+        lblLevel.setText("jLabel2");
+
         javax.swing.GroupLayout jPanelGradient1Layout = new javax.swing.GroupLayout(jPanelGradient1);
         jPanelGradient1.setLayout(jPanelGradient1Layout);
         jPanelGradient1Layout.setHorizontalGroup(
@@ -578,11 +590,16 @@ public class MenutView extends javax.swing.JFrame {
             .addGroup(jPanelGradient1Layout.createSequentialGroup()
                 .addGap(67, 67, 67)
                 .addGroup(jPanelGradient1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(lblWelcome)
-                    .addComponent(lblKelas))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 811, Short.MAX_VALUE)
-                .addComponent(Logout, javax.swing.GroupLayout.PREFERRED_SIZE, 36, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(33, 33, 33))
+                    .addGroup(jPanelGradient1Layout.createSequentialGroup()
+                        .addComponent(lblLevel)
+                        .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                    .addGroup(jPanelGradient1Layout.createSequentialGroup()
+                        .addGroup(jPanelGradient1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(lblWelcome)
+                            .addComponent(lblKelas))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 811, Short.MAX_VALUE)
+                        .addComponent(Logout, javax.swing.GroupLayout.PREFERRED_SIZE, 36, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(33, 33, 33))))
         );
         jPanelGradient1Layout.setVerticalGroup(
             jPanelGradient1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -594,7 +611,9 @@ public class MenutView extends javax.swing.JFrame {
                         .addComponent(lblWelcome)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addComponent(lblKelas)))
-                .addContainerGap(42, Short.MAX_VALUE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(lblLevel, javax.swing.GroupLayout.PREFERRED_SIZE, 16, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(20, Short.MAX_VALUE))
         );
 
         javax.swing.GroupLayout pn_dasarLayout = new javax.swing.GroupLayout(pn_dasar);
@@ -824,6 +843,7 @@ public class MenutView extends javax.swing.JFrame {
     private javax.swing.JLabel lb_iconTrPelanggan;
     private javax.swing.JLabel lb_iconTrSuplier;
     private javax.swing.JLabel lblKelas;
+    private javax.swing.JLabel lblLevel;
     private javax.swing.JLabel lblWelcome;
     private javax.swing.JPanel pn_DashboardLine;
     private javax.swing.JPanel pn_DashboardMain;

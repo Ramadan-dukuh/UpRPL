@@ -19,7 +19,7 @@ public class LoginDao {
     public Petugas getPetugas(String username) {
         Petugas petugas = null;
         try {
-            ps = kon.prepareStatement("SELECT idPetugas, username, password,kelas FROM petugas WHERE username = ?");
+            ps = kon.prepareStatement("SELECT idPetugas, username, password,kelas,level FROM petugas WHERE username = ?");
             ps.setString(1, username);
             rs = ps.executeQuery();
             if (rs.next()) {
@@ -28,6 +28,7 @@ public class LoginDao {
                 petugas.setUsername(rs.getString("username"));
                 petugas.setPassword(rs.getString("password"));
                 petugas.setKelas(rs.getString("kelas"));
+                petugas.setLevel(rs.getString("level"));
             }
         } catch (SQLException se) {
             System.out.println("Error : " + se);

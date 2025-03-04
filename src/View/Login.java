@@ -272,7 +272,7 @@ public class Login extends javax.swing.JFrame {
 //        JOptionPane.showMessageDialog(this, "Login Berhasil!\nUsername: " + petugas.getUsername() + "\nKelas: " + petugas.getKelas(), "Sukses", JOptionPane.INFORMATION_MESSAGE);
 
         // Kirim username dan kelas ke halaman berikutnya (contoh: MenutView)
-        MenutView menu = new MenutView(petugas.getUsername(), petugas.getKelas());
+        MenutView menu = new MenutView(petugas.getUsername(), petugas.getKelas(),petugas.getLevel());
         menu.setVisible(true);
         this.dispose();
     } else {
@@ -298,7 +298,7 @@ public class Login extends javax.swing.JFrame {
 //        JOptionPane.showMessageDialog(this, "Login Berhasil!\nUsername: " + petugas.getUsername() + "\nKelas: " + petugas.getKelas(), "Sukses", JOptionPane.INFORMATION_MESSAGE);
 
         // Kirim username dan kelas ke halaman berikutnya (contoh: MenutView)
-        MenutView menu = new MenutView(petugas.getUsername(), petugas.getKelas());
+        MenutView menu = new MenutView(petugas.getUsername(), petugas.getKelas(),petugas.getLevel());
         menu.setVisible(true);
         this.dispose();
     } else {
