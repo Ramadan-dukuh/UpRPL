@@ -116,9 +116,9 @@
         <Property name="model" type="javax.swing.ComboBoxModel" editor="org.netbeans.modules.form.editors2.ComboBoxModelEditor">
           <StringArray count="4">
             <StringItem index="0" value="Tampilkan Semua"/>
-            <StringItem index="1" value="Tersedia"/>
-            <StringItem index="2" value="Hampir Habis"/>
-            <StringItem index="3" value="Sudah Habis"/>
+            <StringItem index="1" value="Guru"/>
+            <StringItem index="2" value="Siswa"/>
+            <StringItem index="3" value="Suplier"/>
           </StringArray>
         </Property>
         <Property name="cursor" type="java.awt.Cursor" editor="org.netbeans.modules.form.editors2.CursorEditor">

@@ -28,10 +28,14 @@ public class LpTransaksiDao {
         DefaultTableModel model = new DefaultTableModel();
         model.addColumn("No Order");
         model.addColumn("Tanggal Transaksi");
-        model.addColumn("Nama Pelanggan");
-        model.addColumn("Total");         
+        model.addColumn("Nama Pelanggan");   
+        model.addColumn("ID Produk");   
+        model.addColumn("Nama Produk");   
+        model.addColumn("Harga");   
+        model.addColumn("Jumlah");   
+        model.addColumn("Total");   
         
-        String query = "SELECT noOrder, tglTransaksi, nmPelanggan, total FROM transaksi";
+        String query = "SELECT noOrder, tglTransaksi, nmPelanggan,idProduk,nmProduk,harga,jumlah,total FROM transaksi_view";
         
         try {
             ps = kon.prepareStatement(query);
@@ -41,8 +45,12 @@ public class LpTransaksiDao {
                 Object[] rowData = {
                     rs.getString("noOrder"),
                     rs.getString("tglTransaksi"),
-                    rs.getString("nmPelanggan"),
-                    rs.getInt("total"),                    
+                    rs.getString("nmPelanggan"),                    
+                    rs.getString("idProduk"),
+                    rs.getString("nmProduk"),
+                    rs.getString("harga"),
+                    rs.getString("jumlah"),
+                    rs.getString("total"),
                 };
                 model.addRow(rowData);
             }
@@ -62,13 +70,17 @@ public class LpTransaksiDao {
     
     public DefaultTableModel getTransaksiBySearch(String noOrder) {
         DefaultTableModel model = new DefaultTableModel();
-        model.addColumn("No Order");
+         model.addColumn("No Order");
         model.addColumn("Tanggal Transaksi");
-        model.addColumn("Nama Pelanggan");
-        model.addColumn("Total");   
+        model.addColumn("Nama Pelanggan");   
+        model.addColumn("ID Produk");   
+        model.addColumn("Nama Produk");   
+        model.addColumn("Harga");   
+        model.addColumn("Jumlah");   
+        model.addColumn("Total");           
 
         try {
-            String query = "SELECT * FROM transaksi WHERE noOrder LIKE ? OR tglTransaksi LIKE ? OR nmPelanggan LIKE ?";
+                String query = "SELECT * FROM transaksi_view WHERE noOrder LIKE ? OR tglTransaksi LIKE ? OR nmPelanggan LIKE ?";
             ps = kon.prepareStatement(query);
             ps.setString(1, "%" + noOrder + "%");
             ps.setString(2, "%" + noOrder + "%");
@@ -80,8 +92,12 @@ public class LpTransaksiDao {
                 String[] row = {
                     rs.getString("noOrder"),
                     rs.getString("tglTransaksi"),
-                    rs.getString("nmPelanggan"),
-                    rs.getString("total"), 
+                    rs.getString("nmPelanggan"),     
+                     rs.getString("idProduk"),
+                    rs.getString("nmProduk"),
+                    rs.getString("harga"),
+                    rs.getString("jumlah"),
+                    rs.getString("total"),
                 };
                 model.addRow(row);
             }
