@@ -28,7 +28,7 @@ import model.Transaksi;
 public class MenuTransaksiPemesanan extends javax.swing.JPanel {
 
     LpTransaksiDao dao = new LpTransaksiDao();
-    ShowProduk showProduk = new ShowProduk();
+    ShowProduk showProduk = new ShowProduk(new javax.swing.JFrame(), true);
     
     /**
      * Creates new form MenuLaporanTransaksi

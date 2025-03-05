@@ -748,7 +748,7 @@ public class MenutView extends javax.swing.JFrame {
         pn_ProductLine.setBackground(new Color(255, 255, 255));
 
         pn_utama.removeAll();
-        pn_utama.add(new MenuProduk());
+        pn_utama.add(new MenuProduk(level));
         pn_utama.repaint();
         pn_utama.revalidate();
     }//GEN-LAST:event_pn_ProductMainMouseClicked

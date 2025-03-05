@@ -6,7 +6,12 @@
 package View;
 
 import Dao.TransaksiSuplierDao;
+import java.sql.Connection;
+import java.sql.PreparedStatement;
+import java.sql.SQLException;
+import javax.swing.JOptionPane;
 import javax.swing.table.DefaultTableModel;
+import static koneksi.Koneksi.getConnection;
 import model.Transaksi_suplier;
 
 /**
@@ -15,18 +20,22 @@ import model.Transaksi_suplier;
  */
 public class MenuTransaksiSuplier extends javax.swing.JPanel {
 
-    /**
-     * Creates new form NewJPanel
-     */
+    TransaksiSuplierDao dao = new TransaksiSuplierDao();
+    Connection kon;
+    
     public MenuTransaksiSuplier() {
         initComponents();
-        
-        DefaultTableModel model = (DefaultTableModel) jTable1.getModel();
-        TransaksiSuplierDao dao = new TransaksiSuplierDao();
-        dao.tampilkanProdukKurangDari10(model);
-        
+        tampilkanDataTransaksi();
     }     
 
+    private void tampilkanDataTransaksi() {
+        DefaultTableModel model = dao.tampilkanTransaksiAccepted();
+        tblSup.setModel(model);
+        tblSup.getColumnModel().getColumn(4).setMinWidth(0);
+        tblSup.getColumnModel().getColumn(4).setMaxWidth(0);
+        tblSup.getColumnModel().getColumn(4).setWidth(0);
+    }
+    
     /**
      * This method is called from within the constructor to initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is always
@@ -36,203 +45,92 @@ public class MenuTransaksiSuplier extends javax.swing.JPanel {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        itemJumlah = new javax.swing.JTextField();
-        jLabel2 = new javax.swing.JLabel();
         jLabel1 = new javax.swing.JLabel();
-        jLabel3 = new javax.swing.JLabel();
-        itemIdProduk = new javax.swing.JTextField();
-        itemKode = new javax.swing.JTextField();
-        btnBuy = new javax.swing.JButton();
-        jLabel4 = new javax.swing.JLabel();
-        jLabel5 = new javax.swing.JLabel();
         jScrollPane1 = new javax.swing.JScrollPane();
-        jTable1 = new javax.swing.JTable();
-        itemIdTransaksi = new javax.swing.JTextField();
+        tblSup = new javax.swing.JTable();
 
         setPreferredSize(new java.awt.Dimension(1038, 621));
-
-        jLabel2.setText("Kode Supplier");
 
         jLabel1.setFont(new java.awt.Font("Verdana", 1, 24)); // NOI18N
         jLabel1.setText("Transaksi Supplier");
 
-        jLabel3.setText("ID Transaksi");
-
-        itemIdProduk.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                itemIdProdukActionPerformed(evt);
-            }
-        });
-
-        itemKode.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                itemKodeActionPerformed(evt);
-            }
-        });
-
-        btnBuy.setText("Buy");
-        btnBuy.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnBuyActionPerformed(evt);
-            }
-        });
-
-        jLabel4.setText("ID Produk");
-
-        jLabel5.setText("Jumlah");
-
-        jTable1.setModel(new javax.swing.table.DefaultTableModel(
+        tblSup.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
-                {null, null, null, null, null, null},
-                {null, null, null, null, null, null},
-                {null, null, null, null, null, null},
-                {null, null, null, null, null, null}
+                {null, null, null, null},
+                {null, null, null, null},
+                {null, null, null, null},
+                {null, null, null, null}
             },
             new String [] {
-                "ID Produk", "Nama Produk", "Jenis Produk", "Harga Beli", "Harga Jual", "Stock"
+                "ID Produk", "Title 2", "Title 3", "Title 4"
             }
         ));
-        jTable1.addMouseListener(new java.awt.event.MouseAdapter() {
+        tblSup.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
-                jTable1MouseClicked(evt);
+                tblSupMouseClicked(evt);
             }
         });
-        jScrollPane1.setViewportView(jTable1);
-
-        itemIdTransaksi.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                itemIdTransaksiActionPerformed(evt);
-            }
-        });
+        jScrollPane1.setViewportView(tblSup);
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
         this.setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addContainerGap(107, Short.MAX_VALUE)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                        .addComponent(jLabel1)
-                        .addGap(409, 409, 409))
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(jLabel3)
-                            .addComponent(jLabel2))
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addGroup(layout.createSequentialGroup()
-                                .addComponent(itemIdTransaksi, javax.swing.GroupLayout.PREFERRED_SIZE, 220, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addGap(18, 18, 18)
-                                .addComponent(jLabel5))
-                            .addGroup(layout.createSequentialGroup()
-                                .addComponent(itemKode, javax.swing.GroupLayout.PREFERRED_SIZE, 220, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addGap(18, 18, 18)
-                                .addComponent(jLabel4, javax.swing.GroupLayout.PREFERRED_SIZE, 66, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                        .addGap(30, 30, 30)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(itemIdProduk, javax.swing.GroupLayout.PREFERRED_SIZE, 220, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addGroup(layout.createSequentialGroup()
-                                .addComponent(itemJumlah, javax.swing.GroupLayout.PREFERRED_SIZE, 220, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addGap(18, 18, 18)
-                                .addComponent(btnBuy)))
-                        .addGap(158, 158, 158))
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                        .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 839, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(92, 92, 92))))
+                .addGap(382, 382, 382)
+                .addComponent(jLabel1)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                .addContainerGap(115, Short.MAX_VALUE)
+                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 839, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(84, 84, 84))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                .addContainerGap()
                 .addComponent(jLabel1)
-                .addGap(69, 69, 69)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(itemIdProduk, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jLabel2)
-                    .addComponent(jLabel4)
-                    .addComponent(itemKode, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(18, 18, 18)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(btnBuy)
-                    .addComponent(itemJumlah, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jLabel5)
-                    .addComponent(itemIdTransaksi, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jLabel3))
-                .addGap(32, 32, 32)
+                .addGap(58, 58, 58)
                 .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 399, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(26, Short.MAX_VALUE))
+                .addContainerGap(121, Short.MAX_VALUE))
         );
     }// </editor-fold>//GEN-END:initComponents
 
-    private void itemIdProdukActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_itemIdProdukActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_itemIdProdukActionPerformed
-
-    private void itemIdTransaksiActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_itemIdTransaksiActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_itemIdTransaksiActionPerformed
-
-    private void itemKodeActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_itemKodeActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_itemKodeActionPerformed
-
-    private void btnBuyActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnBuyActionPerformed
-        // TODO add your handling code here:
-        try {
-        String kodeSuplier = itemKode.getText().trim();        
-        String id_trsup = itemIdTransaksi.getText().trim();
-        String idProduk = itemIdProduk.getText().trim();
-        String jumlah = itemJumlah.getText().trim();
-
-        // Validasi input tidak boleh kosong
-        if (kodeSuplier.isEmpty() || id_trsup.isEmpty() || idProduk.isEmpty() || jumlah.isEmpty()) {
-            javax.swing.JOptionPane.showMessageDialog(this, "Semua field harus diisi!", "Error", javax.swing.JOptionPane.ERROR_MESSAGE);
+    private void tblSupMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_tblSupMouseClicked
+        kon = getConnection();
+        int row = tblSup.getSelectedRow();
+        if (row == -1) {
+            JOptionPane.showMessageDialog(this, "Pilih permintaan restock yang ingin diselesaikan!", "Peringatan", JOptionPane.WARNING_MESSAGE);
             return;
         }
 
-        // Buat objek transaksi
-        Transaksi_suplier transaksi = new Transaksi_suplier();
-        transaksi.setNmSuplier(kodeSuplier);
-        transaksi.setId_trsup(id_trsup);
-        transaksi.setId_produk(idProduk);
-        transaksi.setJumlah(jumlah);
+        String idTransaksi = tblSup.getValueAt(row, 0).toString();
+        String namaSuplierLama = tblSup.getValueAt(row, 4).toString(); // Ambil nama suplier dari tabel
 
-        TransaksiSuplierDao dao = new TransaksiSuplierDao();
-
-        boolean sukses = dao.buatTransaksi(transaksi);
-        if (sukses) {
-            javax.swing.JOptionPane.showMessageDialog(this, "Produk berhasil disimpan!");
-        } else {
-            javax.swing.JOptionPane.showMessageDialog(this, "Gagal menyimpan produk!", "Error", javax.swing.JOptionPane.ERROR_MESSAGE);
+        // Input untuk mengubah nama suplier
+        String namaSuplierBaru = JOptionPane.showInputDialog(this, "Masukkan nama suplier baru:", namaSuplierLama);
+        if (namaSuplierBaru == null || namaSuplierBaru.trim().isEmpty()) {
+            return;
         }
-        } catch (Exception e) {
-            e.printStackTrace();
-            javax.swing.JOptionPane.showMessageDialog(this, "Terjadi kesalahan: " + e.getMessage(), "Error", javax.swing.JOptionPane.ERROR_MESSAGE);
-        }      
-    }//GEN-LAST:event_btnBuyActionPerformed
 
-    private void jTable1MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jTable1MouseClicked
-        // TODO add your handling code here:
-        int selectedRow = jTable1.getSelectedRow();
-        if (selectedRow != -1) {
-                    itemIdProduk.setText(jTable1.getValueAt(selectedRow, 0).toString());                    
-                    itemJumlah.setText(jTable1.getValueAt(selectedRow, 5).toString()); // Stock
-                }
-    }//GEN-LAST:event_jTable1MouseClicked
+        try {
+            String sql = "UPDATE transaksi_suplier SET status = 'completed', nmSuplier = ? WHERE idTrsuplier = ?";
+            PreparedStatement ps = kon.prepareStatement(sql);
+            ps.setString(1, namaSuplierBaru);
+            ps.setString(2, idTransaksi);
+            ps.executeUpdate();
+
+            JOptionPane.showMessageDialog(this, "Permintaan restock berhasil diselesaikan!", "Sukses", JOptionPane.INFORMATION_MESSAGE);
+            tampilkanDataTransaksi();
+        } catch (SQLException e) {
+            JOptionPane.showMessageDialog(this, "Gagal menyelesaikan permintaan restock: " + e.getMessage(), "Error", JOptionPane.ERROR_MESSAGE);
+        }
+    }//GEN-LAST:event_tblSupMouseClicked
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton btnBuy;
-    private javax.swing.JTextField itemIdProduk;
-    private javax.swing.JTextField itemIdTransaksi;
-    private javax.swing.JTextField itemJumlah;
-    private javax.swing.JTextField itemKode;
     private javax.swing.JLabel jLabel1;
-    private javax.swing.JLabel jLabel2;
-    private javax.swing.JLabel jLabel3;
-    private javax.swing.JLabel jLabel4;
-    private javax.swing.JLabel jLabel5;
     private javax.swing.JScrollPane jScrollPane1;
-    private javax.swing.JTable jTable1;
+    private javax.swing.JTable tblSup;
     // End of variables declaration//GEN-END:variables
 }

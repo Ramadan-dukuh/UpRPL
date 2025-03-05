@@ -7,6 +7,7 @@ package View;
 
 import Dao.ProdukDao;
 import LookUp.AddProduk;
+import LookUp.RequestStock;
 import java.awt.Color;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
@@ -29,10 +30,13 @@ public class MenuProduk extends javax.swing.JPanel {
     ProdukDao produkDao = new ProdukDao(); // DAO untuk ambil data
     Connection kon;
     
-    public MenuProduk() {
+    public MenuProduk(String level) {
         initComponents();
-        
+        if (!level.equalsIgnoreCase("guru")) {
+            reqStock.setVisible(false);
+        }
         tampilData(""); // Menampilkan semua produk saat pertama kali 
+        
     }
 
     
@@ -62,6 +66,7 @@ public class MenuProduk extends javax.swing.JPanel {
         txtSearch = new javax.swing.JTextField();
         btnAdd = new javax.swing.JButton();
         jLabel1 = new javax.swing.JLabel();
+        reqStock = new javax.swing.JButton();
 
         setBackground(new java.awt.Color(255, 255, 255));
         setMaximumSize(new java.awt.Dimension(1038, 621));
@@ -118,29 +123,36 @@ public class MenuProduk extends javax.swing.JPanel {
         jLabel1.setFont(new java.awt.Font("Verdana", 1, 24)); // NOI18N
         jLabel1.setText("List Product");
 
+        reqStock.setText("PERMINTAAN STOCK");
+        reqStock.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                reqStockActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
         this.setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                .addGap(0, 32, Short.MAX_VALUE)
+                .addGap(30, 30, 30)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                        .addGap(0, 2, Short.MAX_VALUE)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 977, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addGap(27, 27, 27))
-                            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                                .addComponent(jLabel1)
-                                .addGap(435, 435, 435))))
                     .addGroup(layout.createSequentialGroup()
                         .addComponent(txtSearch, javax.swing.GroupLayout.PREFERRED_SIZE, 500, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(55, 55, 55)
+                        .addGap(23, 23, 23)
                         .addComponent(cbFilter, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addGap(25, 25, 25)
+                        .addComponent(reqStock)
+                        .addGap(25, 25, 25)
                         .addComponent(btnAdd, javax.swing.GroupLayout.PREFERRED_SIZE, 129, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(44, 44, 44))))
+                        .addGap(30, 30, 30))
+                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                        .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                            .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 977, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addGap(30, 30, 30))
+                        .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                            .addComponent(jLabel1)
+                            .addGap(435, 435, 435)))))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -151,7 +163,8 @@ public class MenuProduk extends javax.swing.JPanel {
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(txtSearch, javax.swing.GroupLayout.PREFERRED_SIZE, 32, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(cbFilter, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(btnAdd, javax.swing.GroupLayout.PREFERRED_SIZE, 38, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(btnAdd, javax.swing.GroupLayout.PREFERRED_SIZE, 38, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(reqStock, javax.swing.GroupLayout.PREFERRED_SIZE, 38, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(23, 23, 23)
                 .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap(36, Short.MAX_VALUE))
@@ -188,43 +201,57 @@ public class MenuProduk extends javax.swing.JPanel {
     private void tblProductMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_tblProductMouseClicked
         kon = getConnection();
         if (evt.getClickCount() == 2) { // Deteksi double-click
-        int row = tblProduct.getSelectedRow();
-        if (row == -1) {
-            JOptionPane.showMessageDialog(this, "Pilih produk yang ingin direstock!", "Peringatan", JOptionPane.WARNING_MESSAGE);
-            return;
-        }
+            int row = tblProduct.getSelectedRow();
+            if (row == -1) {
+                JOptionPane.showMessageDialog(this, "Pilih produk yang ingin direstock!", "Peringatan", JOptionPane.WARNING_MESSAGE);
+                return;
+            }
 
-        String namaProduk = tblProduct.getValueAt(row, 1).toString(); // Asumsi kolom 1 = nama produk
-        int stok = Integer.parseInt(tblProduct.getValueAt(row, 3).toString()); // Asumsi kolom 3 = stok
+            String idProduk = tblProduct.getValueAt(row, 0).toString(); // Ambil idProduk sebagai String
+            String namaProduk = tblProduct.getValueAt(row, 1).toString(); // Kolom kedua = nama produk
+            String jenis = tblProduct.getValueAt(row, 2).toString().toLowerCase(); // Jenis Produk (convert ke lowercase)
+            int stok = Integer.parseInt(tblProduct.getValueAt(row, 5).toString()); // Stok produk
 
-        if (stok >= 10) {
-            JOptionPane.showMessageDialog(this, "Stok masih cukup, tidak perlu restock!", "Info", JOptionPane.INFORMATION_MESSAGE);
-            return;
-        }
+            // Cek jika jenis produk adalah "jasa"
+            if (jenis.equals("jasa")) {
+                JOptionPane.showMessageDialog(this, "Restock hanya berlaku untuk barang!", "Peringatan", JOptionPane.WARNING_MESSAGE);
+                return;
+            }
 
-        int konfirmasi = JOptionPane.showConfirmDialog(
-            this, 
-            "Apakah Anda ingin mengirim permintaan restock untuk produk '" + namaProduk + "'?", 
-            "Konfirmasi Restock", 
-            JOptionPane.YES_NO_OPTION
-        );
+            if (stok >= 10) {
+                JOptionPane.showMessageDialog(this, "Stok masih cukup, tidak perlu restock!", "Info", JOptionPane.INFORMATION_MESSAGE);
+                return;
+            }
 
-        if (konfirmasi == JOptionPane.YES_OPTION) {
-            try {
-                String sql = "INSERT INTO permintaan_restock (produk, jumlah, status) VALUES (?, ?, ?)";
-                PreparedStatement ps = kon.prepareStatement(sql);
-                ps.setString(1, namaProduk);
-                ps.setInt(2, 10); // Misal minta restock 10 item
-                ps.setString(3, "Pending");
+            int konfirmasi = JOptionPane.showConfirmDialog(
+                this, 
+                "Apakah Anda ingin mengirim permintaan restock untuk produk '" + namaProduk + "'?", 
+                "Konfirmasi Restock", 
+                JOptionPane.YES_NO_OPTION
+            );
 
-                ps.executeUpdate();
-                JOptionPane.showMessageDialog(this, "Permintaan restock berhasil dikirim!", "Sukses", JOptionPane.INFORMATION_MESSAGE);
-            } catch (SQLException e) {
-                JOptionPane.showMessageDialog(this, "Gagal mengirim permintaan restock: " + e.getMessage(), "Error", JOptionPane.ERROR_MESSAGE);
+            if (konfirmasi == JOptionPane.YES_OPTION) {
+                try {
+                    String sql = "INSERT INTO transaksi_suplier (nmSuplier, idProduk, jumlah, status, tglRestock) VALUES ('Suplier', ?, ?, ?, CURRENT_DATE)";
+                    PreparedStatement ps = kon.prepareStatement(sql);
+
+                    ps.setString(1, idProduk); // ID produk sebagai String
+                    ps.setInt(2, 0); // Jumlah di-set 0
+                    ps.setString(3, "Pending"); // Status default "Pending"
+
+                    ps.executeUpdate();
+                    JOptionPane.showMessageDialog(this, "Permintaan restock berhasil dikirim!", "Sukses", JOptionPane.INFORMATION_MESSAGE);
+                } catch (SQLException e) {
+                    JOptionPane.showMessageDialog(this, "Gagal mengirim permintaan restock: " + e.getMessage(), "Error", JOptionPane.ERROR_MESSAGE);
+                }
             }
         }
-    }
     }//GEN-LAST:event_tblProductMouseClicked
+
+    private void reqStockActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_reqStockActionPerformed
+        RequestStock req = new RequestStock(new javax.swing.JFrame(), true); 
+        req.setVisible(true);
+    }//GEN-LAST:event_reqStockActionPerformed
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
@@ -232,6 +259,7 @@ public class MenuProduk extends javax.swing.JPanel {
     public javax.swing.JComboBox<String> cbFilter;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JScrollPane jScrollPane1;
+    private javax.swing.JButton reqStock;
     private javax.swing.JTable tblProduct;
     private javax.swing.JTextField txtSearch;
     // End of variables declaration//GEN-END:variables

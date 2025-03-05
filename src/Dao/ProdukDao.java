@@ -185,4 +185,39 @@ public class ProdukDao {
             System.out.println("Error : " + se);
         }
     }
+    
+    public DefaultTableModel getPendingTransactions() {
+        DefaultTableModel model = new DefaultTableModel();
+        model.addColumn("ID Transaksi");
+        model.addColumn("ID Produk");
+        model.addColumn("Tanggal Restock");
+        model.addColumn("Jumlah"); // Kolom jumlah, tapi nanti disembunyikan
+
+        String sql = "SELECT idTrsuplier, idProduk, jumlah, tglRestock FROM transaksi_suplier WHERE status = 'Pending'";
+
+        try {
+            ps = kon.prepareStatement(sql);
+            rs = ps.executeQuery();
+
+            while (rs.next()) {
+                Object[] rowData = {
+                    rs.getString("idTrsuplier"),
+                    rs.getString("idProduk"),
+                    rs.getString("tglRestock"),
+                    rs.getInt("jumlah") // Simpan jumlah di model
+                };
+                model.addRow(rowData);
+            }
+        } catch (SQLException e) {
+            System.out.println("Error mengambil data transaksi: " + e.getMessage());
+        } finally {
+            try {
+                if (rs != null) rs.close();
+                if (ps != null) ps.close();
+            } catch (SQLException e) {
+                System.out.println("Error saat menutup koneksi: " + e.getMessage());
+            }
+        }
+        return model;
+    }
 }

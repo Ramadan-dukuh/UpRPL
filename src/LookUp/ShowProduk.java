@@ -18,10 +18,12 @@ import javax.swing.table.DefaultTableModel;
 public class ShowProduk extends javax.swing.JDialog {
     ProdukDao produkDao = new ProdukDao();
     /** Creates new form ShowProduk1 */
-    public ShowProduk() {
+    public ShowProduk(java.awt.Frame parent, boolean modal) {
+        super(parent, modal);
         initComponents();
         tampilData("");
     }
+
     
      private void tampilData(String keyword) {
         DefaultTableModel model = produkDao.getProductBySearch(keyword);
@@ -172,7 +174,7 @@ public class ShowProduk extends javax.swing.JDialog {
     public static void main(String args[]) {
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
-                AddProduk dialog = new AddProduk(new javax.swing.JFrame(), true);
+                ShowProduk dialog = new ShowProduk(new javax.swing.JFrame(), true);
                 dialog.setVisible(true);
             }
         });
