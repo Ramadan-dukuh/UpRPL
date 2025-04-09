@@ -220,4 +220,28 @@ public class ProdukDao {
         }
         return model;
     }
+    
+    public int getJumlahPermintaanPending() {
+        String sql = "SELECT COUNT(*) FROM transaksi_suplier WHERE status = 'Pending'";
+        int jumlahPending = 0;
+
+        try {
+            ps = kon.prepareStatement(sql);
+            rs = ps.executeQuery();
+
+            if (rs.next()) {
+                jumlahPending = rs.getInt(1); // Ambil jumlah transaksi pending
+            }
+        } catch (SQLException e) {
+            System.out.println("Error mengambil jumlah permintaan pending: " + e.getMessage());
+        } finally {
+            try {
+                if (rs != null) rs.close();
+                if (ps != null) ps.close();
+            } catch (SQLException e) {
+                System.out.println("Error saat menutup koneksi: " + e.getMessage());
+            }
+        }
+        return jumlahPending;
+    }
 }

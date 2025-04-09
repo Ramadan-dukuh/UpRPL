@@ -25,27 +25,48 @@ public class LpKeuanganDao {
     }
 
     // Menghitung pendapatan berdasarkan bulan & tahun
-public int getTotalPendapatan(int bulan, int tahun) {
-    int totalPendapatan = 0;
-    String sql = "SELECT SUM(detail_transaksi.harga * detail_transaksi.jumlah) AS totalPendapatan " +
-                 "FROM transaksi " +
-                 "JOIN detail_transaksi ON transaksi.noOrder = detail_transaksi.noOrder " +
-                 "JOIN produk ON detail_transaksi.idProduk = produk.idProduk " +
-                 "WHERE MONTH(transaksi.tglTransaksi) = ? AND YEAR(transaksi.tglTransaksi) = ?";
+    // Ambil dari view 'transaksi_view' yang sudah menjumlahkan total
+    public int getTotalPendapatan(int bulan, int tahun) {
+        int totalPendapatan = 0;
+        String sql = "SELECT SUM(total) AS totalPendapatan " +
+                     "FROM transaksi_view " +
+                     "WHERE MONTH(tglTransaksi) = ? AND YEAR(tglTransaksi) = ?";
 
-    try {
-        ps = kon.prepareStatement(sql);
-        ps.setInt(1, bulan);
-        ps.setInt(2, tahun);
-        rs = ps.executeQuery();
-        if (rs.next()) {
-            totalPendapatan = rs.getInt("totalPendapatan");
+        try {
+            ps = kon.prepareStatement(sql);
+            ps.setInt(1, bulan);
+            ps.setInt(2, tahun);
+            rs = ps.executeQuery();
+            if (rs.next()) {
+                totalPendapatan = rs.getInt("totalPendapatan");
+            }
+        } catch (SQLException e) {
+            e.printStackTrace();
         }
-    } catch (SQLException e) {
-        e.printStackTrace();
+        return totalPendapatan;
     }
-    return totalPendapatan;
-}
+
+    // Ambil dari tabel pengeluaran
+    public int getTotalPengeluaran(int bulan, int tahun) {
+        int totalPengeluaran = 0;
+        String sql = "SELECT SUM(total) AS totalPengeluaran " +
+                     "FROM pengeluaran " +
+                     "WHERE MONTH(tglRestock) = ? AND YEAR(tglRestock) = ?";
+
+        try {
+            ps = kon.prepareStatement(sql);
+            ps.setInt(1, bulan);
+            ps.setInt(2, tahun);
+            rs = ps.executeQuery();
+            if (rs.next()) {
+                totalPengeluaran = rs.getInt("totalPengeluaran");
+            }
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+        return totalPengeluaran;
+    }
+
 
 
     // Menghitung modal berdasarkan bulan & tahun
@@ -72,34 +93,35 @@ public int getTotalModal(int bulan, int tahun) {
     return totalModal;
 }
 
-// Menghitung total pengeluaran berdasarkan bulan & tahun
-public int getTotalPengeluaran(int bulan, int tahun) {
-    return getTotalModal(bulan, tahun);
-}
-
-
-
     // Menghitung total keuntungan per bulan (pendapatan - modal)
+   // Pemasukan kotor (total penjualan)
+    public int getPemasukanKotor(int bulan, int tahun) {
+        return getTotalPendapatan(bulan, tahun);
+    }
+
+    // Total keuntungan (pendapatan - modal)
     public int getTotalKeuntungan(int bulan, int tahun) {
         return getTotalPendapatan(bulan, tahun) - getTotalModal(bulan, tahun);
     }
 
-    // Menghitung laba bersih per bulan (keuntungan - pengeluaran)
+    // Laba bersih (keuntungan - pengeluaran)
     public int getLabaBersih(int bulan, int tahun) {
         return getTotalKeuntungan(bulan, tahun) - getTotalPengeluaran(bulan, tahun);
     }
 
-    // Menampilkan laporan keuangan berdasarkan bulan dan tahun di JTable
+    // Laba bersih (pendapatan - pengeluaran)
     public DefaultTableModel getTableLaporanKeuangan(int bulan, int tahun) {
         DefaultTableModel model = new DefaultTableModel();
         model.addColumn("Deskripsi");
         model.addColumn("Jumlah (Rp)");
 
-        model.addRow(new Object[]{"Total Pendapatan", formatRupiah(getTotalPendapatan(bulan, tahun))});
-        model.addRow(new Object[]{"Total Modal", formatRupiah(getTotalModal(bulan, tahun))});
-        model.addRow(new Object[]{"Total Pengeluaran", formatRupiah(getTotalPengeluaran(bulan, tahun))});
+        // Ubah label supaya lebih akrab untuk user
+        model.addRow(new Object[]{"Pemasukan Kotor", formatRupiah(getTotalPendapatan(bulan, tahun))});
+        model.addRow(new Object[]{"Pengeluaran", formatRupiah(getTotalPengeluaran(bulan, tahun))});
+        model.addRow(new Object[]{"Pemasukan Bersih", formatRupiah(getLabaBersih(bulan, tahun))});
+
+        // (Opsional tambahan untuk akuntansi lebih detail)
         model.addRow(new Object[]{"Total Keuntungan", formatRupiah(getTotalKeuntungan(bulan, tahun))});
-        model.addRow(new Object[]{"Laba Bersih", formatRupiah(getLabaBersih(bulan, tahun))});
 
         return model;
     }

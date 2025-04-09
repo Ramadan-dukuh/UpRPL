@@ -179,8 +179,8 @@ public class MenuTransaksiPemesanan extends javax.swing.JPanel {
         jLabel1.setText("Data Pemesanan Barang");
         jLabel1.setBorder(javax.swing.BorderFactory.createMatteBorder(0, 0, 1, 0, new java.awt.Color(0, 0, 0)));
 
-        btnTambah.setBackground(new java.awt.Color(204, 204, 204));
-        btnTambah.setForeground(new java.awt.Color(0, 0, 51));
+        btnTambah.setBackground(new java.awt.Color(0, 0, 102));
+        btnTambah.setForeground(new java.awt.Color(255, 255, 255));
         btnTambah.setText("TAMBAH");
         btnTambah.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -188,7 +188,8 @@ public class MenuTransaksiPemesanan extends javax.swing.JPanel {
             }
         });
 
-        btnHapus.setBackground(new java.awt.Color(204, 204, 204));
+        btnHapus.setBackground(new java.awt.Color(0, 0, 102));
+        btnHapus.setForeground(new java.awt.Color(255, 255, 255));
         btnHapus.setText("HAPUS");
         btnHapus.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -196,7 +197,8 @@ public class MenuTransaksiPemesanan extends javax.swing.JPanel {
             }
         });
 
-        btnSimpan.setBackground(new java.awt.Color(204, 204, 204));
+        btnSimpan.setBackground(new java.awt.Color(0, 0, 102));
+        btnSimpan.setForeground(new java.awt.Color(255, 255, 255));
         btnSimpan.setText("SIMPAN");
         btnSimpan.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -250,8 +252,8 @@ public class MenuTransaksiPemesanan extends javax.swing.JPanel {
         lblTanggal.setFont(new java.awt.Font("Verdana", 0, 14)); // NOI18N
         lblTanggal.setText("Tanggal");
 
-        btnList.setBackground(new java.awt.Color(204, 204, 204));
-        btnList.setForeground(new java.awt.Color(0, 0, 51));
+        btnList.setBackground(new java.awt.Color(0, 0, 102));
+        btnList.setForeground(new java.awt.Color(255, 255, 255));
         btnList.setText("LIST PRODUK");
         btnList.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {

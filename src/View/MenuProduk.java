@@ -37,6 +37,14 @@ public class MenuProduk extends javax.swing.JPanel {
         }
         tampilData(""); // Menampilkan semua produk saat pertama kali 
         
+        int jumlahPending = produkDao.getJumlahPermintaanPending();
+
+        if (jumlahPending > 0) {
+            lblNotif.setText("🔔 Ada " + jumlahPending + " permintaan stok yang perlu diproses!");
+            lblNotif.setForeground(Color.RED);
+        } else {
+            lblNotif.setVisible(false);
+        }
     }
 
     
@@ -67,6 +75,7 @@ public class MenuProduk extends javax.swing.JPanel {
         btnAdd = new javax.swing.JButton();
         jLabel1 = new javax.swing.JLabel();
         reqStock = new javax.swing.JButton();
+        lblNotif = new javax.swing.JLabel();
 
         setBackground(new java.awt.Color(255, 255, 255));
         setMaximumSize(new java.awt.Dimension(1038, 621));
@@ -130,11 +139,13 @@ public class MenuProduk extends javax.swing.JPanel {
             }
         });
 
+        lblNotif.setText("jLabel2");
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
         this.setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+            .addGroup(layout.createSequentialGroup()
                 .addGap(30, 30, 30)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(layout.createSequentialGroup()
@@ -153,13 +164,19 @@ public class MenuProduk extends javax.swing.JPanel {
                         .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
                             .addComponent(jLabel1)
                             .addGap(435, 435, 435)))))
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(lblNotif)
+                .addGap(252, 252, 252))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
                 .addContainerGap(14, Short.MAX_VALUE)
                 .addComponent(jLabel1)
-                .addGap(49, 49, 49)
+                .addGap(15, 15, 15)
+                .addComponent(lblNotif)
+                .addGap(18, 18, 18)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(txtSearch, javax.swing.GroupLayout.PREFERRED_SIZE, 32, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(cbFilter, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -259,6 +276,7 @@ public class MenuProduk extends javax.swing.JPanel {
     public javax.swing.JComboBox<String> cbFilter;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JScrollPane jScrollPane1;
+    private javax.swing.JLabel lblNotif;
     private javax.swing.JButton reqStock;
     private javax.swing.JTable tblProduct;
     private javax.swing.JTextField txtSearch;
